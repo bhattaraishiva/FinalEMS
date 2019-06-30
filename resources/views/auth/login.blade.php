@@ -1,13 +1,14 @@
 @include('includes.header')
 <body class="hold-transition login-page">
+  <div style="background-image: url(/images/whitetemple.jpg); background-position: center; background-size: cover;">
     <div class="login-box" style="
-    background-color: whitesmoke;">
-      <div class="login-logo">
-        <a href="/"><b>EMS</b>Login</a>
+    background-color: whitesmoke; background: transparent; background: rgba(249, 249, 249, 0.3)">
+      <div class="login-logo login-font">
+        <a href="/"><b>कर्मचारी  व्यवस्थापन<br>प्रणाली</b></a>
       </div>
       <!-- /.login-logo -->
-      <div class="login-box-body"  style="box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3); ">
-        <p class="login-box-msg">Sign in to start your session</p>
+      <div class="login-box-body login-font"  style="box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);  background: transparent; background: rgba(249, 249, 249, 0.3)">
+        <p class="login-box-msg">कर्मचारी व्यवस्थापन प्रणालीमा लगिन गर्नुहोस </p>
     
 
         @if (count($errors) > 0)
@@ -65,3 +66,4 @@
     <!-- /.login-box -->
 
 @include('includes.footer')
+</div>

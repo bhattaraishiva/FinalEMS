@@ -1,0 +1,120 @@
+@extends('layouts.report_layout')
+@section('document_report_title')
+कार्यालय रिपोर्ट
+@endsection
+@section('report_heading')
+
+{{ $karyalaya->kar_name}} कार्यालय
+@endsection
+
+@section('report_body')
+@section('report_title')
+कार्यालय
+@endsection
+
+@section('back_button')
+{{ route('ministry.index') }}
+@endsection
+
+<div class="form-group">
+    <div id="form-info">कार्यालयको बिबरण</div>
+    <div class="row">
+        <div class="col-md-4">
+            <label for="name">कार्यालय : </label><span>  {{  $karyalaya->kar_name}},{{$karyalaya->karyalaya_address}}
+                [{{ $karyalaya->karyalaya_code}}]</span>
+        </div>
+        <div class="col-md-4">
+            <label for="name">मन्त्रालय :</label><span> {{$karyalaya->ministry->ministry_name}}</span>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="name">निर्देशनालय :</label><span>
+                    @foreach ($nirdeshanalayas as $nir)
+                    @if ($nir->id == $karyalaya->nirdeshanalaya_id)
+                    {{$nir->nir_name}}
+                    @endif
+                    @endforeach
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="name">दरबन्दि संख्या :</label><span>
+                    {{$karyalaya->employee_number}}
+                </span>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="name">रिक्त पद संख्या :</label><span>
+                    {{$emptypad}}
+                </span>
+            </div>
+        </div>
+
+        {{-- <div class="col-md-3">
+                <div class="form-group">
+                    <label for="name">पद :</label><span>
+                        @foreach ($karyalaya_employees as $karyalaya_employee)
+                        <li>{{$karyalaya_employee->pad->pad_name}}</li>
+        @endforeach
+        </span>
+    </div>
+</div> --}}
+
+</div>
+<hr>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>क्रम सं</th>
+            <th>पद</th>
+            <th>रिक्त पद संख्या</th>
+            <th>जम्मा</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach($kar_allpads as $pad)
+        <tr>
+            <td>{{$loop->iteration}}</td>
+            <td>
+                {{-- pads return multiple records as it is hasmany relation ship so use first --}}
+                {{$pad->pads->first()->pad_name}}
+            </td>
+            <td>
+                @php
+                $emptypad=0;
+                @endphp
+                @if ($karyalaya_allworking_pads->count() > 0)
+                    @for ($i = 0; $i < $karyalaya_allworking_pads->count(); $i++)
+                        @php
+                            $emptypad=0;
+                            if ($karyalaya_allworking_pads[$i]->pad_id == $pad->pad_id){
+
+                                $working_pad = $karyalaya_allworking_pads[$i]->total;
+                                $emptypad = $working_pad - $pad->pad_qty ;
+                                echo($emptypad);
+                                break;
+                            }
+                            else
+                            echo($pad->pad_qty);
+                        @endphp
+                    @endfor 
+                @else
+                    {{$pad->pad_qty}}
+                @endif
+                
+            </td>
+            <td>
+                {{$pad->pad_qty}}
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+</div>
+@endsection

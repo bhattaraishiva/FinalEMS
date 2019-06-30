@@ -1,0 +1,84 @@
+
+#uniform-style{
+    /* font-size: 15px; */
+    /* font-weight: bold; */
+    font-family:"Lohit Devanagari";
+}
+#form-info{
+    text-align: center;
+    height: 24px;
+    background: azure;
+    margin-top: -11px;
+    color: darkblue;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+/* span{
+    color:firebrick;
+} */
+#report_layout{
+    text-align: center;
+    font-family: "Lohit Devanagari";
+    font-size: 16px;
+    font-weight: bold;
+
+}
+@media print {
+    #printPageButton {
+      display: none;
+    }
+  }
+
+  #report-table-head{
+      padding-top: 45px;
+  }
+
+  input[type="text"],input[type="email"]{
+   font-size:15px;
+   border-radius:6px;
+  }
+
+  .give_margin{
+      margin-bottom: 15px;
+  }
+
+  #section_header1{
+    height: 25px;
+    margin-bottom: 10px;
+    background-color:#3C8DBC;
+    text-align:center;
+    font-family: "Lohit Devanagari";
+
+  }
+  #section_header2{
+    font-weight: bold;
+    background-color:rgba(146, 197, 204, 0.712);
+    text-align:center;
+    font-family: "Lohit Devanagari";
+
+}
+
+  #section_header3{
+    font-weight: bold;
+    background-color:rgba(148, 165, 182, 0.712);
+    width: 50%;
+    text-align:center;
+    font-family: "Lohit Devanagari";
+
+}
+  input{
+      border-radius:10px;
+  }
+  sup{
+    color: 	#e63900;
+  }
+
+  #header-style{
+    background:#43C1EF;
+    height:0px;
+    margin-bottom:15px;
+    text-align: center;
+    padding-top: 7px;
+    border-radius: 5px;
+    font-weight: bold;
+  }

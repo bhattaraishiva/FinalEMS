@@ -24,11 +24,11 @@
             <div class="col-xs-12">
                 <div class="box">
                     <!-- /.box-header -->
-                    <div class="box-body">
+                    <div class="box-body login-font">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>सिन</th>
+                                    <th>क्र.सं.</th>
                                     <th>सेवा</th>
                                     <th>समुह</th>
                                     <th>उप-समुह</th>

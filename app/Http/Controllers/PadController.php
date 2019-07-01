@@ -70,12 +70,8 @@ class PadController extends Controller
     {
 
         $pad = Pad::find($id);
-        $pad->ministry_id= $request->ministry_id;
-        $pad->nir_id= $request->nirdeshanalaya;
-        $pad->kar_id= $request->karyalaya;
         // $pad->taha_id= $request->taha;
         $pad->pad_name= $request->pad;
-        $pad->pad_quantity=$request->pad_quantity;
         $pad->status= $request->status;      
         $pad->save();
 

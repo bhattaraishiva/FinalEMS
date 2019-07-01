@@ -16,7 +16,7 @@
 <div class="box">
     <div class="box-header with-border">
         <h3 class="box-title">पद बिबरण।</h3>
-        <a href="{{route('pad.view_report')}}" class="fa fa-eye btn btn-success"> पद रिपोर्ट  </a>
+        <a href="{{route('pad.view_report')}}" class="fa fa-eye btn btn-success" style="float:right;"> पद रिपोर्ट  </a>
         <a href="{{route('pad.create')}}" class="fa fa-plus btn btn-md btn-info" style="float:right;"> नयाँ पद </a>
     </div>
     <section class="content">
@@ -29,8 +29,8 @@
                             <thead>
                                 <tr>
                                     <th>क्र.सं.</th>
-
                                     <th>पद</th>
+                                    <th>Status</th>
                                     <th>Edit</th>
                                 </tr>
                             </thead>
@@ -39,6 +39,13 @@
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$pad->pad_name}}</td>
+                                    <td>
+                                        @if ($pad->status=='0')
+                                        <span class="label label-success">Available</span>
+                                        @else
+                                        <span class="label label-warning">UnAvailable</span>
+                                        @endif
+                                    </td>
                                     <td><a href="{{route('pad.edit',['pad'=>$pad->id ]) }}"
                                             class="fa fa-edit">Edit</a>
                                     </td>

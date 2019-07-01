@@ -3,7 +3,7 @@
 पद
 @endsection
 @section('breadcum_title')
-<li><a href="{{route('employeepersonaldetail.index')}}">पद</a></li>
+<li><a href="{{route('pad.index')}}">पद</a></li>
 @endsection
 @section('form_title')
 पद बिबरण।

@@ -4,7 +4,7 @@
 @endsection
 
 @section('breadcum_title')
-<li><a href="{{route('ministry.index')}}">निर्देशनालय</a></li>
+<li><a href="{{route('nirdeshanalaya.index')}}">निर्देशनालय</a></li>
 
 @endsection
 

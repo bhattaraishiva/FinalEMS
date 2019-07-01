@@ -17,8 +17,8 @@
 <div class="box box-info" id="uniform-style">
   <div class="box-header with-border">
     <h3 class="box-title" id="uniform-style">मन्त्रालय बिबरण।</h3>
-    <a href="{{route('ministry.create')}}" class=" fa fa-plus btn btn-md btn-info"
-      style="float:right;display:inline-table;"> नयाँ मन्त्रालय</a>
+    <a href="{{route('ministry.create')}}" class=" btn btn-md btn-info"
+      style="float:right;display:inline-table;"><span class="fa fa-plus"></span> नयाँ मन्त्रालय</a>
   </div>
   <section class="content">
     <div class="row">

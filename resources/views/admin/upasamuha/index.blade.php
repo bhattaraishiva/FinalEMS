@@ -4,7 +4,7 @@
 @endsection
 
 @section('breadcum_title')
-<li><a href="{{route('employee.index')}}">उप-समुह</a></li>
+<li><a href="{{route('upasamuha.index')}}">उप-समुह</a></li>
 @endsection
 
 @section('form_title')
@@ -13,13 +13,12 @@
 
 @section('content')
 <!-- Main content -->
-<div class="box">
+<div class="box" id="uniform-style">
     <div class="box-header with-border">
-        <h3 class="box-title">उप-समुह बिबरण।</h3>
-        <a href="{{route('upasamuha.create')}}" class="btn btn-md btn-info" style="float:right;">नयाँ उप-समुह
-            थप्नुहोस</a>
-
-    </div>
+    <h3 class="box-title" id="uniform-style">उप-समुह बिबरण।</h3>
+    <a href="{{route('upasamuha.create')}}" class=" fa fa-plus btn btn-md btn-info"
+      style="float:right;display:inline-table;"> नयाँ उप-समुह</a>
+  </div>
     <section class="content">
         <div class="row">
             <div class="col-xs-12">

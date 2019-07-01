@@ -18,7 +18,7 @@
 <div class="box box-info" id="uniform-style">
   <div class="box-header with-border">
     <h3 class="box-title" id="uniform-style">श्रेणी बिबरण।</h3>
-    <a href="{{route('shreni.create')}}" class=" fa fa-plus btn btn-md btn-info" style="float:right;display:inline-table;"> नयाँ श्रेणी</a>
+    <a href="{{route('shreni.create')}}" class=" btn btn-md btn-info" style="float:right;display:inline-table; font-family:'Lohit Devanagari';"><span class="fa fa-plus"></span> नयाँ श्रेणी</a>
   </div>
   <section class="content">
     <div class="row">

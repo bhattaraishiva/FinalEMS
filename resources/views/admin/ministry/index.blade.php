@@ -17,19 +17,19 @@
 <div class="box box-info" id="uniform-style">
   <div class="box-header with-border">
     <h3 class="box-title" id="uniform-style">मन्त्रालय बिबरण।</h3>
-    <a href="{{route('ministry.create')}}" class=" fa fa-plus btn btn-md btn-info"
-      style="float:right;display:inline-table;"> नयाँ मन्त्रालय</a>
+    <a href="{{route('ministry.create')}}" class=" btn btn-md btn-info"
+      style="float:right;display:inline-table;"><span class="fa fa-plus"></span> नयाँ मन्त्रालय</a>
   </div>
   <section class="content">
     <div class="row">
       <div class="col-xs-12">
         <div class="box">
           <!-- /.box-header -->
-          <div class="box-body">
+          <div class="box-body login-font">
             <table id="example1" class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th>सिन</th>
+                  <th>क्र.सं.</th>
                   <th>मन्त्रालय</th>
                   <th>Status</th>
                   <th>Operation</th>

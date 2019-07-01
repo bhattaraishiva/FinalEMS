@@ -102,7 +102,7 @@
                         <table class="table table-borderd ">
                             <thead>
                                 <tr>
-                                    <th>सि नं </th>
+                                    <th>क्र.सं.</th>
                                     <th>पद </th>
                                     <th>संख्या</th>
                                     <th><input type="button" value="+" class="btn btn-info addRowforpad"></th>

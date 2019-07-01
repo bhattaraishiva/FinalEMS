@@ -35,7 +35,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="form-group col-md-4">
-                            <label for="name">मन्त्रालय चयन गर्नुहोस:</label>
+                            <label for="name">मन्त्रालय:</label>
                             <select name="ministry_id" id="ministry" class="form-control chosen">
                                 @foreach ($ministries as $ministry)
                                     @if($nirdeshanalaya->ministry_id == $ministry->id)

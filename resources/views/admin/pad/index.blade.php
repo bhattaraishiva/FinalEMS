@@ -4,7 +4,7 @@
 @endsection
 
 @section('breadcum_title')
-<li><a href="{{route('employee.index')}}">पद</a></li>
+<li><a href="{{route('pad.index')}}">पद</a></li>
 @endsection
 
 @section('form_title')
@@ -28,7 +28,7 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>सिन</th>
+                                    <th>क्र.सं.</th>
 
                                     <th>पद</th>
                                     <th>Edit</th>

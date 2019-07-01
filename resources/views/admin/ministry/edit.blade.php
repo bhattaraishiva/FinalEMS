@@ -3,7 +3,7 @@
 मन्त्रालय
 @endsection
 @section('breadcum_title')
-<li><a href="{{route('employeepersonaldetail.index')}}">मन्त्रालय</a></li>
+<li><a href="{{route('ministry.index')}}">मन्त्रालय</a></li>
 @endsection
 @section('form_title')
 मन्त्रालय बिबरण।

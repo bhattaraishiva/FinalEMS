@@ -1,45 +1,59 @@
 @extends('layouts.app')
+@section('page_title')
+तह
+@endsection
+@section('breadcum_title')
+<li><a href="{{route('taha.index')}}">तह</a></li>
+@endsection
 @section('content')
-    @if (count($errors) > 0)
-        <ul class="list-group">
-            @foreach ($errors->all() as $error)
-                <li class="alert alert-danger">
-                    {{$error}}
-                </li>
-            @endforeach
-        </ul>        
-    @endif
+<!-- right column -->
+@if (count($errors) > 0)
+<ul class="list-group ">
+    @foreach ($errors->all() as $error)
+    <li class="alert alert-danger alert-dismissible">
+        {{$error}}
+        <button type="button" class="close" data-dismiss="alert">X</button>
+    </li>
+    @endforeach
+</ul>
+@endif
 
-    <div class="card card-default">
-        <div class="card-header" id ="uniform-style">
-            Create new Taha
-        </div>
-        
-        <div class="card-body" id ="uniform-style">
-            <form action="{{route('taha.store')}}"method="post" >              
-                @csrf
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <label for="name">तह चयन गर्नुहोस:</label>
-                    <input type="text" name="taha" class="form-control">
+    <div class="box box-info">
+    <div class="box-header with-border" >
+        <h2 class="box-title" id="uniform-style">तह विवरण </h2>
+    </div>
+    <div class="card-body" >
+        <form action="{{route('taha.store')}}" method="post">
+            @csrf
+            <div class="box-body">
+                <div class="card-body">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="name">तह:</label>
+                                <input type="text" name="taha" class="form-control">
+                            </div>
+                            <div class="form-group col-md-6" id="uniform-style">
+                                <label for="name">Status:</label>
+                                <select name="status" id="status" class="form-control chosen">
+                                    <option value="1">Available</option>
+                                    <option value="0">Unavalable</option>
+                                </select>
+                            </div>
+                        </div>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="name">Status:</label>
-                    <select name="status" id="status" class="form-control">
-                        <option value="1">Available</option>
-                        <option value="0">Unavalable</option>
-                    </select>                        
+                <div class="box-footer form-group">
+                    <div>
+                        <input type="checkbox" name="confirmsave" id="confirmsave"> सबै विवरण सहि छन्।
+                        <button class=" form-control btn btn-info" id="saveactivity" type="submit" disabled
+                            style="font-size:18px;">सुरक्षित
+                            गर्नुहोस</button>
+                    </div>
+                    {{-- <button type="submit" class=" form-control btn btn-info pull-right">सुरक्षित गर्नुहोस</button> --}}
                 </div>
             </div>
-           
-            <div class="form-group">
-                <div class="text-center">
-                    <button class="btn btn-lg btn-success" type="submit" style="float:left">सुरक्षित गर्नुहोस</button>
-                </div>
-            </div>
-            </form>
-        </div>
-    </div>  
-    
-   
+        </form>
+    </div>
+
+</div>
+
 @endsection

@@ -29,7 +29,7 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead id ="uniform-style">
                     <tr>
-                        <th>सिन</th>
+                        <th>क्र.सं.</th>
                         <th>मन्त्रालय</th>
                         <th>निर्देशनालय </th>
                         <th>Status</th>

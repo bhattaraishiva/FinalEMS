@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+    @section('content')
 
         
             <div class="card" id ="uniform-style">
@@ -16,7 +16,9 @@
             
                     तपाई लग इन हुनुहुन्छ!
                 </div>
+                  <div>
+          <img src="{{asset('images/logo.svg')}}" alt="logo" style="background: transparent ;opacity: 0.4; margin-left: auto; margin-right: auto ;width: 40%; display: block;">
+          @yield('watermark')
+</div>
             </div>
-        
-
-@endsection
+    @endsection    

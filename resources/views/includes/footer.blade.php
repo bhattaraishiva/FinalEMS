@@ -1,8 +1,5 @@
 <footer class="main-footer">
-  <div class="pull-right hidden-xs">
-    <b>Developed by:</b><a href="https://tilakpoudel.com.np" target="new-tab">Tilak poudel</a>
-  </div>
-  <strong>Copyright &copy; 2019 <a href="https://nepathyacollege.com.np" target="new-tab">NepTechs</a>.</strong> All
+  <strong>Copyright &copy; 2019 <a href="https://nepathyacollege.com.np" target="new-tab">IT & RC</a>.</strong> All
   rights
   reserved.
 </footer>

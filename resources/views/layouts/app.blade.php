@@ -142,20 +142,21 @@
   </section>
 
   <!-- Main content -->
+
   <section class="content" id="uniform-style">
 
     <div class="box-body">
       @yield('content')
     </div>
     <!-- /.box-body -->
-    <div class="box-footer">
+    <!-- <div class="box-footer">
       Operation by :{{ Auth::user()->name }}
-    </div>
+    </div> -->
     <!-- /.box-footer-->
-    {{-- </div> --}}
     <!-- /.box -->
-
+      
   </section>
+  
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->

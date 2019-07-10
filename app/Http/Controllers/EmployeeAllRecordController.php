@@ -353,10 +353,10 @@ class EmployeeAllRecordController extends Controller
                         'employee_type' => $emp_type,
                         'employee_status' => $employee_status
                     ]);
-                Pad::where('id', $oldpad)
-                    ->update([
-                        'status' => '0',
-                    ]);
+                // Pad::where('id', $oldpad)
+                //     ->update([
+                //         'status' => '0',
+                //     ]);
             }
         });
         Session::flash('success', 'Employess Upgraded Record Successfully Stored');

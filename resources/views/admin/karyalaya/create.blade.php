@@ -102,7 +102,6 @@
                         <table class="table table-borderd ">
                             <thead>
                                 <tr>
-                                    <th>क्र.सं.</th>
                                     <th>पद </th>
                                     <th>संख्या</th>
                                     <th><input type="button" value="+" class="btn btn-info addRowforpad"></th>
@@ -110,7 +109,6 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input type="text" name="serial_no[]" class="form-control serial_no"></td>
                                     <td><select class="form-control " name="pad[]">
                                             <option>पद </option>
                                             @foreach($pads as $pad)

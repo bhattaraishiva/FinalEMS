@@ -53,8 +53,8 @@
             <div class="col-sm-3">
                 <label for="name">लिङ्ग :<sup>*</sup></label>
                 <select class="form-control chosen" name="gender" id="gender">
-                    <option value="m">पुरुष</option>
                     <option value="f">महिला</option>
+                    <option value="m">पुरुष</option>
                     <option value="o">अन्य</option>
                 </select>
             </div>

@@ -1,24 +1,38 @@
 @extends('layouts.app')
+@section('page_title')
+कार्यालय
+@endsection
+@section('breadcum_title')
+<li><a href="{{route('karyalaya.index')}}">कार्यालय</a></li>
+@endsection
+@section('form_title')
+कार्यालय बिबरण।
+@endsection
+
 @section('content')
+<!-- right column -->
 @if (count($errors) > 0)
-<ul class="list-group">
+<ul class="list-group ">
     @foreach ($errors->all() as $error)
-    <li class="alert alert-danger">
+    <li class="alert alert-danger alert-dismissible">
         {{$error}}
+        <button type="button" class="close" data-dismiss="alert">X</button>
     </li>
     @endforeach
 </ul>
 @endif
+<div class="box box-info" id="uniform-style">
+    <div class="box-header with-border">
+        <h2 class="box-title">Edit कार्यालय:{{$karyalaya->kar_name}}</h2>
 
-<div class="card card-default">
-    <div class="card-header" id="uniform-style">
-        अपडेट कार्यालय:{{$karyalaya->kar_name}}
     </div>
     <div class="card-body" id="uniform-style">
         <form action="{{route('karyalaya.update',['karyalaya'=>$karyalaya->id ])}}" method="post">
             @csrf
             @method('put')
-            <div class="row">
+            <div class="box-body">
+                <div class="card-body">
+                        <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="name">मन्त्रालय चयन गर्नुहोस:</label>
@@ -88,12 +102,63 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="text-center">
-                    <button class="btn btn-md btn-success" type="submit" style="float:left">अपडेट </button>
-                </div>
+                
             </div>
-        </form>
+            
+        <h2>कार्यालयको पद संख्या विवरण </h2>
+        <div class="row">
+                    <div class="form-group col-md-12">
+                        <table class="table table-borderd  ">
+                            <thead>
+                                <tr>
+                                    <th>पद </th>
+                                    <th>संख्या</th>
+                                    <th><input type="button" value="+" class="btn btn-info addRowforpad"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    @foreach($karyalaya_pads as $karyalaya_pad)
+                                    <td><select class="form-control" name="pad[]">
+                                            <option selected="" value="{{ $karyalaya_pad->karyalaya_id }}">{{$karyalaya_pad->pads->first()->pad_name}}</option>
+                                            @foreach($pads as $pad)
+                                            <option value="{{ $pad->id }}">{{ $pad->pad_name }}</option>
+                                            @endforeach
+                                        </select>
+                                     </td>
+                                        <td><input type="number"  min="1" name="pad_qty[]" class="form-control pad_qty" value="{{$karyalaya_pad->pad_qty}}"></td>
+                                    <td><button type="button" class="btn btn-danger removepad">-</button></td>
+                                
+                                  
+                                    
+                                    
+                                </tr>
+                                  @endforeach
+                            </tbody>
+                            <tfoot>
+
+                                    <td style="border:none"></td>
+                                    <td style="border:none"><b>जम्मा पद संख्या (दरबन्दी संख्या भन्दा बढी हुनु हुदैन )</b></td>
+                                    <td><input type="text" class="form-control total_pad" id="total_pad" readonly></td>
+                                    <td style="border:none"></td>
+
+                            </tfoot>
+
+                        </table>
+                    </div>
+                </div>
+                <div class="box-footer form-group">
+                    <div>
+                        <input type="checkbox" name="confirmsave" id="confirmsave"> सबै विवरण सहि छन्।
+                        <button class=" form-control btn btn-info" id="saveactivity" type="submit" disabled
+                            style="font-size:18px;">सुरक्षित
+                            गर्नुहोस</button>
+                    </div>
+                    {{-- <button type="submit" class=" form-control btn btn-info pull-right">सुरक्षित गर्नुहोस</button> --}}
+                </div>
+            </form>
     </div>
 </div>
+ 
 @endsection
+

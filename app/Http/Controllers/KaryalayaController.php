@@ -93,7 +93,8 @@ class KaryalayaController extends Controller
         $karyalaya = Karyalaya::find($id);
         $nirdeshanalayas = Nirdeshanalaya::where('status', 1)->get();
         $ministries = Ministry::where('status', 1)->get();
-        return view('admin.karyalaya.edit')->with(compact('ministries', 'nirdeshanalayas', 'karyalaya'));
+        $karyalaya_pads = KaryalayaPad::where('karyalaya_id',$id)->get();
+        return view('admin.karyalaya.edit')->with(compact('ministries', 'nirdeshanalayas', 'karyalaya','karyalaya_pads'));
     }
 
     public function update(Request $request, $id)

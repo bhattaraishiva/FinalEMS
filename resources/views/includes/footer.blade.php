@@ -71,9 +71,9 @@ $(function () {
 <script>
   $(document).ready(function(){
                   $('.dynamic').change(function(){
-                     
-                      if($(this).val() != ''){                
-                          var select = $(this).attr('id');                                
+
+                      if($(this).val() != ''){
+                          var select = $(this).attr('id');
                           var value = $(this).val();
                           var dependent = $(this).data('dependent');
                           var _token = $('input[name="_token"]').val();
@@ -104,7 +104,7 @@ $(function () {
                   .attr('src', e.target.result)
                   .width(100)
                   .height(100)
-                  
+
           };
 
           reader.readAsDataURL(input.files[0]);
@@ -149,7 +149,7 @@ $(function () {
           npdYearCount: 150 // Options | Number of years to show
       });
       });
-    
+
       $(document).ready(function () {
               $('#nepaliDate10').nepaliDatePicker({
           npdMonth: true,
@@ -287,9 +287,9 @@ $(function () {
   $(document).ready(function(){
               $('#pad_quantity').keyup(function(){
                   if($(this).val() != ''){
-                      
-                      var karyalaya_id = $("#kar_id").val();               
-                      var select = $(this).attr('id');                                
+
+                      var karyalaya_id = $("#kar_id").val();
+                      var select = $(this).attr('id');
                       var value = $(this).val();
                       // var dependent = $(this).data('dependent');
                       var _token = $('input[name="_token"]').val();
@@ -303,7 +303,7 @@ $(function () {
                               if(result){
                                   $('#pad_quantity').val('');
                               }
-                              
+
                           }
                       })
                   }
@@ -322,7 +322,7 @@ $(function () {
 {{-- for next button in tab  --}}
 
 {{-- <script>
-      $(function () 
+      $(function ()
             $('#myTab a:last').tab('show');
           )
   </script>
@@ -361,7 +361,7 @@ $(".nexttab").click(function() {
     // console.log("hello");
     if( $(this).val() == "m") {
       $('#spousename').show();
-  } else {       
+  } else {
       $('#spousename').hide();
   }
   });
@@ -379,29 +379,29 @@ $(".nexttab").click(function() {
       $('#samayojan_employee').show();
       $('#karar_employee').hide();
       $('#empty').hide();
-  
-  } else if( $(this).val() == "kaam_kaaj") {  
-      $('#samayojan_employee').hide();     
+
+  } else if( $(this).val() == "kaam_kaaj") {
+      $('#samayojan_employee').hide();
       $('#naya_employee').hide();
       $('#kaam_kaaj_employee').show();
       $('#karar_employee').hide();
       $('#empty').hide();
-      
-  }else if( $(this).val() == "karar") { 
-      $('#karar_employee').show();      
+
+  }else if( $(this).val() == "karar") {
+      $('#karar_employee').show();
       $('#naya_employee').hide();
       $('#kaam_kaaj_employee').hide();
       $('#samayojan_employee').hide();
       $('#empty').hide();
 
-     
-    }else if( $(this).val() == "naya") {       
+
+    }else if( $(this).val() == "naya") {
       $('#naya_employee').show();
       $('#kaam_kaaj_employee').hide();
       $('#samayojan_employee').hide();
       $('#karar_employee').hide();
       $('#empty').hide();
-      
+
     }
     else{
       $('#empty').show();
@@ -436,7 +436,7 @@ $(".nexttab").click(function() {
         $('#leave').hide();
         $('#motivation').hide();
         $('#penalty').hide();
-    } else if( $(this).val() == "padasthapan") {  
+    } else if( $(this).val() == "padasthapan") {
       $('#padasthapan_form').show();
         $('#samayojan_form').hide();
         $('#saruwa_form').hide();
@@ -451,8 +451,8 @@ $(".nexttab").click(function() {
         $('#leave').hide();
         $('#motivation').hide();
         $('#penalty').hide();
-        
-    }else if( $(this).val() == "saruwa") { 
+
+    }else if( $(this).val() == "saruwa") {
         $('#saruwa_form').show();
         $('#samayojan_form').hide();
         $('#padasthapan_form').hide();
@@ -467,8 +467,8 @@ $(".nexttab").click(function() {
         $('#leave').hide();
         $('#motivation').hide();
         $('#penalty').hide();
-      
-      }else if( $(this).val() == "baduwa") {       
+
+      }else if( $(this).val() == "baduwa") {
         $('#baduwa_form').show();
         $('#samayojan_form').hide();
         $('#padasthapan_form').hide();
@@ -483,9 +483,9 @@ $(".nexttab").click(function() {
         $('#leave').hide();
         $('#motivation').hide();
         $('#penalty').hide();
-        
+
       }
-      else if( $(this).val() == "nilamban") {       
+      else if( $(this).val() == "nilamban") {
         $('#nilamban_form').show();
         $('#samayojan_form').hide();
         $('#padasthapan_form').hide();
@@ -500,8 +500,8 @@ $(".nexttab").click(function() {
         $('#leave').hide();
         $('#motivation').hide();
         $('#penalty').hide();
-        
-      }else if( $(this).val() == "awakash") {       
+
+      }else if( $(this).val() == "awakash") {
         $('#awakash_form').show();
         $('#samayojan_form').hide();
         $('#padasthapan_form').hide();
@@ -516,8 +516,8 @@ $(".nexttab").click(function() {
         $('#leave').hide();
         $('#motivation').hide();
         $('#penalty').hide();
-        
-      }else if( $(this).val() == "rajinama") {       
+
+      }else if( $(this).val() == "rajinama") {
         $('#rajinama_form').show();
         $('#samayojan_form').hide();
         $('#padasthapan_form').hide();
@@ -532,8 +532,8 @@ $(".nexttab").click(function() {
         $('#leave').hide();
         $('#motivation').hide();
         $('#penalty').hide();
-        
-      }else if( $(this).val() == "sangh_firta") {       
+
+      }else if( $(this).val() == "sangh_firta") {
         $('#sangh_firta_form').show();
         $('#samayojan_form').hide();
         $('#padasthapan_form').hide();
@@ -548,7 +548,7 @@ $(".nexttab").click(function() {
         $('#leave').hide();
         $('#motivation').hide();
         $('#penalty').hide();
-        
+
       }
 
     });
@@ -572,11 +572,11 @@ $(".nexttab").click(function() {
 {{-- this is for educational form multiple rows --}}
 <script>
   $(document).ready(function(){
-   
+
     $('.addRow').on('click',function(){
         addRow();
     });
-   
+
     function addRow()
     {
         // alert('asd');
@@ -609,34 +609,33 @@ $(".nexttab").click(function() {
 
      });
     });
-    
+
 </script>
 
 <script>
   $(document).ready(function(){
-    
     $('tbody').delegate('.pad_qty','keyup',function(){
         var tr =$(this).parent().parent();
         // console.log(tr);
         var pad_qty = tr.find('.pad_qty').val();
         var test = tr.find('#total_pad');
         total();
-
-        
     });
       function total()
     {
         var total =0;
         $('.pad_qty').each(function(i,e){
-            var amount = $(this).val()-0;
+            var amount = $(this).val()- 0;
             total +=amount;
         });
-        
-        var totalpad = $('#total_pad').val(total).val();
-        var total_darbandi = $('#employee_number').val();
-        
-        console.log(total_darbandi,total);
-        if(totalpad > total_darbandi){
+
+        var tpad = $('#total_pad').val(total).val();
+        var totalpad = parseInt(tpad);
+        var t_darbandi = $('#employee_number').val();
+        var total_darbandi = parseInt(t_darbandi);
+
+        console.log(total_darbandi,totalpad);
+        if( totalpad > total_darbandi ){
           alert("जम्मा पद संख्या (दरबन्दी संख्या भन्दा बढी हुनु हुदैन )");
         }
     };
@@ -644,7 +643,7 @@ $(".nexttab").click(function() {
       $('.addRowforpad').on('click',function(){
           addRow();
       });
-     
+
       function addRow()
       {
           // alert('asd');
@@ -652,7 +651,7 @@ $(".nexttab").click(function() {
         var tr='<tr>'+
             ' <td><input type="text" name="serial_no[]" class="form-control serial_no"></td>'+
             '<td><select class="form-control " name ="pad[]"><option>Pad</option>@foreach($pads as $pad)<option value="{{ $pad->id }}">{{ $pad->pad_name }}</option>@endforeach</select></td>'+
-   
+
             '<td><input type="number"  min="1" name="pad_qty[]" class="form-control pad_qty"></td>'+
             '<td><button type="button" class="btn btn-danger removepad">-</button></td>'
             $('tbody').append(tr);
@@ -672,14 +671,14 @@ $(".nexttab").click(function() {
       });
     });
 
-      
+
 </script>
 
 {{-- this is for the selecting minor_activity of employee --}}
 <script type="text/javascript">
   $(document).ready(function(){
   $('#sec_employee_activity').change(function(){
-    var select = $('#sec_employee_activity').val(); 
+    var select = $('#sec_employee_activity').val();
     console.log(select);
     if( select == "training") {
         $('#training').show();
@@ -696,8 +695,8 @@ $(".nexttab").click(function() {
         $('#awakash_form').hide();
         $('#rajinama_form').hide();
         $('#sangh_firta_form').hide();
-               
-    } else if( select == "foreign_tour") {  
+
+    } else if( select == "foreign_tour") {
       $('#foreign_tour').show();
         $('#training').hide();
         $('#leave').hide();
@@ -712,8 +711,8 @@ $(".nexttab").click(function() {
         $('#awakash_form').hide();
         $('#rajinama_form').hide();
         $('#sangh_firta_form').hide();
-        
-    }else if( select == "leave") { 
+
+    }else if( select == "leave") {
         $('#leave').show();
         $('#training').hide();
         $('#foreign_tour').hide();
@@ -728,8 +727,8 @@ $(".nexttab").click(function() {
         $('#awakash_form').hide();
         $('#rajinama_form').hide();
         $('#sangh_firta_form').hide();
-        
-      }else if( select == "motivation") {       
+
+      }else if( select == "motivation") {
         $('#motivation').show();
         $('#training').hide();
         $('#foreign_tour').hide();
@@ -744,8 +743,8 @@ $(".nexttab").click(function() {
         $('#awakash_form').hide();
         $('#rajinama_form').hide();
         $('#sangh_firta_form').hide();
-        
-      }else if( select == "penalty") {       
+
+      }else if( select == "penalty") {
         $('#penalty').show();
         $('#training').hide();
         $('#foreign_tour').hide();
@@ -760,9 +759,9 @@ $(".nexttab").click(function() {
         $('#awakash_form').hide();
         $('#rajinama_form').hide();
         $('#sangh_firta_form').hide();
-        
+
       }
-     
+
   });
 });
 </script>
@@ -770,20 +769,20 @@ $(".nexttab").click(function() {
 {{-- <script>
  $(document).ready(function(){
     $("#filladdress").on("click", function(){
-         if (this.checked) { 
+         if (this.checked) {
                 $("#cpradesh_id").val($("#cpradesh_id").val());
                 $("#cdistrict_id").val($("#district_id").val());
                 $("#cpalika_id").val($("#palika_id").val());
-                $("#current_wardno").val($("#permanent_wardno").val());                         
-                $("#current_tole").val($("#permanent_tole").val());                         
+                $("#current_wardno").val($("#permanent_wardno").val());
+                $("#current_tole").val($("#permanent_tole").val());
 
     }
     else {
         $("#cpradesh_id").val('');
         $("#cdistrict_id").val('');
-        $("#cpalika_id").val('');  
+        $("#cpalika_id").val('');
         $("#current_wardno").val('');
-        $("#current_tole").val('');          
+        $("#current_tole").val('');
     }
     });
 });

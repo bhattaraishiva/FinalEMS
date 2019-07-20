@@ -32,7 +32,7 @@ class KaryalayaController extends Controller
         // $pad_info = DB::table('pads')->where('status', 1)
         //     ->select('kar_id', DB::raw('count(*) as total'))
         //     ->groupBy('kar_id')
-        //     //  
+        //     //
         //     ->get();
         //  dd($pad_info);
 
@@ -48,7 +48,7 @@ class KaryalayaController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());  
+        // dd($request->all());
         DB::transaction(function () use ($request) {
             $this->validate($request, [
                 'ministry_id' => 'required',
@@ -93,7 +93,8 @@ class KaryalayaController extends Controller
         $karyalaya = Karyalaya::find($id);
         $nirdeshanalayas = Nirdeshanalaya::where('status', 1)->get();
         $ministries = Ministry::where('status', 1)->get();
-        return view('admin.karyalaya.edit')->with(compact('ministries', 'nirdeshanalayas', 'karyalaya'));
+        $pads = Pad::all();
+        return view('admin.karyalaya.edit')->with(compact('ministries', 'nirdeshanalayas', 'karyalaya','pads'));
     }
 
     public function update(Request $request, $id)
@@ -129,7 +130,7 @@ class KaryalayaController extends Controller
     }
     public function viewreport($id)
     {
-        //  dd($id);    
+        //  dd($id);
         $karyalaya = Karyalaya::where('id', $id)->first();
         // $allpads = Pad::where('kar_id',$id)
         //                 ->where('status',1)
@@ -174,7 +175,7 @@ class KaryalayaController extends Controller
 
     public function viewdetailreport($id)
     {
-        //   dd($id);    
+        //   dd($id);
         $karyalaya = Karyalaya::where('id', $id)->first();
         // $allpads = Pad::where('kar_id',$id)
         //                 ->where('status',1)

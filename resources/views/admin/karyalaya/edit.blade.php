@@ -9,7 +9,6 @@
     @endforeach
 </ul>
 @endif
-
 <div class="card card-default">
     <div class="card-header" id="uniform-style">
         अपडेट कार्यालय:{{$karyalaya->kar_name}}
@@ -49,7 +48,6 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="name">कार्यालय कोड:</label>
@@ -70,12 +68,11 @@
                             value="{{$karyalaya->karyalaya_address}}">
                     </div>
                 </div>
-
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="name">दरबन्दि संख्या:</label>
                         <input type="number" min="0" name="employee_number" class="form-control"
-                            value="{{$karyalaya->employee_number}}">
+                            value="{{$karyalaya->employee_number}}"  id= "employee_number">
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -88,6 +85,43 @@
                     </div>
                 </div>
             </div>
+            <h2>कार्यालयको पद संख्या विवरण </h2>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <table class="table table-borderd ">
+                            <thead>
+                                <tr>
+                                    <th>क्र.सं.</th>
+                                    <th>पद </th>
+                                    <th>संख्या</th>
+                                    <th><input type="button" value="+" class="btn btn-info addRowforpad"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" name="serial_no[]" class="form-control serial_no"></td>
+                                    <td><select class="form-control " name="pad[]">
+                                            <option>पद </option>
+                                            @foreach($pads as $pad)
+                                            <option value="{{ $pad->id }}">{{ $pad->pad_name }}</option>
+                                            @endforeach
+                                        </select>
+                                     </td>
+                                    <td><input type="number"  min="1" name="pad_qty[]" class="form-control pad_qty"></td>
+                                    <td><button type="button" class="btn btn-danger removepad">-</button></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                    <td style="border:none"></td>
+                                    <td style="border:none"><b>जम्मा पद संख्या (दरबन्दी संख्या भन्दा बढी हुनु हुदैन )</b></td>
+                                    <td><input type="text" class="form-control total_pad" id="total_pad" readonly></td>
+                                    <td style="border:none"></td>
+
+                            </tfoot>
+
+                        </table>
+                    </div>
+                </div>
             <div class="form-group">
                 <div class="text-center">
                     <button class="btn btn-md btn-success" type="submit" style="float:left">अपडेट </button>

@@ -93,6 +93,18 @@ $(function () {
               });
 </script>
 
+<script>
+  function FillAddress(f) {
+  if(f.addresstoo.checked == true) {
+    f.ppradesh_id.value = f.cpradesh_id.value;
+    f.pdistrict_id.value = f.cdistrict_id.value;
+    f.ppalika_id.value = f.cpalika_id.value;
+    f.permanent_wardno.value = f.current_wardno.value;
+    f.permanent_tole.value = f.current_tole.value;
+  }
+}
+</script>
+
 {{-- to preview image while selecting --}}
 <script>
   function readURL(input) {
@@ -649,10 +661,9 @@ $(".nexttab").click(function() {
           // alert('asd');
           //adding row
         var tr='<tr>'+
-            ' <td><input type="text" name="serial_no[]" class="form-control serial_no"></td>'+
-            '<td><select class="form-control " name ="pad[]"><option>Pad</option>@foreach($pads as $pad)<option value="{{ $pad->id }}">{{ $pad->pad_name }}</option>@endforeach</select></td>'+
+            '<td><select class="form-control " name ="pad[]"><option>पद</option>@foreach($pads as $pad)<option value="{{ $pad->id }}">{{ $pad->pad_name }}</option>@endforeach</select></td>'+
 
-            '<td><input type="number"  min="1" name="pad_qty[]" class="form-control pad_qty"></td>'+
+            '<td><input type="number"  min="0" name="pad_qty[]" class="form-control pad_qty"></td>'+
             '<td><button type="button" class="btn btn-danger removepad">-</button></td>'
             $('tbody').append(tr);
        };

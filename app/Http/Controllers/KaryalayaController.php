@@ -69,12 +69,11 @@ class KaryalayaController extends Controller
             ]);
             $kar_id = $karyalaya->id;
 
-            foreach ($request->serial_no as $key => $value) {
+            foreach ($request->pad as $key => $value) {
                 $data = array(
                     'ministry_id' => $request['ministry_id'],
                     'karyalaya_id' => $kar_id,
-                    'serial_no' => $value,
-                    'pad_id' => $request->pad[$key],
+                    'pad_id' => $value,
                     'pad_qty' => $request->pad_qty[$key]
                 );
                 KaryalayaPad::insert($data);
@@ -93,12 +92,14 @@ class KaryalayaController extends Controller
         $karyalaya = Karyalaya::find($id);
         $nirdeshanalayas = Nirdeshanalaya::where('status', 1)->get();
         $ministries = Ministry::where('status', 1)->get();
-        $pads = Pad::all();
-        return view('admin.karyalaya.edit')->with(compact('ministries', 'nirdeshanalayas', 'karyalaya','pads'));
+        $karyalaya_pads = KaryalayaPad::where('karyalaya_id',$id)->get();
+        // dd($karyalaya_pads);
+        return view('admin.karyalaya.edit')->with(compact('ministries', 'nirdeshanalayas', 'karyalaya','karyalaya_pads'));
     }
 
     public function update(Request $request, $id)
     {
+        // dd($request->all());
 
         $this->validate($request, [
             'ministry_id' => 'required',
@@ -117,6 +118,26 @@ class KaryalayaController extends Controller
         $karyalaya->employee_number = $request->employee_number;
         $karyalaya->status = $request->status;
         $karyalaya->save();
+
+        $kar_id = $karyalaya->id;
+
+        foreach ($request->pad as $key => $value) {
+
+            // $data = array(
+            //     'ministry_id' => $request['ministry_id'],
+            //     'karyalaya_id' => $kar_id,
+            //     'pad_id' => $value,
+            //     'pad_qty' => $request->pad_qty[$key]
+            // );
+            $updated_pads = KaryalayaPad::updateOrCreate(
+                ['ministry_id' => $request['ministry_id'], 'karyalaya_id' => $kar_id,'pad_id'=> $value],
+                ['ministry_id' => $request['ministry_id'],
+                'karyalaya_id' => $kar_id,
+                'pad_id' => $value,
+                'pad_qty' => $request->pad_qty[$key]]
+            );
+            // KaryalayaPad::insert($data);
+        }
 
         Session::flash('success', 'Karyalaya updated successfully');
         return redirect()->route('karyalaya.index');

@@ -51,7 +51,7 @@
                                 <option value="19">१९</option>
                                 <option value="20">२०</option>
                                 <option value="21">२१</option>
-                                <option value="22">२२/option>
+                                <option value="22">२२</option>
                                 <option value="23">२३</option>
                                 <option value="24">२४</option>
                                 <option value="25">२५</option>
@@ -72,12 +72,12 @@
         </div>
         <hr>
         <center><h4 style="font-weight:bold;">हालको ठेगाना </h4><hr></center>
-        {{-- <input type="checkbox" class="filladdress" name="filladdress" id="filladdress" /> Present address same as parmanent address.<br /> --}}
+         <h4> <input type="checkbox" name="addresstoo" onclick="FillAddress(this.form)">
+                <em>Check this box if Permanent Address and Temporary Address are the same.</em><br /></h4>
         <div class="row">
                 <div class="col-sm-2">
                         <label for="name">प्रदेश : <sup>*</sup></label>
-                        <select name="cpradesh_id" id="pradesh_id" class="form-control chosen dynamic"
-                                data-dependent='cdistrict_id'>
+                        <select name="cpradesh_id" id="pradesh_id" class="form-control chosen dynamic" data-dependent='cdistrict_id'>
                                 <option>प्रदेश:</option>
                                 @foreach ($pradeshes as $pradesh)
                                 <option value="{{$pradesh->pradesh_id}}">{{$pradesh->pradesh_name}} </option>
@@ -122,7 +122,7 @@
                                 <option value="19">१९</option>
                                 <option value="20">२०</option>
                                 <option value="21">२१</option>
-                                <option value="22">२२/option>
+                                <option value="22">२२</option>
                                 <option value="23">२३</option>
                                 <option value="24">२४</option>
                                 <option value="25">२५</option>
@@ -143,3 +143,4 @@
         </div>
 </div>
 <hr>
+<script type="text/javascript" src="{{asset('js/addresscopy.js')}}"></script>

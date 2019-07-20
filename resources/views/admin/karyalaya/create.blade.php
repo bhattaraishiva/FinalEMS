@@ -102,7 +102,6 @@
                         <table class="table table-borderd ">
                             <thead>
                                 <tr>
-                                    <th>क्र.सं.</th>
                                     <th>पद </th>
                                     <th>संख्या</th>
                                     <th><input type="button" value="+" class="btn btn-info addRowforpad"></th>
@@ -110,7 +109,6 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input type="text" name="serial_no[]" class="form-control serial_no"></td>
                                     <td><select class="form-control " name="pad[]">
                                             <option>पद </option>
                                             @foreach($pads as $pad)
@@ -124,7 +122,6 @@
                             </tbody>
                             <tfoot>
 
-                                    <td style="border:none"></td>
                                     <td style="border:none"><b>जम्मा पद संख्या (दरबन्दी संख्या भन्दा बढी हुनु हुदैन )</b></td>
                                     <td><input type="text" class="form-control total_pad" id="total_pad" readonly></td>
                                     <td style="border:none"></td>

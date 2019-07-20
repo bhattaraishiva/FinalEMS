@@ -8,9 +8,9 @@ class KaryalayaPad extends Model
 {
     //
     protected $guarded =[];
-    
+
     public function pads(){
-      return $this->hasMany('App\Pad','id','pad_id');         
+      return $this->hasMany('App\Pad','id','pad_id');
     }
 
 }

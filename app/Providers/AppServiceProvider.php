@@ -3,12 +3,14 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Schema; 
+use Illuminate\Support\Facades\Schema;
 use App\Employee;
 use Auth;
 use App\Sewa;
 use App\Pad;
 use View;
+use App\EmployeePersonalDetail;
+use App\EmployeeCurrentRecord;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,7 +34,9 @@ class AppServiceProvider extends ServiceProvider
         //
         Schema::defaultStringLength(191);
         // $uemail=Auth::user()->name;
-        // View::share('employees',Employee::where('id',1)->get());
+       $employees=EmployeeCurrentRecord::where('employee_status',1)->get();
+       $emp_count = $employees->count();
+       View::share('employee_count',$emp_count);
         View::share('pads',Pad::where('status',0)->get());
         View::share('sewas',Sewa::all());
 

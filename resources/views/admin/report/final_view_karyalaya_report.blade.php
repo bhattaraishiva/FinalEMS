@@ -20,7 +20,7 @@
     <div id="form-info">कार्यालयको बिबरण</div>
     <div class="row">
         <div class="col-md-4">
-            <label for="name">कार्यालय : </label><span>  {{  $karyalaya->kar_name}},{{$karyalaya->karyalaya_address}}
+            <label for="name">कार्यालय : </label><span> {{  $karyalaya->kar_name}},{{$karyalaya->karyalaya_address}}
                 [{{ $karyalaya->karyalaya_code}}]</span>
         </div>
         <div class="col-md-4">
@@ -66,51 +66,75 @@
 </div> --}}
 
 </div>
+</div>
 <hr>
-<table class="table table-hover">
-    <thead>
+<table class="table table-hover table-bordered">
+    <thead align="left">
         <tr>
             <th>क्रम सं</th>
             <th>पद</th>
-            <th>रिक्त पद संख्या</th>
             <th>जम्मा</th>
+            {{-- <th>कार्यरत संख्या</th> --}}
+            <th>रिक्त संख्या</th>
         </tr>
     </thead>
     <tbody>
-
         @foreach($kar_allpads as $pad)
-        <tr>
+        <tr align="left">
             <td>{{$loop->iteration}}</td>
-            <td>
-                {{-- pads return multiple records as it is hasmany relation ship so use first --}}
+            {{-- pads return multiple records as it is hasmany relation ship so use first() or get(0)to get the value --}}
+            <td >
                 {{$pad->pads->first()->pad_name}}
             </td>
+            <td>
+                {{$pad->pad_qty}}
+            </td>
+            {{-- <td>
+                @php
+                $emptypad=0;
+                @endphp
+                @if ($karyalaya_allworking_pads->count() > 0)
+                @for ($i = 0; $i < $karyalaya_allworking_pads->count(); $i++)
+                    @php
+                    $emptypad=0;
+                    if ($karyalaya_allworking_pads[$i]->pad_id == $pad->pad_id){
+
+                    $working_pad = $karyalaya_allworking_pads[$i]->total;
+                    // $emptypad = $working_pad - $pad->pad_qty ;
+                    echo($working_pad);
+                    break;
+                    }
+                    else
+                    echo(0);
+                    @endphp
+                    @endfor
+                    @else
+                    {{0}}
+                    @endif
+
+            </td> --}}
             <td>
                 @php
                 $emptypad=0;
                 @endphp
                 @if ($karyalaya_allworking_pads->count() > 0)
-                    @for ($i = 0; $i < $karyalaya_allworking_pads->count(); $i++)
-                        @php
-                            $emptypad=0;
-                            if ($karyalaya_allworking_pads[$i]->pad_id == $pad->pad_id){
+                @for ($i = 0; $i < $karyalaya_allworking_pads->count(); $i++)
+                    @php
+                    $emptypad=0;
+                    if ($karyalaya_allworking_pads[$i]->pad_id == $pad->pad_id){
 
-                                $working_pad = $karyalaya_allworking_pads[$i]->total;
-                                $emptypad = $working_pad - $pad->pad_qty ;
-                                echo($emptypad);
-                                break;
-                            }
-                            else
-                            echo($pad->pad_qty);
-                        @endphp
-                    @endfor 
-                @else
+                    $working_pad = $karyalaya_allworking_pads[$i]->total;
+                    $emptypad = $working_pad - $pad->pad_qty ;
+                    echo($emptypad);
+                    break;
+                    }
+                    else
+                    echo($pad->pad_qty);
+                    @endphp
+                    @endfor
+                    @else
                     {{$pad->pad_qty}}
-                @endif
-                
-            </td>
-            <td>
-                {{$pad->pad_qty}}
+                    @endif
             </td>
         </tr>
         @endforeach

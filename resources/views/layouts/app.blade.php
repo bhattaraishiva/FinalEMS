@@ -93,7 +93,7 @@
           <i class="fa fa-address-card"></i>
           <span style="color:white" ;font-size:20px;>कर्मचारी</span>
           <span class="pull-right-container">
-            <span class="label label-primary pull-right">11</span>
+          <span class="label label-primary pull-right">{{$employee_count}}</span>
           </span>
         </a>
         <ul class="treeview-menu">
@@ -154,9 +154,9 @@
     </div> -->
     <!-- /.box-footer-->
     <!-- /.box -->
-      
+
   </section>
-  
+
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->

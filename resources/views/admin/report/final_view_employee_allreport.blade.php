@@ -172,7 +172,7 @@
             </div>
         </div>
     </div>
-    <table class="table table-hover">
+    <table class="table table-hover table-bordered">
         <thead>
             <tr>
                 <th>सिन</th>

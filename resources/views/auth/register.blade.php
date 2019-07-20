@@ -6,10 +6,10 @@
       <div class="register-logo login-font">
         <a href="/"><b>कर्मचारी  व्यवस्थापन<br>प्रणाली</b></a>
       </div>
-    
+
       <div class="login-box-body login-font"  style="box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);  background: transparent; background: rgba(249, 249, 249, 0.3)">
         <p class="login-box-msg">कर्मचारी व्यवस्थापन प्रणाली रजिस्टर गर्नुहोस</p>
-    
+
         <form action="{{ route('register') }}" method="post">
             {{ csrf_field()}}
           <div class="form-group has-feedback">
@@ -25,6 +25,15 @@
             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             {{-- @error('email')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror --}}
+          </div>
+          <div class="form-group has-feedback">
+            <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required  placeholder="Employee ID">
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            {{-- @error('username')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
@@ -59,8 +68,8 @@
             <!-- /.col -->
           </div>
         </form>
-    
-            
+
+
         <a href="{{route('login')}}" class="text-center">I already have a membership</a>
       </div>
       <!-- /.form-box -->

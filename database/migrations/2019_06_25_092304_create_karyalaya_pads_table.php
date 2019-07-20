@@ -17,7 +17,6 @@ class CreateKaryalayaPadsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('ministry_id');
             $table->integer('karyalaya_id');
-            $table->integer('serial_no');
             $table->integer('pad_id');
             $table->integer('pad_qty');
             $table->timestamps();

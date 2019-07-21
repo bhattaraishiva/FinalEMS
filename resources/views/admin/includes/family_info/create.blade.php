@@ -30,9 +30,8 @@
         <div class="col-sm-4">
             <label for="name">बैवाहिक अवस्था : <sup>*</sup> </label>
             <select class="form-control chosen" name="marital_status" id="marital_status">
-                <option> बैवाहिक अवस्था</option>
+                <option selected value="u">अविवाहित</option>
                 <option value="m"> विवाहित</option>
-                <option value="u">अविवाहित</option>
                 <option value="s">एकल</option>
                 <option value="o">अन्य</option>
             </select>
@@ -43,7 +42,7 @@
                 <input class="form-control" type="text" name="spouse_name" id="spouse_name"
                     placeholder="पति / पत्नीको नाम थर ">
             </div>
-        
+
         <div class="col-sm-4" >
             <label for="name">पति/ पत्नी निजामती /प्रदेश सेवामा कर्मचारी भएको ? :</label><br>
             <input type="checkbox" name="spouse_province_employee" id="spouse_province_employee" value="yes"> हो

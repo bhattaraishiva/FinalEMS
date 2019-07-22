@@ -27,7 +27,7 @@
           <div class="form-group has-feedback">
             <input id="login" type="text"
               class="form-control $errors->has('username')|| $errors->has('email') ? ' is-invalid' : ''" name="login"
-              value="{{ old('username') ?: old('email') }}"  autofocus placeholder="Email OR username">
+              value="{{ old('username') ?: old('email') }}"  autofocus placeholder="Email OR EmployeeID">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 
           </div>

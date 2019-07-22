@@ -20,8 +20,8 @@
     <div id="form-info">पदको बिबरण</div>
 
     <hr>
-    <table class="table table-hover">
-        <thead>
+    <table class="table table-hover table-bordered">
+        <thead align="left">
             <tr>
                 <th>क्रम सं</th>
                 <th>पद</th>
@@ -30,7 +30,7 @@
                 <th>जम्मा</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody align="left">
 
             @foreach($pads as $pad)
             <tr>

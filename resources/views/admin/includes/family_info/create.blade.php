@@ -38,14 +38,14 @@
         </div>
         <div id="spousename" style="display:none">
             <div class="col-sm-4">
-                <label for="name">पति / पत्नीको नाम थर : </label>
+                <label for="name">पति / पत्नीको नाम थर : <sup>*</sup></label>
                 <input class="form-control" type="text" name="spouse_name" id="spouse_name"
                     placeholder="पति / पत्नीको नाम थर ">
             </div>
 
         <div class="col-sm-4" >
             <label for="name">पति/ पत्नी निजामती /प्रदेश सेवामा कर्मचारी भएको ? :</label><br>
-            <input type="checkbox" name="spouse_province_employee" id="spouse_province_employee" value="yes"> हो
+            <input type="checkbox" name="spouse_province_employee" id="spouse_province_employee" value="yes"> हो (भने टिक लगाउने )
         </div>
     </div>
     </div>

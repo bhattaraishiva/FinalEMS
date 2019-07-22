@@ -9,7 +9,7 @@
     <div class="col-sm-3">
 
         <label for="name">कामकाज गर्न खटाइएको निर्णय मिति  : <sup>*</sup></label>
-        <input  type="text" class="form-control" name="kaamkaj_appointed_date" nepali-calendar" id="nepaliDate10" 
+        <input  type="text" class="form-control" name="kaamkaj_appointed_date" nepali-calendar" id="nepaliDate10"
             placeholder="YYYY-MM-DD">
 
     </div>
@@ -96,7 +96,7 @@
             <label for="name">पद : : <sup>*</sup></label>
             <select name="kaamkaj_pad" id="pad_id" class="form-control">
                 @foreach ($pads as $pad)
-                    <option value="{{$pad->id}}"> {{$pad->pad_name}}</option> 
+                    <option value="{{$pad->id}}"> {{$pad->pad_name}}</option>
                 @endforeach
             </select>
 
@@ -107,7 +107,7 @@
 <div class="row">
     <div class="col-sm-4">
         <label for="name">कामकाज गर्न खटाएको मिति(मु.म.म.प.का.बाट)  : <sup>*</sup></label>
-        <input class="form-control nepali-calendar" name="kaamkaj_chief_ministry_implement_date" type="text" id="nepaliDate12" 
+        <input class="form-control nepali-calendar" name="kaamkaj_chief_ministry_implement_date" type="text" id="nepaliDate12"
             placeholder="YYYY-MM-DD">
     </div>
     <div class="col-sm-4">

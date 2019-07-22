@@ -65,9 +65,9 @@
                         </select>
                 </div>
                 <div class="col-sm-4">
-                        <label for="name"> गाँउ / टोल : <sup>*</sup></label>
+                        <label for="name"> गाँउ / टोल :</label>
                         <input class="form-control" type="text" name="permanent_tole" id="permanent_tole"
-                                placeholder="गाँउ / टोल " required>
+                                placeholder="गाँउ / टोल " >
                 </div>
         </div>
         <hr>
@@ -136,9 +136,9 @@
                         </select>
                 </div>
                 <div class="col-sm-4">
-                        <label for="name"> गाँउ / टोल : <sup>*</sup></label>
+                        <label for="name"> गाँउ / टोल : </label>
                         <input class="form-control" type="text" name="current_tole" id="current_tole"
-                                placeholder="गाँउ / टोल " required>
+                                placeholder="गाँउ / टोल " >
                 </div>
         </div>
 </div>

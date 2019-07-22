@@ -57,13 +57,13 @@
             <div class="col-xs-8">
               <div class="">
                 <label>
-                  <input type="checkbox"> I agree to the <a href="#">terms</a>
+                  <input type="checkbox" id="confirmsave"> I agree to the <a href="#">terms</a>
                 </label>
               </div>
             </div>
             <!-- /.col -->
             <div class="col-xs-4">
-              <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+              <button type="submit" class="btn btn-primary btn-block btn-flat" id="saveactivity" disabled>Register</button>
             </div>
             <!-- /.col -->
           </div>

@@ -34,7 +34,7 @@
 <hr>
 <div class="row">
     <div class="col-sm-3">
-        <label for="shreni">श्रेणी : <sup>*</sup></label>
+        <label for="shreni">श्रेणी : </label>
         <select name="kaamkaj_before_pradesh_shreni" id="shreni" class="form-control">
             <option value="">श्रेणी :</option>
             @foreach ($shrenis as $shreni)
@@ -43,7 +43,7 @@
         </select>
     </div>
     <div class="col-sm-3">
-        <label for="name">तह : : <sup>*</sup></label>
+        <label for="name">तह : : </label>
         <select name="kaamkaj_before_pradesh_taha" id="taha" class="form-control">
             <option value="">तह :</option>
             @foreach ($tahas as $taha)
@@ -53,7 +53,7 @@
     </div>
     <div class="col-sm-3">
         <label for="name">कार्यालय : <sup>*</sup></label>
-        <input type="text" name="kaamkaj_before_pradesh_karyalaya" class=" form-control " id="before_pradesh_karyalaya" 
+        <input type="text" name="kaamkaj_before_pradesh_karyalaya" class=" form-control " id="before_pradesh_karyalaya"
             placeholder="कार्यालय">
     </div>
     <div class="col-sm-3">

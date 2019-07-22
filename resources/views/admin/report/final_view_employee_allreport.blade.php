@@ -158,13 +158,14 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label for="name">प्रकार  :</label><span>
-                    @if ($employee->employee_type="naya")
+
+                    @if($employee->employee_type =='naya')
                     नयाँ
-                    @elseif($employee->employee_type="samayojan")
+                    @elseif($employee->employee_type =='samayojan')
                     समायोजन
-                    @elseif($employee->employee_type="karar")
+                    @elseif($employee->employee_type =='karar')
                     करार
-                    @elseif($employee->employee_type="kaam_kaj")
+                    @elseif($employee->employee_type =='kaam_kaj')
                     काम काज
                     @endif
 
@@ -189,16 +190,40 @@
             @foreach($employee_allrecords as $employee_allrec)
             <tr>
                 <td>{{$loop->iteration}}</td>
-                <td>{{$employee_allrec->employee_activity}}</td>
+                <td>
+                    @if($employee_allrec->employee_activity=="saruwa")
+                    सरुवा
+                    @elseif($employee_allrec->employee_activity=="samayojan")
+                    समायोजन
+                    @elseif($employee_allrec->employee_activity == "padasthapan")
+                    पदस्थापन
+                    @elseif($employee_allrec->employee_activity == "baduwa")
+                    बढुवा
+                    @elseif($employee_allrec->employee_activity == "nilamban")
+                    निलम्बन
+                    @elseif($employee_allrec->employee_activity == "awakash")
+                    अवकाश
+                    @elseif($employee_allrec->employee_activity == "rajinama")
+                    राजिनामा
+                    @elseif($employee_allrec->employee_activity == "sangh_firta")
+                    संघ फिर्ता
+                    @elseif ($employee_allrec->employee_type == "naya")
+                    नयाँ
+                    @elseif($employee_allrec->employee_type == "karar")
+                    करार
+                    @elseif($employee_allrec->employee_type == "kaam_kaaj")
+                    काम काज
+                    @endif
+                </td>
                 <td> {{$employee_allrec->operation_date}}   </td>
                 <td>
-                        @if ($employee_allrec->employee_type="naya")
+                        @if($employee_allrec->employee_type =="naya")
                         नयाँ
-                        @elseif($employee_allrec->employee_type="samayojan")
+                        @elseif($employee_allrec->employee_type =='samayojan')
                         समायोजन
-                        @elseif($employee_allrec->employee_type="karar")
+                        @elseif($employee_allrec->employee_type =='karar')
                         करार
-                        @elseif($employee_allrec->employee_type="kaam_kaj")
+                        @elseif($employee_allrec->employee_type =="kaam_kaj")
                         काम काज
                         @endif
                 </td>

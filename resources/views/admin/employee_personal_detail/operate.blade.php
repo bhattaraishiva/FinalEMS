@@ -176,7 +176,7 @@
             </div>
             <div class="col-md-2">
                 <div class="form-group">
-                    <label for="name">श्रेणी :</label><span>{{$employee[0]->shreni->shreni_name}}</span>
+                    <label for="name">श्रेणी :</label><span>{{$employee[0]->shreni['shreni_name']}}</span>
                 </div>
             </div>
         </div>

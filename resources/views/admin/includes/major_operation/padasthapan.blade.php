@@ -43,7 +43,7 @@
     <div class="col-sm-2">
         <label for="shreni">श्रेणी : <sup>*</sup></label>
         <select name="oper_padasthapan_shreni" id="kaamkaj_shreni" class="form-control">
-            <option  selected value="{{$employee[0]->shreni->id}}">{{$employee[0]->shreni->shreni_name}}</option>
+            <option  selected value="{{$employee[0]->shreni['id']}}">{{$employee[0]->shreni['shreni_name']}}</option>
                 @foreach ($shrenis as $shreni)
             <option value="{{$shreni->id}}">{{$shreni->shreni_name}}</option>
             @endforeach

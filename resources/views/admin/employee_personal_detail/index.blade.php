@@ -26,7 +26,7 @@
         <div class="box">
           <!-- /.box-header -->
           <div class="box-body" id="uniform-style">
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="example1" class="table table-bordered table-hover">
               <thead>
                 <tr>
                   <th>सि.</th>
@@ -49,7 +49,12 @@
               </thead>
               <tbody>
                 @foreach($emp_personal_records as $employee)
-                <tr>
+                @if($employee->employee_status == '1')
+                  <tr>
+                @else
+                  <tr bgcolor="red">
+                @endif
+                
                   <td>{{$loop->iteration}}</td>
                   <td>{{$employee->employee_number}}</td>
                   <td>{{$employee->employee_id}}</td>

@@ -10,8 +10,8 @@
                 {{ csrf_field() }}
                  <div class="row">
                     <div class="form-group col-md-12">
-                        <table class="table table-borderd">
-                            <thead>
+                        <table class="table table-bordered table-hover">
+                            <thead class="thead-dark">
                                 <tr>
                                     <th>सि नं </th>
                                     <th>शैक्षिक योग्यताको तह</th>
@@ -35,14 +35,6 @@
                                     <td><button type="button" class="btn btn-danger remove">-</button></td>
                                 </tr>
                             </tbody>
-                            {{-- <tfoot>
-                                <td style="border:none"></td>
-                                <td style="border:none"></td>
-                                <td style="border:none"></td>
-                                <td style="border:none"><b>Total</b></td>
-                                <td><b class="total"></b></td>
-                                <td></td>
-                            </tfoot> --}}
 
                         </table>
                     </div>

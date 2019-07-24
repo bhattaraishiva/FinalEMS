@@ -15,7 +15,7 @@
                 required>
         </div>
         <div class="col-sm-3">
-            <label for="name">हजुरबुबाको नाम : <sup>*</sup> </label>
+            <label for="name">बाजे /ससुराको नाम  : <sup>*</sup> </label>
             <input class="form-control" type="text" name="grandfather_name" id="grandfather_name"
                 placeholder="हजुरबुबाको नाम">
         </div>

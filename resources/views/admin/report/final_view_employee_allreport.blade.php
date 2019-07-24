@@ -158,14 +158,14 @@
         <div class="col-md-3">
             <div class="form-group">
                 <label for="name">प्रकार  :</label><span>
-
+                    
                     @if($employee->employee_type =='naya')
                     नयाँ
                     @elseif($employee->employee_type =='samayojan')
                     समायोजन
                     @elseif($employee->employee_type =='karar')
                     करार
-                    @elseif($employee->employee_type =='kaam_kaj')
+                    @elseif($employee->employee_type =='kaam_kaaj')
                     काम काज
                     @endif
 
@@ -223,7 +223,7 @@
                         समायोजन
                         @elseif($employee_allrec->employee_type =='karar')
                         करार
-                        @elseif($employee_allrec->employee_type =="kaam_kaj")
+                        @elseif($employee_allrec->employee_type =="kaam_kaaj")
                         काम काज
                         @endif
                 </td>

@@ -32,14 +32,14 @@
         <label for="name">समुह : <sup>*</sup></label>
         <select name="kaamkaj_samuha" id="kaam_kaj_samuha_id" class="form-control  dynamic"
             data-dependent='kaam_kaj_upasamuha_id'>
-
+            <option>पहिले सेवा छान्नुहोस् </option>
         </select>
     </div>
 
     <div class="col-sm-2">
         <label for="name">उप-समुह : <sup>*</sup></label>
         <select name="kaamkaj_upasamuha" id="kaam_kaj_upasamuha_id" class="form-control">
-
+        <option>पहिले समुह छान्नुहोस् </option>
         </select>
     </div>
 
@@ -49,23 +49,23 @@
     <div class="col-sm-2">
         <label for="shreni">श्रेणी : <sup>*</sup></label>
         <select name="kaamkaj_shreni" id="kaamkaj_shreni" class="form-control">
-            <option value="">श्रेणी :</option>
+            <option value="">छैन </option>
             @foreach ($shrenis as $shreni)
             <option value="{{$shreni->id}}">{{$shreni->shreni_name}}</option>
             @endforeach
         </select>
     </div>
     <div class="col-sm-2">
-        <label for="name">तह : : <sup>*</sup></label>
+        <label for="name">तह : <sup>*</sup></label>
         <select name="kaamkaj_taha" id="kaamkaj_taha" class="form-control">
-            <option value="">तह :</option>
+            <option value="">छैन </option>
             @foreach ($tahas as $taha)
             <option value="{{$taha->id}}">{{$taha->taha_name}}</option>
             @endforeach
         </select>
     </div>
     <div class="form-group col-md-2 ">
-        <label for="name">मन्त्रालय : : <sup>*</sup></label>
+        <label for="name">मन्त्रालय :  <sup>*</sup></label>
         <select name="kaamkaj_ministry_id" id="ministry_id" class="form-control  dynamic" data-dependent='kar_id'>
             <option value="">मन्त्रालय:</option>
             @foreach ($ministries as $ministry)
@@ -75,8 +75,9 @@
     </div>
     <div class="col-md-2 ">
         <div class="form-group">
-            <label for="name">निर्देशनालय: : <sup>*</sup></label>
+            <label for="name">निर्देशनालय: <sup>*</sup></label>
             <select name="kaamkaj_nirdeshanalaya" id="nirdeshanalaya_id" class="form-control  dynamic" >
+                <option value="">छैन </option>
                     @foreach ($nirdeshanalayas as $nirdeshanalaya)
                     <option value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nir_name}}</option>
                     @endforeach
@@ -87,14 +88,16 @@
         <div class="form-group">
             <label for="name">कार्यालय : <sup>*</sup></label>
             <select name="kaamkaj_karyalaya" id="kar_id" class="form-control  dynamic" >
+                  <option>पहिले मन्त्रालय छान्नुहोस् </option>
             </select>
         </div>
     </div>
 
     <div class="col-md-2 ">
         <div class="form-group">
-            <label for="name">पद : : <sup>*</sup></label>
+            <label for="name">पद : <sup>*</sup></label>
             <select name="kaamkaj_pad" id="pad_id" class="form-control">
+                <option value="">पद छान्नुहोस्:</option>
                 @foreach ($pads as $pad)
                     <option value="{{$pad->id}}"> {{$pad->pad_name}}</option>
                 @endforeach

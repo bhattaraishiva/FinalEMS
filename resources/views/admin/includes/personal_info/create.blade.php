@@ -111,8 +111,8 @@
     <hr>
     <div class="row">
         <div class="col-sm-3">
-            <label for="name">मोबाइल नं : <sup>*</sup></label>
-            <input class="form-control" type="text" name="mobile_no" id="mobile_no" placeholder="मोबाइल नं:" value="{{old('mobile_no')}}"" required>
+            <label for="name">सम्पर्क  नं : <sup>*</sup></label>
+            <input class="form-control" type="text" name="mobile_no" id="mobile_no" placeholder="सम्पर्क  नं:" value="{{old('mobile_no')}}"" required>
         </div>
         <div class="col-sm-3">
             <label for="name"> इ-मेल :</label>

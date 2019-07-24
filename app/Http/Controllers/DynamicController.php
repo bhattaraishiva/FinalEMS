@@ -350,7 +350,7 @@ if($dependent == 'oper_sangh_firta_karyalaya_id'){
 
         else if($dependent == 'upasamuha_id'){
             $data = Upasamuha::where($select,$value)->get();
-            $output = '<option value = ""> उपसमूह छान्नुहोस् </option>';        
+            $output = '<option value = ""> उप-समुह छान्नुहोस् </option>';        
             foreach($data as $row){            
                 $output .= '<option value = "'.$row->id.'">'.$row->upasamuha_name.'</option>';
             }
@@ -367,7 +367,7 @@ if($dependent == 'oper_sangh_firta_karyalaya_id'){
 
         else if($dependent == 'first_samayojan_upasamuha_id'){
             $data = Upasamuha::where('samuha_id',$value)->get();
-            $output = '<option value = ""> उपसमूह छान्नुहोस् </option>';        
+            $output = '<option value = ""> उप-समुह छान्नुहोस् </option>';        
             foreach($data as $row){            
                 $output .= '<option value = "'.$row->id.'">'.$row->upasamuha_name.'</option>';
             }
@@ -383,7 +383,7 @@ if($dependent == 'oper_sangh_firta_karyalaya_id'){
 
         else if($dependent == 'before_pradesh_upasamuha_id'){
             $data = Upasamuha::where('samuha_id',$value)->get();
-            $output = '<option value = "">  समूह छान्नुहोस् </option>';        
+            $output = '<option value = "">  उप-समुह छान्नुहोस् </option>';        
             foreach($data as $row){            
                 $output .= '<option value = "'.$row->id.'">'.$row->upasamuha_name.'</option>';
             }
@@ -400,7 +400,7 @@ if($dependent == 'oper_sangh_firta_karyalaya_id'){
 
         else if($dependent == 'samayojan_before_pradesh_upasamuha_id'){
             $data = Upasamuha::where('samuha_id',$value)->get();
-            $output = '<option value = "">  समूह छान्नुहोस् </option>';        
+            $output = '<option value = "">  उप-समुह छान्नुहोस् </option>';        
             foreach($data as $row){            
                 $output .= '<option value = "'.$row->id.'">'.$row->upasamuha_name.'</option>';
             }
@@ -417,7 +417,7 @@ if($dependent == 'oper_sangh_firta_karyalaya_id'){
 
         else if($dependent == 'kaam_kaj_upasamuha_id'){
             $data = Upasamuha::where('samuha_id',$value)->get();
-            $output = '<option value = "">  समूह छान्नुहोस् </option>';        
+            $output = '<option value = "">  उप-समुह छान्नुहोस् </option>';        
             foreach($data as $row){            
                 $output .= '<option value = "'.$row->id.'">'.$row->upasamuha_name.'</option>';
             }
@@ -433,7 +433,7 @@ if($dependent == 'oper_sangh_firta_karyalaya_id'){
 
         else if($dependent == 'samayojan_upasamuha_id'){
             $data = Upasamuha::where('samuha_id',$value)->get();
-            $output = '<option value = "">  समूह छान्नुहोस् </option>';        
+            $output = '<option value = "">  उप-समुह छान्नुहोस् </option>';        
             foreach($data as $row){            
                 $output .= '<option value = "'.$row->id.'">'.$row->upasamuha_name.'</option>';
             }
@@ -450,7 +450,7 @@ if($dependent == 'oper_sangh_firta_karyalaya_id'){
 
         else if($dependent == 'karar_upasamuha_id'){
             $data = Upasamuha::where('samuha_id',$value)->get();
-            $output = '<option value = "">  समूह छान्नुहोस् </option>';        
+            $output = '<option value = "">  उप-समुह छान्नुहोस् </option>';        
             foreach($data as $row){            
                 $output .= '<option value = "'.$row->id.'">'.$row->upasamuha_name.'</option>';
             }
@@ -466,7 +466,7 @@ if($dependent == 'oper_sangh_firta_karyalaya_id'){
 
         else if($dependent == 'naya_upasamuha_id'){
             $data = Upasamuha::where('samuha_id',$value)->get();
-            $output = '<option value = "">  समूह छान्नुहोस् </option>';        
+            $output = '<option value = "">  उप-समुह छान्नुहोस् </option>';        
             foreach($data as $row){            
                 $output .= '<option value = "'.$row->id.'">'.$row->upasamuha_name.'</option>';
             }
@@ -483,7 +483,7 @@ if($dependent == 'oper_sangh_firta_karyalaya_id'){
 
         else if($dependent == 'oper_saruwa_upasamuha_id'){
             $data = Upasamuha::where('samuha_id',$value)->get();
-            $output = '<option value = "">  समूह छान्नुहोस् </option>';        
+            $output = '<option value = "">  उप-समुह छान्नुहोस् </option>';        
             foreach($data as $row){            
                 $output .= '<option value = "'.$row->id.'">'.$row->upasamuha_name.'</option>';
             }
@@ -500,7 +500,7 @@ if($dependent == 'oper_sangh_firta_karyalaya_id'){
 
         else if($dependent == 'oper_baduwa_upasamuha_id'){
             $data = Upasamuha::where('samuha_id',$value)->get();
-            $output = '<option value = "">  समूह छान्नुहोस् </option>';        
+            $output = '<option value = "">  उप-समुह छान्नुहोस् </option>';        
             foreach($data as $row){            
                 $output .= '<option value = "'.$row->id.'">'.$row->upasamuha_name.'</option>';
             }
@@ -516,7 +516,7 @@ if($dependent == 'oper_sangh_firta_karyalaya_id'){
 
         else if($dependent == 'oper_nilamban_upasamuha_id'){
             $data = Upasamuha::where('samuha_id',$value)->get();
-            $output = '<option value = "">  समूह छान्नुहोस् </option>';        
+            $output = '<option value = "">  उप-समुह छान्नुहोस् </option>';        
             foreach($data as $row){            
                 $output .= '<option value = "'.$row->id.'">'.$row->upasamuha_name.'</option>';
             }
@@ -532,7 +532,7 @@ if($dependent == 'oper_sangh_firta_karyalaya_id'){
 
         else if($dependent == 'oper_awakash_upasamuha_id'){
             $data = Upasamuha::where('samuha_id',$value)->get();
-            $output = '<option value = "">  समूह छान्नुहोस् </option>';        
+            $output = '<option value = "">  उप-समुह छान्नुहोस् </option>';        
             foreach($data as $row){            
                 $output .= '<option value = "'.$row->id.'">'.$row->upasamuha_name.'</option>';
             }
@@ -548,7 +548,7 @@ if($dependent == 'oper_sangh_firta_karyalaya_id'){
 
         else if($dependent == 'oper_rajinama_upasamuha_id'){
             $data = Upasamuha::where('samuha_id',$value)->get();
-            $output = '<option value = "">  समूह छान्नुहोस् </option>';        
+            $output = '<option value = "">  उप-समुह छान्नुहोस् </option>';        
             foreach($data as $row){            
                 $output .= '<option value = "'.$row->id.'">'.$row->upasamuha_name.'</option>';
             }
@@ -565,7 +565,7 @@ if($dependent == 'oper_sangh_firta_karyalaya_id'){
 
         else if($dependent == 'oper_sangh_firta_upasamuha_id'){
             $data = Upasamuha::where('samuha_id',$value)->get();
-            $output = '<option value = "">  समूह छान्नुहोस् </option>';        
+            $output = '<option value = "">  उप-समुह छान्नुहोस् </option>';        
             foreach($data as $row){            
                 $output .= '<option value = "'.$row->id.'">'.$row->upasamuha_name.'</option>';
             }

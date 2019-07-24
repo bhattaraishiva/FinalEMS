@@ -361,6 +361,9 @@ $(".nexttab").click(function() {
         $("#spouse_pradesh_employee").show();
     } else {
         $("#spouse_pradesh_employee").hide();
+        $("#spouse_office_name").val('');
+        $("#spouse_employee_number").val('');
+        $("#spouse_pradesh_employee_number").val('');
     }
 });
 });
@@ -624,6 +627,7 @@ $(".nexttab").click(function() {
 
 </script>
 
+<!-- checking  number of pads and darbandi number  -->
 <script>
   $(document).ready(function(){
     $('tbody').delegate('.pad_qty','keyup',function(){

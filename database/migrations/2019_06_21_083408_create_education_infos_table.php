@@ -17,11 +17,13 @@ class CreateEducationInfosTable extends Migration
             $table->bigIncrements('id');
             $table->integer('employee_id');
             $table->integer('employee_number');
-            $table->string('serial_no');
-            $table->string('edu_level');
-            $table->string('stream');
-            $table->string('country');
-            $table->string('edu_institute');
+            $table->string('serial_no')->nullable();
+            $table->string('edu_level')->nullable();
+            $table->string('stream')->nullable();
+            $table->string('major_sub')->nullable();
+            $table->string('country')->nullable();
+            $table->string('edu_institute')->nullable();
+            $table->string('board')->nullable();
             $table->string('passed_year');
             $table->string('division');
 

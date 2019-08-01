@@ -31,7 +31,8 @@
             <label for="name"> प्रदेश संकेत् न:</label><span> {{$employee->id}}</span>
         </div>
         <div class="col-md-3">
-            <img src="/{{$employee->personal_detail->image}}" alt="Image" style="height:100px;width:100px;border-radius:2px;">
+            <img src="/{{$employee->personal_detail->image}}" alt="Image"
+                style="height:100px;width:100px;border-radius:2px;">
         </div>
     </div>
     <hr>
@@ -47,193 +48,273 @@
         </div>
         {{-- <div class="col-md-3">
             <label for="name">ठेगाना:</label><span>{{$employee->address_info->current_pradesh}}</span>
-        </div> --}}
-        <div class="col-md-3">
-            <label for="name">लिङ्ग:</label><span>@if ($employee->personal_detail->gender=='m')
-                पुरुष
-                @elseif($employee->personal_detail->gender=='f')
-                महिला
+    </div> --}}
+    <div class="col-md-3">
+        <label for="name">लिङ्ग:</label><span>@if ($employee->personal_detail->gender=='m')
+            पुरुष
+            @elseif($employee->personal_detail->gender=='f')
+            महिला
+            @else
+            अन्य
+            @endif
+        </span>
+    </div>
+    <div class="col-md-3">
+        <label for="name">जन्म मिति :</label><span>{{$employee->personal_detail->dob}}</span>
+    </div>
+    <div class="col-md-3">
+        <label for="name">बुबाको नाम :</label><span>{{$employee->family_info->father_name}}</span>
+    </div>
+    <div class="col-md-3">
+        <label for="name">आमाको नाम:</label><span>{{$employee->family_info->mother_name}}</span>
+    </div>
+    <div class="col-md-3">
+        <label for="name">हजुरबुबाको नाम :</label><span>{{$employee->family_info->grandfather_name}}</span>
+    </div>
+
+    <div class="col-md-3">
+        <label for="name">हजुरआमाको नाम:</label><span>{{$employee->family_info->grandmother_name}}</span>
+    </div>
+
+    <div class="col-md-3">
+        <label for="name">पति/पत्नी नाम:</label><span>{{$employee->family_info->spouse_name}}</span>
+    </div>
+</div>
+<div id="form-info">हालको कार्यालय तथा पद बिबरण</div>
+<div class="row">
+    <div class="form-group col-md-3">
+        <label for="name">मन्त्रालय :</label><span>{{$employee->ministry['ministry_name']}}</span>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="name">निर्देशनालय :</label><span>
+                @if ($employee->nirdeshanalaya['nir_name']== null)
+                --
                 @else
-                अन्य
+                {{$employee->nirdeshanalaya['nir_name']}}
                 @endif
             </span>
         </div>
-        <div class="col-md-3">
-            <label for="name">जन्म मिति :</label><span>{{$employee->personal_detail->dob}}</span>
-
-        </div>
-
-
-        <div class="col-md-3">
-            <label for="name">बुबाको नाम :</label><span>{{$employee->family_info->father_name}}</span>
-        </div>
-        <div class="col-md-3">
-            <label for="name">आमाको नाम:</label><span>{{$employee->family_info->mother_name}}</span>
-        </div>
-        <div class="col-md-3">
-            <label for="name">हजुरबुबाको नाम :</label><span>{{$employee->family_info->grandfather_name}}</span>
-        </div>
-
-        <div class="col-md-3">
-            <label for="name">हजुरआमाको नाम:</label><span>{{$employee->family_info->grandmother_name}}</span>
-        </div>
-
-        <div class="col-md-3">
-            <label for="name">पति/पत्नी नाम:</label><span>{{$employee->family_info->spouse_name}}</span>
-        </div>
-
     </div>
-    <div id="form-info">हालको  कार्यालय  तथा पद बिबरण</div>
-    <div class="row">
-        <div class="form-group col-md-3">
-            <label for="name">मन्त्रालय :</label><span>{{$employee->ministry['ministry_name']}}</span>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="name">निर्देशनालय :</label><span>
-                    {{$employee->nirdeshanalaya['nir_name']}}
-                </span>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="name">कार्यालय :</label><span>
-                    {{$employee->karyalaya['kar_name']}}[ {{$employee->karyalaya['karyalaya_address']}}]
-                </span>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="name">तह / श्रेणी :</label><span>{{$employee->taha['taha_name']}} /
-                    {{$employee->shreni['shreni_name']}}</span>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="name">सेवा /समुह/उप-समुह :</label><span>
-                    @if ($sewas->count()>0)
-                    @foreach ($sewas as $sewa)
-                    @if ($sewa->id == $employee->sewa_id)
-                    {{$sewa->sewa_name}}/
-
-                    @endif
-                    @endforeach
-                    @endif
-                    @if ($samuhas->count()>0)
-                    @foreach ($samuhas as $samuha)
-                    @if ($samuha->id == $employee->samuha_id)
-                    {{$samuha->samuha_name}}/
-
-                    @endif
-                    @endforeach
-                    @endif
-                    @if ($upasamuhas->count()>0)
-                    @foreach ($upasamuhas as $upasamuha)
-                    @if ($upasamuha->id == $employee->upasamuha_id)
-                    {{$upasamuha->upasamuha_name}}
-
-                    @endif
-                    @endforeach
-                    @endif
-                </span>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="name">पद :</label><span>
-                    {{-- {{$employee->pad->pad_name}} --}}
-                    @foreach ($allpads as $pad)
-                    @if($pad->id == $employee->pad_id)
-                    {{$pad->pad_name}}
-                    @else
-
-                    @endif
-                    @endforeach
-                </span>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <label for="name">नियुक्ति मिति :</label><span>{{$employee->appointed_date}}</span>
-        </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="name">प्रकार  :</label><span>
-                    
-                    @if($employee->employee_type =='naya')
-                    नयाँ
-                    @elseif($employee->employee_type =='samayojan')
-                    समायोजन
-                    @elseif($employee->employee_type =='karar')
-                    करार
-                    @elseif($employee->employee_type =='kaam_kaaj')
-                    काम काज
-                    @endif
-
-                </span>
-            </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="name">कार्यालय :</label><span>
+                {{$employee->karyalaya['kar_name']}}[ {{$employee->karyalaya['karyalaya_address']}}]
+            </span>
         </div>
     </div>
-    <table class="table table-hover table-bordered">
-        <thead>
-            <tr>
-                <th>सिन</th>
-                <th>क्रियाकलाप</th>
-                <th>क्रियाकलाप मिति </th>
-                <th>कर्मचारी प्रकार </th>
-                <th>कार्यालय </th>
-                <th>मन्त्रालय</th>
-                <th>पद</th>
-                {{-- <th>Status</th> --}}
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($employee_allrecords as $employee_allrec)
-            <tr>
-                <td>{{$loop->iteration}}</td>
-                <td>
-                    @if($employee_allrec->employee_activity=="saruwa")
-                    सरुवा
-                    @elseif($employee_allrec->employee_activity=="samayojan")
-                    समायोजन
-                    @elseif($employee_allrec->employee_activity == "padasthapan")
-                    पदस्थापन
-                    @elseif($employee_allrec->employee_activity == "baduwa")
-                    बढुवा
-                    @elseif($employee_allrec->employee_activity == "nilamban")
-                    निलम्बन
-                    @elseif($employee_allrec->employee_activity == "awakash")
-                    अवकाश
-                    @elseif($employee_allrec->employee_activity == "rajinama")
-                    राजिनामा
-                    @elseif($employee_allrec->employee_activity == "sangh_firta")
-                    संघ फिर्ता
-                    @elseif ($employee_allrec->employee_type == "naya")
-                    नयाँ
-                    @elseif($employee_allrec->employee_type == "karar")
-                    करार
-                    @elseif($employee_allrec->employee_type == "kaam_kaaj")
-                    काम काज
-                    @endif
-                </td>
-                <td> {{$employee_allrec->operation_date}}   </td>
-                <td>
-                        @if($employee_allrec->employee_type =="naya")
-                        नयाँ
-                        @elseif($employee_allrec->employee_type =='samayojan')
-                        समायोजन
-                        @elseif($employee_allrec->employee_type =='karar')
-                        करार
-                        @elseif($employee_allrec->employee_type =="kaam_kaaj")
-                        काम काज
-                        @endif
-                </td>
-                <td>{{$employee_allrec->karyalaya['kar_name']}} [{{$employee->karyalaya['karyalaya_address']}}]</td>
-                <td>{{$employee_allrec->ministry['ministry_name']}}</td>
-                <td>{{$employee_allrec->pad['pad_name']}}</td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="name">तह / श्रेणी :</label><span>{{$employee->taha['taha_name']}} /
+                {{$employee->shreni['shreni_name']}}</span>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="name">सेवा /समुह/उप-समुह :</label><span>
+                @if ($sewas->count()>0)
+                @foreach ($sewas as $sewa)
+                @if ($sewa->id == $employee->sewa_id)
+                {{$sewa->sewa_name}}/
+                @endif
+                @endforeach
+                @endif
+                @if ($samuhas->count()>0)
+                @foreach ($samuhas as $samuha)
+                @if ($samuha->id == $employee->samuha_id)
+                {{$samuha->samuha_name}}/
+                @endif
+                @endforeach
+                @endif
+                @if ($upasamuhas->count()>0)
+                @foreach ($upasamuhas as $upasamuha)
+                @if ($upasamuha->id == $employee->upasamuha_id)
+                {{$upasamuha->upasamuha_name}}
+                @endif
+                @endforeach
+                @endif
+            </span>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="name">पद :</label><span>
+                {{-- {{$employee->pad->pad_name}} --}}
+                @foreach ($allpads as $pad)
+                @if($pad->id == $employee->pad_id)
+                {{$pad->pad_name}}
+                @else
+                @endif
+                @endforeach
+            </span>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <label for="name">नियुक्ति मिति :</label><span>{{$employee->appointed_date}}</span>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="name">प्रकार :</label><span>
+                @if($employee->employee_type =='naya')
+                नयाँ
+                @elseif($employee->employee_type =='samayojan')
+                समायोजन
+                @elseif($employee->employee_type =='karar')
+                करार
+                @elseif($employee->employee_type =='kaam_kaaj')
+                काम काज
+                @endif
+            </span>
+        </div>
+    </div>
+</div>
+<caption>हालको कार्यालय तथा पद बिबरण</caption>
+<table class="table table-hover table-bordered">
+    <thead id="table_head">
+        <tr>
+            <th>सिन</th>
+            <th>क्रियाकलाप</th>
+            <th>क्रियाकलाप मिति </th>
+            <th>कर्मचारी प्रकार </th>
+            <th>कार्यालय </th>
+            <th>मन्त्रालय</th>
+            <th>पद</th>
+            {{-- <th>Status</th> --}}
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($employee_allrecords as $employee_allrec)
+        <tr>
+            <td>{{$loop->iteration}}</td>
+            <td>
+                @if($employee_allrec->employee_activity=="saruwa")
+                सरुवा
+                @elseif($employee_allrec->employee_activity=="samayojan")
+                समायोजन
+                @elseif($employee_allrec->employee_activity == "padasthapan")
+                पदस्थापन
+                @elseif($employee_allrec->employee_activity == "baduwa")
+                बढुवा
+                @elseif($employee_allrec->employee_activity == "nilamban")
+                निलम्बन
+                @elseif($employee_allrec->employee_activity == "awakash")
+                अवकाश
+                @elseif($employee_allrec->employee_activity == "rajinama")
+                राजिनामा
+                @elseif($employee_allrec->employee_activity == "sangh_firta")
+                संघ फिर्ता
+                @elseif ($employee_allrec->employee_type == "naya")
+                नयाँ
+                @elseif($employee_allrec->employee_type == "karar")
+                करार
+                @elseif($employee_allrec->employee_type == "kaam_kaaj")
+                काम काज
+                @endif
+            </td>
+            <td> {{$employee_allrec->operation_date}} </td>
+            <td>
+                @if($employee_allrec->employee_type =="naya")
+                नयाँ
+                @elseif($employee_allrec->employee_type =='samayojan')
+                समायोजन
+                @elseif($employee_allrec->employee_type =='karar')
+                करार
+                @elseif($employee_allrec->employee_type =="kaam_kaaj")
+                काम काज
+                @endif
+            </td>
+            <td>{{$employee_allrec->karyalaya['kar_name']}} [{{$employee->karyalaya['karyalaya_address']}}]</td>
+            <td>{{$employee_allrec->ministry['ministry_name']}}</td>
+            <td>{{$employee_allrec->pad['pad_name']}}</td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+<br>
+<caption>कर्मचारीको शैक्षिक योग्यता विवरण </caption>
+<table class="table table-hover table-bordered">
+    <thead id="table_head">
+        <tr>
+            <th>सि नं </th>
+            <th>शैक्षिक योग्यताको तह</th>
+            <th>संकाय </th>
+            <th>मूल बिषय</th>
+            <th>राष्ट्र </th>
+            <th>शैक्षिक संस्था</th>
+            <th>बोर्ड</th>
+            <th>उत्रिण् साल </th>
+            <th>प्रतिशत / श्रेणी </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($emp_edu_details as $emp_edu_detail)
+        <tr>
+            <td>{{$loop->iteration}}</td>
+            <td>
+                {{$emp_edu_detail->edu_level}}
+            </td>
+            <td> {{$emp_edu_detail->stream}} </td>
+            <td>
+                {{$emp_edu_detail->major_sub}}
+            </td>
+            <td>{{$emp_edu_detail->country}}</td>
+            <td>{{$emp_edu_detail->edu_institute}}</td>
+            <td>{{$emp_edu_detail->board}}</td>
+            <td>{{$emp_edu_detail->passed_year}}</td>
+            <td>{{$emp_edu_detail->division}}</td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+<br>
+<caption>बैदेशिक भ्रमण विवरण </caption>
+<table class="table table-hover table-bordered">
+    <thead id="table_head">
+        <tr>
+            <th>सि नं </th>
+            <th>भ्रमणको विवरण</th>
+            <th>राष्ट्र </th>
+            <th>उदेश्य</th>
+            <th>भ्रमणको अवधि </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($emp_foreign_tours as $emp_foreign_tour)
+        <tr>
+            <td>{{$loop->iteration}}</td>
+            <td>{{$emp_foreign_tour->ftour_info}}</td>
+            <td>{{$emp_foreign_tour->ftour_country}}</td>
+            <td>{{$emp_foreign_tour->ftour_objective}}</td>
+            <td>{{$emp_foreign_tour->ftour_start_date}} देखि {{$emp_foreign_tour->ftour_end_date}} सम्म</td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+<br>
+<caption>तालिम (३० कार्य दिन भन्दा बढी ) विवरण </caption>
+<table class="table table-hover table-bordered">
+    <thead id="table_head">
+        <tr>
+            <th>सि नं </th>
+            <th>तालिमको प्रकार</th>
+            <th>तालिम दिने संस्था </th>
+            <th>तालिम अवधि</th>
+            <th>श्रेणी</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($emp_trainings as $emp_training)
+        <tr>
+            <td>{{$loop->iteration}}</td>
+            <td>{{$emp_training->training_type}}</td>
+            <td>{{$emp_training->training_institute}}</td>
+            <td>{{$emp_training->training_start_date}} देखि {{$emp_training->training_end_date}} सम्म</td>
+            <td>{{$emp_training->training_division}}</td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
 </div>
 
 @endsection

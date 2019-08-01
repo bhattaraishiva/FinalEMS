@@ -25,6 +25,7 @@ use Session;
 
 use App\EmployeePersonalDetail;
 use DB;
+use App\EducationInfo;
 
 class EmployeeAllRecordController extends Controller
 {
@@ -374,6 +375,7 @@ class EmployeeAllRecordController extends Controller
             ->where('employee_id', $id)
             ->get();
         //    dd($employee_allrecords);
+        $emp_edu_details = EducationInfo::where('employee_id',$id)->get();
         $shrenis = Shreni::where('status', 1)->get();
         $allpads = Pad::all();
 
@@ -385,6 +387,8 @@ class EmployeeAllRecordController extends Controller
         $sewas = Sewa::all();
         $samuhas = Samuha::all();
         $upasamuhas = Upasamuha::all();
+        $emp_foreign_tours = EmployeeForeignTour::where('employee_id',$id)->get();
+        $emp_trainings = EmployeeTraining::where('employee_id',$id)->get();
 
         return view('admin.report.final_view_employee_allreport')->with(compact(
             'allpads',
@@ -396,9 +400,9 @@ class EmployeeAllRecordController extends Controller
             'shrenis',
             'employee',
             'employee_allrecords',
-            'sewas',
-            'samuhas',
-            'upasamuhas'
+            'sewas','emp_trainings',
+            'samuhas','emp_foreign_tours',
+            'upasamuhas','emp_edu_details'
         ));
     }
 }

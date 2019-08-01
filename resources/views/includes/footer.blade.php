@@ -600,8 +600,10 @@ $(".nexttab").click(function() {
           '<td><input type="text" name ="serial_no[]" class="form-control serial_no" ></td>'+
           '<td><input type="text" name="edu_level[]" class="form-control edu_level"></td>'+
           '<td><input type="text" name="stream[]" class="form-control stream"></td>'+
+          '<td><input type="text" name="major_sub[]" class="form-control major_sub"></td>'+
           '<td><input type="text" name="country[]" class="form-control country"></td>'+
           '<td><input type="text" name="edu_institute[]" class="form-control edu_institute"></td>'+
+          '<td><input type="text" name="board[]" class="form-control board"></td>'+
           '<td><input type="text" name="passed_year[]" class="form-control passed_year"></td>'+
           '<td><input type="text" name="division[]" class="form-control division"></td>'+
 

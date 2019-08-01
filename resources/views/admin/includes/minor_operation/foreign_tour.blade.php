@@ -9,7 +9,7 @@
                     placeholder="भ्रमणको विवरण:">
             </div>
             <div class="col-sm-3">
-                <label>देश: <sup>*</sup></label>
+                <label>राष्ट्र: <sup>*</sup></label>
                 <input class="form-control" type="text" name="ftour_country" id="ftour_country"
                     placeholder="देश">
             </div>
@@ -20,15 +20,15 @@
             </div>
             <div class="col-sm-2">
                 <label for="name">भ्रमणको अवधि (देखि) : <sup>*</sup></label>
-                <input type="text" class=" form-control nepali-calendar" id="nepaliDate18" 
+                <input type="text" class=" form-control nepali-calendar" id="nepaliDate18"
                     placeholder="YYYY-MM-DD" name="ftour_start_date">
             </div>
             <div class="col-sm-2">
                 <label for="name">भ्रमणको अवधि (सम्म) : <sup>*</sup></label>
-                <input type="text" class=" form-control nepali-calendar" id="nepaliDate19" 
+                <input type="text" class=" form-control nepali-calendar" id="nepaliDate19"
                     placeholder="YYYY-MM-DD" name="ftour_end_date">
             </div>
-           
+
         </div>
     </div>
 </div>

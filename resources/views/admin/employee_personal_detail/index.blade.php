@@ -31,19 +31,17 @@
                 <tr>
                   <th>सि.</th>
                   <th>संकेत न</th>
-                  <th>प्रदेश संकेत नं
-                  </th>
+                  {{-- <th>प्रदेश संकेत नं </th> --}}
                   <th>कर्मचारी प्रकार</th>
                   <th>नाम</th>
+                  <th>पद</th>
                   <th>नियुक्ति मिति</th>
-                  <th>कार्यालय</th>
                   <th>सेवा</th>
                   <th>समूह</th>
                   <th>उपसमूह</th>
                   <th>मन्त्रालय</th>
                   <th>निर्देशनालय</th>
-
-
+                  <th>कार्यालय</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -54,10 +52,10 @@
                 @else
                   <tr bgcolor="red">
                 @endif
-                
+
                   <td>{{$loop->iteration}}</td>
                   <td>{{$employee->employee_number}}</td>
-                  <td>{{$employee->employee_id}}</td>
+                  {{-- <td>{{$employee->employee_id}}</td> --}}
                   <td>
                     @if($employee->employee_type == "samayojan")
                     समायोजन
@@ -69,15 +67,21 @@
                     करार
                     @endif
                   </td>
-                  <td>{{$employee->personal_detail['first_name']}}</td>
+                  <td>{{$employee->personal_detail['first_name']}} {{$employee->personal_detail['middle_name']}}{{$employee->personal_detail['last_name']}}</td>
+                <td>{{$employee->pad['pad_name']}}</td>
                   <td>{{$employee->appointed_date}}</td>
-                  <td>{{$employee->karyalaya['kar_name']}}</td>
                   <td> {{$employee->sewa['sewa_name']}} </td>
                   <td>{{$employee->samuha['samuha_name']}}</td>
                   <td>{{$employee->upasamuha['upasamuha_name']}}</td>
                   <td>{{$employee->ministry['ministry_name']}}</td>
-                  <td>{{$employee->nirdeshanalaya['nir_name']}}</td>
-                  {{-- <td><img src="/{{$employee->image}}" alt="Image" style="height:50px;width:50px"></td> --}}
+                  <td>@if ($employee->nirdeshanalaya['nir_name'] == null)
+                      --
+                      @else
+                      {{$employee->nirdeshanalaya['nir_name']}}
+                      @endif
+                    </td>
+                    <td>{{$employee->karyalaya['kar_name']}}</td>
+
                   <td>
                     {{-- <a href="{{route('employeepersonaldetail.edit',['employee'=>$employee->id ]) }}"
                     class="fa fa-edit">Edit </a> --}}

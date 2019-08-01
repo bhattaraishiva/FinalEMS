@@ -17,7 +17,7 @@
         <form action="{{route('employeeallrecord.storeActivity')}}" method="post">
             {{-- {{ csrf_field() }} --}}
             @csrf
-            <input type="text" name="oldpad" hidden value="{{$employee[0]->pad_id}} {{$employee[0]->padp['pad_name']}}">
+            <input type="text" name="oldpad" hidden value="{{$employee[0]->pad_id}} {{$employee[0]->pad['pad_name']}}">
             <input type="text" name="employee_id" hidden value="{{$employee[0]->employee_id}}">
             <input type="text" name="employee_number" hidden value="{{$employee[0]->employee_number}}">
             <input type="text" name="employee_type" hidden value="{{$employee[0]->employee_type}}">
@@ -171,7 +171,7 @@
             </div>
             <div class="col-md-2">
                 <div class="form-group">
-                    <label for="name">तह :</label><span>{{$employee[0]->taha->taha_name}}</span>
+                    <label for="name">तह :</label><span>{{$employee[0]->taha['taha_name']}}</span>
                 </div>
             </div>
             <div class="col-md-2">

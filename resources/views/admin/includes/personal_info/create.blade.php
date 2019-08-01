@@ -65,7 +65,7 @@
             <label for="name">जाति : <sup>*</sup></label>
             <select class="form-control chosen" name="caste">
                 <option value="b">ब्राह्मण </option>
-                <option value="c">छेत्री</option>
+                <option value="c">क्षेत्री</option>
                 <option value="j">जनजाती</option>
                 <option value="d">दलित </option>
             </select>

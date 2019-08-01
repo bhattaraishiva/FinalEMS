@@ -57,9 +57,7 @@ class EmployeePersonalDetailController extends Controller
         $pradeshes= Pardesh::all();
         $pads= Pad::where('status',0)->get();
         $tahas= Taha::where('status',1)->get();
-       
         $ministries=Ministry::where('status',1)->get();
-       
         $nirdeshanalayas=Nirdeshanalaya::where('status',1)->get();
         $karyalayas=Karyalaya::where('status',1)->get();
         $shrenis=Shreni::where('status',1)->get();
@@ -70,7 +68,7 @@ class EmployeePersonalDetailController extends Controller
         return view('admin.employee_personal_detail.create')
                     ->with(compact('districts','ministries','nirdeshanalayas','karyalayas','tahas',
                     'shrenis','pads','sewas','samuhas','upasamuhas','pradeshes'));
-                                        
+
     }
 
     /**
@@ -106,25 +104,25 @@ class EmployeePersonalDetailController extends Controller
             'ppradesh_id'=>'required',
             'pdistrict_id'=>'required',
             'ppalika_id'=>'required',
-            'permanent_wardno'=>'required', 
+            'permanent_wardno'=>'required',
             'permanent_tole'=>'required',
 
             'cpradesh_id'=>'required',
             'cdistrict_id'=>'required',
-            'cpalika_id'=>'required', 
-            'current_wardno'=>'required', 
-            'current_tole'=>'required',  
-          
+            'cpalika_id'=>'required',
+            'current_wardno'=>'required',
+            'current_tole'=>'required',
 
-                            
+
+
         ]);
-       
+
 
         DB::transaction(function() use ($request){
              // checkif the form has file as image
              $filename='';
-            if($request->hasfile('image')) 
-            { 
+            if($request->hasfile('image'))
+            {
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension(); // getting image extension
             $filename =time().'.'.$extension;
@@ -149,7 +147,7 @@ class EmployeePersonalDetailController extends Controller
                 'community'=>$request['community'],
                 'national_id_issue_district_id'=>$request['national_id_issue_district'],
                 'national_id_issue_date'=>$request['national_id_issue_date'],
-                        
+
             ]);
             // this is the employee_id that gets stored in each table
                 $inserted_emp_id = $emp['id'];
@@ -193,7 +191,7 @@ class EmployeePersonalDetailController extends Controller
             $karar_end_date = null;
             $naya_sifaris_date = null;
             $appointed_date=null;
-            
+
             if($employee_type == "kaam_kaaj"){
 
                 $first_pad = $request['kaamkaj_first_pad'];
@@ -213,7 +211,7 @@ class EmployeePersonalDetailController extends Controller
                 $before_pradesh_shreni_id = $request['kaamkaj_before_pradesh_shreni'];
                 $before_pradesh_taha_id = $request['kaamkaj_before_pradesh_taha'];
                 $before_pradesh_karyalaya_name = $request['kaamkaj_before_pradesh_karyalaya'];
-                $before_pradesh_attendance_date = $request['kaamkaj_before_pradesh_attendance_date'] ; 
+                $before_pradesh_attendance_date = $request['kaamkaj_before_pradesh_attendance_date'] ;
                 // this isfor current status
                 $appointed_date = $request['kaamkaj_appointed_date'];
                 $chief_ministry_attendance_date = $request['kaamkaj_chief_ministry_attendance_date'];
@@ -222,12 +220,12 @@ class EmployeePersonalDetailController extends Controller
                 $upasamuha = $request['kaamkaj_upasamuha'];
                 $shreni = $request['kaamkaj_shreni'];
                 $taha = $request['kaamkaj_taha'];
-                $ministry = $request['kaamkaj_ministry_id'] ; 
+                $ministry = $request['kaamkaj_ministry_id'] ;
                 $nirdeshanalaya = $request['kaamkaj_nirdeshanalaya'];
                 $karyalaya = $request['kaamkaj_karyalaya'];
                 $pad = $request['kaamkaj_pad'];
                 $kaamkaj_chief_ministry_implement_date = $request['kaamkaj_chief_ministry_implement_date'];
-                $attendance_date = $request['kaamkaj_attendance_date'] ; 
+                $attendance_date = $request['kaamkaj_attendance_date'] ;
 
             }
             else if($employee_type == "samayojan"){
@@ -259,7 +257,7 @@ class EmployeePersonalDetailController extends Controller
                 $upasamuha = $request['samayojan_upasamuha'];
                 $shreni = $request['samayojan_shreni'];
                 $taha = $request['samayojan_taha'];
-                $ministry = $request['samayojan_ministry_id'] ; 
+                $ministry = $request['samayojan_ministry_id'] ;
                 $nirdeshanalaya = $request['samayojan_nirdeshanalaya'];
                 $karyalaya = $request['samayojan_karyalaya'];
                 $pad = $request['samayojan_pad'];
@@ -274,11 +272,11 @@ class EmployeePersonalDetailController extends Controller
              $upasamuha = $request['karar_upasamuha'];
              $shreni = $request['karar_shreni'];
              $taha = $request['karar_taha'];
-             $ministry = $request['karar_ministry_id'] ; 
+             $ministry = $request['karar_ministry_id'] ;
              $nirdeshanalaya = $request['karar_nirdeshanalaya'];
              $karyalaya = $request['karar_karyalaya'];
              $pad = $request['karar_pad'];
-             $attendance_date = $request['karar_attendance_date'] ; 
+             $attendance_date = $request['karar_attendance_date'] ;
 
           }
           else if($employee_type == "naya"){
@@ -290,15 +288,15 @@ class EmployeePersonalDetailController extends Controller
             $upasamuha = $request['naya_upasamuha'];
             $shreni = $request['naya_shreni'];
             $taha = $request['naya_taha'];
-            $ministry = $request['naya_ministry_id'] ; 
+            $ministry = $request['naya_ministry_id'] ;
             $nirdeshanalaya = $request['naya_nirdeshanalaya'];
             $karyalaya = $request['naya_karyalaya'];
             $pad = $request['naya_pad'];
-            $attendance_date = $request['naya_attendance_date'] ; 
+            $attendance_date = $request['naya_attendance_date'] ;
 
          }
 
-            // $tore Firstjob info 
+            // $tore Firstjob info
             if($employee_type == "kaam_kaaj" || $employee_type == "samayojan"){
                 FirstJobInfo::create([
                     'employee_id'=> $inserted_emp_id,
@@ -312,7 +310,7 @@ class EmployeePersonalDetailController extends Controller
                     'first_karyalaya_name'=>$first_karyalaya_name,
                     'first_appointed_date'=>$first_appointed_date,
                     'first_attendance_date'=>$first_attendance_date,
-    
+
                     'before_pradesh_pad'=>$before_pradesh_pad,
                     'before_pradesh_sewa_id'=>$before_pradesh_sewa_id,
                     'before_pradesh_samuha_id'=>$before_pradesh_samuha_id,
@@ -321,9 +319,9 @@ class EmployeePersonalDetailController extends Controller
                     'before_pradesh_taha_id'=>$before_pradesh_taha_id,
                     'before_pradesh_karyalaya_name'=>$before_pradesh_karyalaya_name,
                     'before_pradesh_attendance_date'=>$before_pradesh_attendance_date,
-    
+
                 ]);
-    
+
             }
         //    store employee current record
             EmployeeCurrentRecord::create([
@@ -380,14 +378,16 @@ class EmployeePersonalDetailController extends Controller
                                 'employee_number'=>$request['employee_number'],
                                 'serial_no'=>$value,
                                 'edu_level'=>$request->edu_level[$key],
+                                'major_sub'=>$request->major_sub[$key],
                                 'stream'=>$request->stream[$key],
                                 'country'=>$request->country[$key],
                                 'edu_institute'=>$request->edu_institute[$key],
+                                'board'=>$request->board[$key],
                                 'passed_year'=>$request->passed_year[$key],
                                 'division'=>$request->division[$key]);
                 EducationInfo::insert($data);
             }
-        
+
         // EducationInfo::create([
         //     'employee_id'=> $inserted_emp_id,
         //     'employee_number'=> $request['employee_number'],
@@ -401,11 +401,11 @@ class EmployeePersonalDetailController extends Controller
         //     ]);
 
 
-        });        
+        });
 
         Session::flash('success','Employess Personal Detail Successfully stored !');
         return redirect()->route('employeepersonaldetail.index');
-       
+
 
     }
 
@@ -434,7 +434,7 @@ class EmployeePersonalDetailController extends Controller
         // dd($employee);
 
         return view('admin.employee_personal_detail.edit')->with(compact('employee','districts'));
-        
+
 
     }
 
@@ -458,14 +458,14 @@ class EmployeePersonalDetailController extends Controller
             'national_id'=>'required',
             'national_id_issue_date'=>'required',
             'national_id_issue_district'=>'required',
-            
-                          
+
+
         ]);
         $new_image = $request->old_image;
         // print_r($new_image);
 
-        if($request->hasfile('image')) 
-        { 
+        if($request->hasfile('image'))
+        {
           $file = $request->file('image');
           $extension = $file->getClientOriginalExtension(); // getting image extension
           $filename =time().'.'.$extension;
@@ -476,7 +476,7 @@ class EmployeePersonalDetailController extends Controller
         }
         // print_r($filename);
         // dd($new_filename);
-        
+
         EmployeePersonalDetail::where('id', $id)
                     ->update([
                     'employee_number'=>$request->employee_number,

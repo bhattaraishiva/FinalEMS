@@ -10,7 +10,7 @@
         <label for="name">सेवा :<sup>*</sup></label>
         <select readonly name="oper_rajinama_sewa" id="sewa_id" class="form-control  dynamic"
             data-dependent='oper_rajinama_samuha_id'>
-            <option selected value="{{$employee[0]->sewa->id}}">{{$employee[0]->sewa->sewa_name}}</option>
+            <option selected value="{{$employee[0]->sewa['id']}}">{{$employee[0]->sewa['sewa_name']}}</option>
             @foreach ($sewas as $sewa)
             <option hidden value="{{$sewa->id}}">{{$sewa->sewa_name}}</option>
             @endforeach
@@ -20,13 +20,13 @@
         <label for="name">समुह :<sup>*</sup></label>
         <select readonly name="oper_rajinama_samuha" id="oper_rajinama_samuha_id" class="form-control  dynamic"
             data-dependent='oper_rajinama_upasamuha_id'>
-            <option selected value="{{$employee[0]->samuha->id}}">{{$employee[0]->samuha->samuha_name}}</option>
+            <option selected value="{{$employee[0]->samuha['id']}}">{{$employee[0]->samuha['samuha_name']}}</option>
         </select>
     </div>
     <div class="col-sm-2">
         <label for="name">उप-समुह :<sup>*</sup></label>
         <select readonly name="oper_rajinama_upasamuha" id="oper_rajinama_upasamuha_id" class="form-control">
-            <option selected value="{{$employee[0]->upasamuha->id}}">{{$employee[0]->upasamuha->upasamuha_name}}
+            <option selected value="{{$employee[0]->upasamuha['id']}}">{{$employee[0]->upasamuha['upasamuha_name']}}
             </option>
         </select>
     </div>
@@ -70,7 +70,7 @@
                 <option selected value="{{$employee[0]->nirdeshanalaya['id']}}">{{$employee[0]->nirdeshanalaya['nir_name']}}
                 </option>
                 @foreach ($nirdeshanalayas as $nirdeshanalaya)
-                <option hidden value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nir_name}}</option>
+                <option hidden value="{{$nirdeshanalaya['id']}}">{{$nirdeshanalaya['nir_name']}}</option>
                 @endforeach
             </select>
         </div>
@@ -80,7 +80,7 @@
             <label for="name">कार्यालय:<sup>*</sup></label>
             <select readonly name="oper_rajinama_karyalaya" id="oper_rajinama_karyalaya_id"
                 class="form-control  dynamic" data-dependent="oper_rajinama_pad_id">
-                <option selected value="{{$employee[0]->karyalaya->id}}">{{$employee[0]->karyalaya->kar_name}}</option>
+                <option selected value="{{$employee[0]->karyalaya['id']}}">{{$employee[0]->karyalaya['kar_name']}}</option>
             </select>
         </div>
     </div>

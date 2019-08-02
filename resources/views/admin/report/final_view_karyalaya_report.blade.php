@@ -74,7 +74,7 @@
             <th>क्रम सं</th>
             <th>पद</th>
             <th>जम्मा</th>
-            {{-- <th>कार्यरत संख्या</th> --}}
+            <th>कार्यरत संख्या</th>
             <th>रिक्त संख्या</th>
         </tr>
     </thead>
@@ -89,52 +89,66 @@
             <td>
                 {{$pad->pad_qty}}
             </td>
-            {{-- <td>
-                @php
-                $emptypad=0;
-                @endphp
-                @if ($karyalaya_allworking_pads->count() > 0)
-                @for ($i = 0; $i < $karyalaya_allworking_pads->count(); $i++)
-                    @php
-                    $emptypad=0;
-                    if ($karyalaya_allworking_pads[$i]->pad_id == $pad->pad_id){
-
-                    $working_pad = $karyalaya_allworking_pads[$i]->total;
-                    // $emptypad = $working_pad - $pad->pad_qty ;
-                    echo($working_pad);
-                    break;
-                    }
-                    else
-                    echo(0);
-                    @endphp
-                    @endfor
-                    @else
-                    {{0}}
-                    @endif
-
-            </td> --}}
             <td>
                 @php
                 $emptypad=0;
                 @endphp
                 @if ($karyalaya_allworking_pads->count() > 0)
-                @for ($i = 0; $i < $karyalaya_allworking_pads->count(); $i++)
-                    @php
-                    $emptypad=0;
-                    if ($karyalaya_allworking_pads[$i]->pad_id == $pad->pad_id){
+                    @for ($i = 0; $i < $karyalaya_allworking_pads->count(); $i++)
+                        @php
+                            $emptypad=0;
+                            if ($karyalaya_allworking_pads[$i]->pad_id == $pad->pad_id){
 
-                    $working_pad = $karyalaya_allworking_pads[$i]->total;
-                    $emptypad = $working_pad - $pad->pad_qty ;
-                    echo($emptypad);
-                    break;
-                    }
-                    else
-                    echo($pad->pad_qty);
-                    @endphp
+                                $working_pad = $karyalaya_allworking_pads[$i]->total;
+                                // $emptypad = $working_pad - $pad->pad_qty ;
+                                // echo($working_pad);
+                                break;
+                            }
+                            else
+                            $working_pad = 0;
+                                // echo(0);
+                        @endphp
                     @endfor
-                    @else
-                    {{$pad->pad_qty}}
-                    @endif
+                @else
+                    @php
+                        $working_pad=0;
+                    @endphp
+                @endif
+                            {{$working_pad}}
+            </td>
+            <td>
+                @php
+                $emptypad=0;
+                @endphp
+                @if ($karyalaya_allworking_pads->count() > 0)
+                    @for ($i = 0; $i < $karyalaya_allworking_pads->count(); $i++)
+                        @php
+                        $emptypad=0;
+                        if ($karyalaya_allworking_pads[$i]->pad_id == $pad->pad_id){
+
+                        $working_pad = $karyalaya_allworking_pads[$i]->total;
+                        $emptypad = $working_pad - $pad->pad_qty ;
+                        // echo($emptypad);
+                        break;
+                        }
+
+                        else
+                        $emptypad= $pad->pad_qty;
+                        @endphp
+                    @endfor
+
+                @else
+                @php
+                  $emptypad = $pad->pad_qty;
+                @endphp
+                @endif
+                {{$emptypad}}
+                {{-- @if ($emptypad > 0)
+                    {{$emptypad}}
+                @else
+                {{$pad->pad_qty}}
+                @endif --}}
+
             </td>
         </tr>
         @endforeach

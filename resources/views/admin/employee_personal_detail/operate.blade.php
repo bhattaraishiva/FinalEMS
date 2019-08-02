@@ -156,17 +156,17 @@
             </div>
             <div class="col-md-2">
                 <div class="form-group">
-                    <label for="name">सेवा :</label><span>{{$employee[0]->sewa->sewa_name}}</span>
+                    <label for="name">सेवा :</label><span>{{$employee[0]->sewa['sewa_name']}}</span>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="form-group">
-                    <label for="name">समूह :</label><span>{{$employee[0]->samuha->samuha_name}}</span>
+                    <label for="name">समूह :</label><span>{{$employee[0]->samuha['samuha_name']}}</span>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="form-group">
-                    <label for="name">उपसमूह :</label><span>{{$employee[0]->upasamuha->upasamuha_name}}</span>
+                    <label for="name">उपसमूह :</label><span>{{$employee[0]->upasamuha['upasamuha_name']}}</span>
                 </div>
             </div>
             <div class="col-md-2">
@@ -182,7 +182,7 @@
         </div>
         <div class="row">
             <div class="form-group col-md-3">
-                <label for="name">मन्तरालय :</label><span>{{$employee[0]->ministry->ministry_name}}</span>
+                <label for="name">मन्तरालय :</label><span>{{$employee[0]->ministry['ministry_name']}}</span>
             </div>
             <div class="col-md-3">
                 <div class="form-group">

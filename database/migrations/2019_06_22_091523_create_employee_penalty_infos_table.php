@@ -17,6 +17,7 @@ class CreateEmployeePenaltyInfosTable extends Migration
             $table->bigIncrements('id');
             $table->integer('employee_id');
             $table->integer('employee_number');
+            $table->string('penalty_desc');
             $table->date('penalty_decision_date');
             $table->date('penalty_start_date');
             $table->date('penalty_end_date');

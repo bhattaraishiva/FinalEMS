@@ -96,7 +96,7 @@
                                 <option selected value="f">महिला</option>
 
                             }
-                                
+
                             @endif
                             <option value="m">पुरुष</option>
                             <option value="f">महिला</option>
@@ -124,7 +124,7 @@
                             <option selected value="छेत्री">छेत्री</option>
 
                         }
-                                
+
                             @endif
                             <option value="ब्राह्मण">ब्राह्मण </option>
                             <option value="छेत्री">छेत्री</option>
@@ -138,17 +138,17 @@
                         <select class="form-control chosen" name="community">
                                 @if ($employee->community == 'तराई'){
                                     <option selected value="तराई">तराई </option>
-    
+
                                 }
                                @elseif($employee->community == 'पहाड'){
                                 <option selected value="पहाड">पहाड</option>
-    
+
                                }
                                 @elseif($employee->community == 'हिमाल'){
                                     <option selected value="हिमाल">हिमाल</option>
-    
+
                                }
-                                       
+
                                 @endif
                             <option value="तराई">तराई </option>
                             <option value="पहाड">पहाड</option>
@@ -194,10 +194,10 @@
                         @if ($employee->image)
                             <img src="/{{$employee->image}}" alt="Image" style="height:90px;width:90px">
                             old
-                        
+
                         @endif
                         <img src="#" id="pic" > new
-                      
+
                     </div>
 
                 </div>
@@ -205,7 +205,7 @@
                 <div class="row">
                     <div class="col-sm-3">
                         <label for="name">मोबाइल नं: </label>
-                        <input class="form-control" type="text" name="mobile_no" id="mobile_no"  value="{{$employee->mobile_no}}"
+                        <input class="form-control" type="text" name="mobile_no" id="mobile_no" maxlength="10" value="{{$employee->mobile_no}}"
                             required>
                     </div>
                     <div class="col-sm-3">

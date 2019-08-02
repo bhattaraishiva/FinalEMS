@@ -79,16 +79,22 @@ $(function () {
                           var _token = $('input[name="_token"]').val();
                           console.log(select,value,dependent);
                           $.ajax({
-                              url:"{{route('dynamic.fetch')}}",
+                              url:"{{ route('dynamic.fetch') }}",
                               method :"POST",
+                              dataType:"html",
                               data:{select:select,value:value,_token:_token,dependent:dependent},
                               success:function(result){
                                   $('#'+dependent).html(result);
                                   // $('#message').html(result);
+                              },
+                              error:function(){
+                                // console.log()
+                                console.log("error");
+                                alert("  उपलब्ध  हुन सकेन !! ");
                               }
                           })
-                      }
-                      // console.log("no data");
+                      }else
+                      console.log("no data");
                   })
               });
 </script>

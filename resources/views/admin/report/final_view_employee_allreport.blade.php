@@ -315,6 +315,69 @@
         @endforeach
     </tbody>
 </table>
+<caption>अध्ययन  बिदा / असाधारण बिदा विवरण </caption>
+<table class="table table-hover table-bordered">
+    <thead id="table_head">
+        <tr>
+            <th>सि नं </th>
+            <th>बिदाको विवरण</th>
+            <th>बिदाको अवधि </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($emp_leaves as $emp_leave)
+        <tr>
+            <td>{{$loop->iteration}}</td>
+            <td>{{$emp_leave->leave_type}}</td>
+            <td>{{$emp_leave->leave_start_date}} देखि {{$emp_leave->leave_end_date}} सम्म</td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+<caption >पुरस्कार  /विभूषण /पदक /अन्यको विवरण </caption>
+<table class="table table-hover table-bordered">
+    <thead id="table_head">
+        <tr>
+            <th>सि नं </th>
+            <th>पुरस्कार  /विभूषण /पदक </th>
+            <th>प्रदान गर्ने संस्था </th>
+            <th>मिति</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($emp_motivations as $emp_motivation)
+        <tr>
+            <td>{{$loop->iteration}}</td>
+            <td>{{$emp_motivation->motivation_name}}</td>
+            <td>{{$emp_motivation->motivation_provider}}</td>
+            <td>{{$emp_motivation->motivation_date}}</td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+<caption >निलम्बन/विभागीय /अन्य कारवाही सम्बन्धि विवरण </caption>
+<table class="table table-hover table-bordered">
+    <thead id="table_head">
+        <tr>
+            <th>सि नं </th>
+            <th>कारबाही सम्बन्धि विवरण  </th>
+            <th>कारवाही निर्णय मिति </th>
+            <th>कारवाही लागुहुने मिति </th>
+            <th>कारबाही समाप्त हुने मिति</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach($emp_penalties as $emp_penalty)
+        <tr>
+            <td>{{$loop->iteration}}</td>
+            <td>{{$emp_penalty->penalty_desc}}</td>
+            <td>{{$emp_penalty->penalty_decision_date}}</td>
+            <td>{{$emp_penalty->penalty_start_date}}</td>
+            <td>{{$emp_penalty->penalty_end_date}}</td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
 </div>
 
 @endsection

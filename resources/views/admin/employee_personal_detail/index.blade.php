@@ -17,7 +17,7 @@
   <div class="box-header with-border">
     <h3 class="box-title">कर्मचारी बिबरण।</h3>
     <a href="{{route('employeepersonaldetail.create')}}" class="btn btn-md btn-primary"
-      style="float:right;display:inline-table;">नयाँ कर्मचारी थप्नुहोस</a>
+      style="float:right;display:inline-table;"><span class="fa fa-plus"></span> नयाँ कर्मचारी थप्नुहोस</a>
 
   </div>
   <section class="content">

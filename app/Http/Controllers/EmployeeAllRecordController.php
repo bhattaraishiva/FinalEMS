@@ -309,6 +309,7 @@ class EmployeeAllRecordController extends Controller
                 EmployeePenaltyInfo::create([
                     'employee_id' => $emp_id,
                     'employee_number' => $emp_number,
+                    'penalty_desc'=>$request['penalty_name'],
                     'penalty_decision_date' => $request['penalty_decision_date'],
                     'penalty_start_date' => $request['penalty_start_date'],
                     'penalty_end_date' => $request['penalty_end_date'],
@@ -389,7 +390,9 @@ class EmployeeAllRecordController extends Controller
         $upasamuhas = Upasamuha::all();
         $emp_foreign_tours = EmployeeForeignTour::where('employee_id',$id)->get();
         $emp_trainings = EmployeeTraining::where('employee_id',$id)->get();
-
+        $emp_leaves = EmployeeLeaveInfo::where('employee_id',$id)->get();
+        $emp_motivations = EmployeeMotivationInfo::where('employee_id',$id)->get();
+        $emp_penalties = EmployeePenaltyInfo::where('employee_id',$id)->get();
         return view('admin.report.final_view_employee_allreport')->with(compact(
             'allpads',
             'nirdeshanalayas',
@@ -397,9 +400,9 @@ class EmployeeAllRecordController extends Controller
             'karyalayas',
             'tahas',
             'pads',
-            'shrenis',
-            'employee',
-            'employee_allrecords',
+            'shrenis','emp_penalties',
+            'employee','emp_motivations',
+            'employee_allrecords','emp_leaves',
             'sewas','emp_trainings',
             'samuhas','emp_foreign_tours',
             'upasamuhas','emp_edu_details'

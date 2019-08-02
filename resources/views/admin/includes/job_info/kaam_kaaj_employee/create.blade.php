@@ -87,7 +87,7 @@
     <div class="col-md-2 ">
         <div class="form-group">
             <label for="name">कार्यालय : <sup>*</sup></label>
-            <select name="kaamkaj_karyalaya" id="kar_id" class="form-control  dynamic" >
+            <select name="kaamkaj_karyalaya" id="kar_id" class="form-control  dynamic" data-dependent="pad_id">
                   <option>पहिले मन्त्रालय छान्नुहोस् </option>
             </select>
         </div>
@@ -105,6 +105,7 @@
 
         </div>
     </div>
+    @csrf
 </div>
 <hr>
 <div class="row">

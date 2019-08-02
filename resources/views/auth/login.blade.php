@@ -1,7 +1,7 @@
 @include('includes.header')
 
 <body class="hold-transition login-page">
-  <div style="background-image: url(http://localhost/FinalEMS/public/images/whitetemple.jpg); background-position: center; background-size: cover;">
+  <div style="background-image: url({{asset('images/whitetemple.jpg')}}); background-position: center; background-size: cover;">
     <div class="login-box" style="
     background-color: whitesmoke; background: transparent; background: rgba(249, 249, 249, 0.3)">
       <div class="login-logo login-font">

@@ -10,7 +10,7 @@
         <label for="name">सेवा : <sup>*</sup></label>
         <select name="oper_saruwa_sewa" id="sewa_id" class="form-control  dynamic"
             data-dependent='oper_saruwa_samuha_id'>
-            <option  selected value="{{$employee[0]->sewa->id}}">{{$employee[0]->sewa->sewa_name}}</option>
+            <option  selected value="{{$employee[0]->sewa['id']}}">{{$employee[0]->sewa['sewa_name']}}</option>
             @foreach ($sewas as $sewa)
             <option value="{{$sewa->id}}">{{$sewa->sewa_name}}</option>
             @endforeach
@@ -20,13 +20,13 @@
         <label for="name">समुह : <sup>*</sup></label>
         <select name="oper_saruwa_samuha" id="oper_saruwa_samuha_id" class="form-control  dynamic"
             data-dependent='oper_saruwa_upasamuha_id'>
-        <option  selected value="{{$employee[0]->samuha->id}}">{{$employee[0]->samuha->samuha_name}}</option>
+        <option  selected value="{{$employee[0]->samuha['id']}}">{{$employee[0]->samuha['samuha_name']}}</option>
         </select>
     </div>
     <div class="col-sm-2">
         <label for="name">उप-समुह : <sup>*</sup></label>
         <select name="oper_saruwa_upasamuha" id="oper_saruwa_upasamuha_id" class="form-control">
-            <option  selected value="{{$employee[0]->upasamuha->id}}">{{$employee[0]->upasamuha->upasamuha_name}}</option>
+            <option  selected value="{{$employee[0]->upasamuha['id']}}">{{$employee[0]->upasamuha['upasamuha_name']}}</option>
         </select>
     </div>
     <div class="col-sm-2">
@@ -55,7 +55,7 @@
         <label for="name">मन्त्रालय : <sup>*</sup></label>
         <select name="oper_saruwa_ministry" id="ministry_id" class="form-control  dynamic"
             data-dependent='oper_saruwa_karyalaya_id'>
-            <option  selected value="{{$employee[0]->ministry->id}}">{{$employee[0]->ministry->ministry_name}}</option>
+            <option  selected value="{{$employee[0]->ministry['id']}}">{{$employee[0]->ministry['ministry_name']}}</option>
             @foreach ($ministries as $ministry)
             <option value="{{$ministry->id}}">{{$ministry->ministry_name}}</option>
             @endforeach
@@ -77,7 +77,7 @@
         <div class="form-group">
             <label for="name">कार्यालय : <sup>*</sup></label>
             <select name="oper_saruwa_karyalaya" id="oper_saruwa_karyalaya_id" class="form-control  dynamic">
-                <option  selected value="{{$employee[0]->karyalaya->id}}">{{$employee[0]->karyalaya->kar_name}}</option>
+                <option  selected value="{{$employee[0]->karyalaya['id']}}">{{$employee[0]->karyalaya['kar_name']}}</option>
                 <!-- @foreach ($karyalayas as $karyalaya)
                 <option value="{{$karyalaya->id}}">{{$karyalaya->kar_name}}</option>
                 @endforeach -->

@@ -2,14 +2,14 @@
 <div class="row">
     <div class="col-sm-3">
         <label for="name">करार निर्णय मिति : <sup>*</sup></label>
-        <input type="text" class="form-control" name="karar_appointed_date" nepali-calendar" id="nepaliDate19" 
+        <input type="text" class="form-control" name="karar_appointed_date" nepali-calendar" id="nepaliDate19"
             placeholder="YYYY-MM-DD">
     </div>
     <div class="col-sm-3">
         <label for="name">करार लागु हुने अवधिः मिति: <sup>*</sup></label>
-        <input type="text" class="form-control" name="karar_start_date" nepali-calendar" id="nepaliDate20" 
+        <input type="text" class="form-control" name="karar_start_date" nepali-calendar" id="nepaliDate20"
             placeholder="YYYY-MM-DD">
-        देखि<input type="text" class="form-control" name="karar_end_date" nepali-calendar" id="nepaliDate21" 
+        देखि<input type="text" class="form-control" name="karar_end_date" nepali-calendar" id="nepaliDate21"
             placeholder="YYYY-MM-DD">सम्म
     </div>
 
@@ -79,8 +79,8 @@
     <div class="col-md-2 ">
         <div class="form-group">
             <label for="name">कार्यालय : <sup>*</sup></label>
-            <select name="karar_karyalaya" id="karar_kar_id" class="form-control  dynamic">
-              <option>पहिले मन्त्रालय छान्नुहोस् </option>  
+            <select name="karar_karyalaya" id="karar_kar_id" class="form-control  dynamic" data-dependent="karar_pad_id">
+              <option>पहिले मन्त्रालय छान्नुहोस् </option>
             </select>
         </div>
     </div>
@@ -89,7 +89,7 @@
             <label for="name">पद :<sup>*</sup></label>
             <select name="karar_pad" id="karar_pad_id" class="form-control">
                     @foreach ($pads as $pad)
-                    <option value="{{$pad->id}}"> {{$pad->pad_name}}</option> 
+                    <option value="{{$pad->id}}"> {{$pad->pad_name}}</option>
                 @endforeach
             </select>
         </div>

@@ -16,8 +16,8 @@
 <!-- Main content -->
 <div class="box">
   <div class="box-header with-border">
-    <h3 class="box-title"> {{$ministry_karyalayas[0]->ministry->ministry_name}}  बिबरण।</h3>
-   
+    <h3 class="box-title"> {{$ministry_karyalayas[0]->ministry->ministry_name}} बिबरण।</h3>
+    <a href="" id="hide_on_print" onclick=printit(); target="_blank" class="fa fa-print" style="float:right;">print</a>
   </div>
   <section class="content">
     <div class="row">
@@ -26,37 +26,29 @@
           <!-- /.box-header -->
           <div class="box-body">
             <table id="example1" class="table table-bordered table-striped">
-              <thead>
+              <thead id="table_head">
                 <tr>
                   <th>सिन</th>
                   {{-- <th>मन्त्रालय</th> --}}
                   <th>कार्यालय</th>
-                  <th>Status</th>
-                  <th>Operation</th>
+                  {{-- <th>Status</th> --}}
+                  <th id="hide_on_print">Operation</th>
                 </tr>
               </thead>
               <tbody>
                 @foreach($ministry_karyalayas as $ministry_karyalaya)
-                <tr>
+                <tr id="table_height">
                   <td>{{$loop->iteration}}</td>
                   {{-- <td>{{$ministry_karyalaya->ministry->ministry_name}}</td> --}}
                   <td>{{$ministry_karyalaya->kar_name}},{{$ministry_karyalaya->karyalaya_address}}</td>
 
-                  <td>
-                    @if ($ministry_karyalaya->status=='1')
-                    <span class="label label-success">Available</span>
-                    @else
-                    <span class="label label-warning">UnAvailable</span>
-                    @endif
+                  <td id="hide_on_print">
+                    <a href="{{route('ministry_karyalaya.view_karyalaya_report',['karyalaya'=>$ministry_karyalaya->id ]) }}"
+                      class="fa fa-eye">View</a><span> | </span>
+                    {{-- <a href="{{route('ministry.view_detail_ministry_report',['ministry'=>$ministry->id ]) }}"
+                    class="fa fa-print">Print
+                    </a> --}}
                   </td>
-                  <td>
-                      <a href="{{route('ministry_karyalaya.view_karyalaya_report',['karyalaya'=>$ministry_karyalaya->id ]) }}"
-                        class="fa fa-eye">View</a><span>  | </span>
-                         {{-- <a href="{{route('ministry.view_detail_ministry_report',['ministry'=>$ministry->id ]) }}"
-                          class="fa fa-print">Print
-                        </a> --}}
-                  </td>
-  
                 </tr>
                 @endforeach
               </tbody>
@@ -71,12 +63,8 @@
     <!-- /.row -->
   </section>
 </div>
+
 <!-- /.content -->
 {{-- </div> --}}
 <!-- /.content-wrapper -->
 @endsection
-
-
-
-
-

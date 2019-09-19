@@ -187,7 +187,7 @@ class EmployeeAllRecordController extends Controller
                 $ministry_attendance_date = $request['oper_padasthapan_attendance_date_to_ministry'];
                 $padasthapan_appointed_date_from_ministry = $request['oper_padasthapan_appointed_date_from_ministry'];
                 $sewa = $request['oper_padasthapan_sewa'];
-                $samuha = $request['oper_padasthapan_sewa'];
+                $samuha = $request['oper_padasthapan_samuha'];
                 $upasamuha = $request['oper_padasthapan_upasamuha'];
                 $taha = $request['oper_padasthapan_taha'];
                 $shreni = $request['oper_padasthapan_shreni'];
@@ -199,7 +199,7 @@ class EmployeeAllRecordController extends Controller
             } else if ($employee_activity == 'saruwa') {
                 $operation_date = $request['oper_saruwa_appointed_date'];
                 $sewa = $request['oper_saruwa_sewa'];
-                $samuha = $request['oper_saruwa_sewa'];
+                $samuha = $request['oper_saruwa_samuha'];
                 $upasamuha = $request['oper_saruwa_upasamuha'];
                 $taha = $request['oper_saruwa_taha'];
                 $shreni = $request['oper_saruwa_shreni'];
@@ -210,7 +210,7 @@ class EmployeeAllRecordController extends Controller
             } else if ($employee_activity == 'baduwa') {
                 $operation_date = $request['oper_baduwa_appointed_date'];
                 $sewa = $request['oper_baduwa_sewa'];
-                $samuha = $request['oper_baduwa_sewa'];
+                $samuha = $request['oper_baduwa_samuha'];
                 $upasamuha = $request['oper_baduwa_upasamuha'];
                 $taha = $request['oper_baduwa_taha'];
                 $shreni = $request['oper_baduwa_shreni'];
@@ -221,7 +221,7 @@ class EmployeeAllRecordController extends Controller
             } else if ($employee_activity == 'nilamban') {
                 $operation_date = $request['oper_nilamban_appointed_date'];
                 $sewa = $request['oper_nilamban_sewa'];
-                $samuha = $request['oper_nilamban_sewa'];
+                $samuha = $request['oper_nilamban_samuha'];
                 $upasamuha = $request['oper_nilamban_upasamuha'];
                 $taha = $request['oper_nilamban_taha'];
                 $shreni = $request['oper_nilamban_shreni'];
@@ -233,7 +233,7 @@ class EmployeeAllRecordController extends Controller
             } else if ($employee_activity == 'awakash') {
                 $operation_date = $request['oper_awakash_appointed_date'];
                 $sewa = $request['oper_awakash_sewa'];
-                $samuha = $request['oper_awakash_sewa'];
+                $samuha = $request['oper_awakash_samuha'];
                 $upasamuha = $request['oper_awakash_upasamuha'];
                 $taha = $request['oper_awakash_taha'];
                 $shreni = $request['oper_awakash_shreni'];
@@ -245,7 +245,7 @@ class EmployeeAllRecordController extends Controller
             } else if ($employee_activity == 'rajinama') {
                 $operation_date = $request['oper_rajinama_appointed_date'];
                 $sewa = $request['oper_rajinama_sewa'];
-                $samuha = $request['oper_rajinama_sewa'];
+                $samuha = $request['oper_rajinama_samuha'];
                 $upasamuha = $request['oper_rajinama_upasamuha'];
                 $taha = $request['oper_rajinama_taha'];
                 $shreni = $request['oper_rajinama_shreni'];

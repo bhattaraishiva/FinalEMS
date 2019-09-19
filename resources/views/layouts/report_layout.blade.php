@@ -30,36 +30,30 @@
                 <center><img src="{{asset('images/logo.svg')}}" alt="logo" style="height:100px;"></center>
                 <div id="report_layout">
                     कर्मचारी व्यवस्थापन प्रणाली , प्रदेश  नम्बर ५ बुटवल,नेपाल<br>
-                    @yield('report_heading')रिपोर्ट बिबरण
-
+                    @yield('report_heading') बिबरण
                 </div>
         </div>
-
     </div>
     <br>
 <hr>
     <div class="" id ="uniform-style">
             <div class="" id="report_layout">
                 @yield('report_title') रिपोर्ट बिबरण
-                
-
-                <a href="" id="printPageButton" onclick=printit(); target="_blank" class="fa fa-print" style="float:right;">print</a>
-                <a href="@yield('back_button')" id="printPageButton" style="float:left;"><i class="fas fa-fast-backward"></i>back</a>
-
-        
+                <a href="" id="hide_on_print" onclick=printit(); target="_blank" class="fa fa-print" style="float:right;">print</a>
+                <a href="@yield('back_button')" id="hide_on_print" style="float:left;"><i class="fas fa-fast-backward"></i>back</a>
             </div>
             <script>
                function printit(){
                 window.print();
                 }
             </script>
-        
+
             <div class="card-body" id="report_layout">
-                    
+
               {{-- {{ csrf_field() }} --}}
                 @csrf
                 @yield('report_body')
-              
+
             </div>
     </div>
 </body>

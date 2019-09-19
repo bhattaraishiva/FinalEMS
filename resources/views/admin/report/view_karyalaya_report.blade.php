@@ -37,45 +37,26 @@
                     {{$karyalaya->nirdeshanalaya['nir_name']}}
 
                 </span>
-
-
             </div>
         </div>
-
         <div class="col-md-3">
             <div class="form-group">
                 <label for="name">दरबन्दि संख्या :</label><span>
                     {{$karyalaya->employee_number}}
-
                 </span>
-
-
             </div>
         </div>
-
         <div class="col-md-3">
             <div class="form-group">
                 <label for="name">रिक्त पद संख्या :</label><span>
                     {{$emptypad}}
                 </span>
-
-
             </div>
         </div>
-
-        {{-- <div class="col-md-3">
-                <div class="form-group">
-                    <label for="name">पद :</label><span>
-                        @foreach ($karyalaya_employees as $karyalaya_employee)
-                        <li>{{$karyalaya_employee->pad->pad_name}}</li>
-        @endforeach
-        </span>
-    </div>
-</div> --}}
 </div>
 <hr>
 <table class="table table-hover">
-    <thead>
+    <thead id="table_head">
         <tr>
             <th>क्रम सं</th>
             <th>पद</th>
@@ -86,9 +67,8 @@
         </tr>
     </thead>
     <tbody>
-
         @foreach($karyalaya_employees as $karyalaya_employee)
-        <tr>
+        <tr id="table_height">
             <td>{{$loop->iteration}}</td>
             <td>
                 @if ($karyalaya_employee->pad_id == null)

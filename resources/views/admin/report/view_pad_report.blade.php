@@ -4,7 +4,7 @@
 @endsection
 @section('report_heading')
 
- पद
+पद
 @endsection
 
 @section('report_body')
@@ -18,10 +18,9 @@
 
 <div class="form-group">
     <div id="form-info">पदको बिबरण</div>
-
     <hr>
     <table class="table table-hover table-bordered">
-        <thead align="left">
+        <thead align="left" id="table_head">
             <tr>
                 <th>क्रम सं</th>
                 <th>पद</th>
@@ -31,12 +30,11 @@
             </tr>
         </thead>
         <tbody align="left">
-
             @foreach($pads as $pad)
-            <tr>
+            <tr id="table_height">
                 @php
-                    $i= $loop->iteration;
-                    $index=$i - 1;
+                $i= $loop->iteration;
+                $index=$i - 1;
                 @endphp
                 <td>{{$i}}</td>
                 <td>
@@ -44,10 +42,10 @@
                 </td>
                 <td>{{$working_pad_sum[$index]}}</td>
                 <td>
-                     @php
-                        $e = $pad_sum[$index] - $working_pad_sum[$index];
+                    @php
+                    $e = $pad_sum[$index] - $working_pad_sum[$index];
                     @endphp
-                        {{$e}}
+                    {{$e}}
                 </td>
                 <td>
                     {{$pad_sum[$index]}}

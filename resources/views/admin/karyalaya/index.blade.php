@@ -16,8 +16,10 @@
 <div class="box box-info">
     <div class="box-header with-border">
         <h3 class="box-title">कार्यालय बिबरण।</h3>
+        <span id="hide_on_print">
         <a href="{{route('karyalaya.create')}}" class=" fa fa-plus btn btn-md btn-info"
             style="float:right;display:inline-table;"> नयाँ कार्यालय </a>
+      <a href=""  onclick=printit(); target="_blank" class="fa fa-print" style="float:center;">print</a></span>
 
     </div>
     <section class="content">
@@ -37,7 +39,7 @@
                                     <th>दरबन्दि संख्या</th>
                                     {{-- <th>कार्यरत संख्या</th>
                                     <th>रिक्त पद संख्या</th> --}}
-                                    <th>Operation</th>
+                                    <th id="hide_on_print">Operation</th>
 
                                 </tr>
                             </thead>
@@ -105,7 +107,7 @@
                                             {{$kar->employee_number}}
                                             @endif
                                     </td> --}}
-                                    <td>
+                                    <td id="hide_on_print">
                                         <a href="{{route('karyalaya.edit',['karyalaya'=>$kar->id ]) }}"
                                             class="fa fa-edit"></a><span>   | </span>
                                         <a href="{{route('ministry_karyalaya.view_karyalaya_report',['karyalaya'=>$kar->id ]) }}"

@@ -184,7 +184,7 @@
     </thead>
     <tbody>
         @foreach($employee_allrecords as $employee_allrec)
-        <tr>
+        <tr id="table_height">
             <td>{{$loop->iteration}}</td>
             <td>
                 @if($employee_allrec->employee_activity=="saruwa")
@@ -248,7 +248,7 @@
     </thead>
     <tbody>
         @foreach($emp_edu_details as $emp_edu_detail)
-        <tr>
+        <tr id="table_height">
             <td>{{$loop->iteration}}</td>
             <td>
                 {{$emp_edu_detail->edu_level}}
@@ -281,7 +281,7 @@
     </thead>
     <tbody>
         @foreach($emp_foreign_tours as $emp_foreign_tour)
-        <tr>
+        <tr id="table_height">
             <td>{{$loop->iteration}}</td>
             <td>{{$emp_foreign_tour->ftour_info}}</td>
             <td>{{$emp_foreign_tour->ftour_country}}</td>
@@ -305,7 +305,7 @@
     </thead>
     <tbody>
         @foreach($emp_trainings as $emp_training)
-        <tr>
+        <tr id="table_height">
             <td>{{$loop->iteration}}</td>
             <td>{{$emp_training->training_type}}</td>
             <td>{{$emp_training->training_institute}}</td>
@@ -326,7 +326,7 @@
     </thead>
     <tbody>
         @foreach($emp_leaves as $emp_leave)
-        <tr>
+        <tr id="table_height">
             <td>{{$loop->iteration}}</td>
             <td>{{$emp_leave->leave_type}}</td>
             <td>{{$emp_leave->leave_start_date}} देखि {{$emp_leave->leave_end_date}} सम्म</td>
@@ -346,7 +346,7 @@
     </thead>
     <tbody>
         @foreach($emp_motivations as $emp_motivation)
-        <tr>
+        <tr id="table_height">
             <td>{{$loop->iteration}}</td>
             <td>{{$emp_motivation->motivation_name}}</td>
             <td>{{$emp_motivation->motivation_provider}}</td>
@@ -368,7 +368,7 @@
     </thead>
     <tbody>
         @foreach($emp_penalties as $emp_penalty)
-        <tr>
+        <tr id="table_height">
             <td>{{$loop->iteration}}</td>
             <td>{{$emp_penalty->penalty_desc}}</td>
             <td>{{$emp_penalty->penalty_decision_date}}</td>

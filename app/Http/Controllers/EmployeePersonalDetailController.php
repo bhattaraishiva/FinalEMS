@@ -105,19 +105,14 @@ class EmployeePersonalDetailController extends Controller
             'pdistrict_id'=>'required',
             'ppalika_id'=>'required',
             'permanent_wardno'=>'required',
-            'permanent_tole'=>'required',
+            
 
             'cpradesh_id'=>'required',
             'cdistrict_id'=>'required',
             'cpalika_id'=>'required',
             'current_wardno'=>'required',
-            'current_tole'=>'required',
-
-
-
+           
         ]);
-
-
         DB::transaction(function() use ($request){
              // checkif the form has file as image
              $filename='';
@@ -403,13 +398,9 @@ class EmployeePersonalDetailController extends Controller
                                 'division'=>$request->division[$key]);
                 EducationInfo::insert($data);
             }
-
         });
-
         Session::flash('success','Employess Personal Detail Successfully stored !');
         return redirect()->route('employeepersonaldetail.index');
-
-
     }
 
     /**
@@ -431,12 +422,22 @@ class EmployeePersonalDetailController extends Controller
      */
     public function edit($id)
     {
+        // dd($id);
         $employee = EmployeePersonalDetail::find($id);
         $districts = District::all();
+        $employee_current_jobinfo = EmployeeCurrentRecord::where('employee_id',$id)->get();
+        // dd($employee_current_jobinfo);
+        $sewas = Sewa::all();
+        $samuhas = samuha::all();
+        $upasamuhas = upasamuha::all();
+        $tahas= taha::all();
+        $shrenis= Shreni::all();
+        $tahas = Taha::all();
+        $ministries= Ministry::all();
+        $nirdeshanalayas = Nirdeshanalaya::all();
 
-        // dd($employee);
-
-        return view('admin.employee_personal_detail.edit')->with(compact('employee','districts'));
+        return view('admin.employee_personal_detail.edit')->with(compact('employee','districts','employee_current_jobinfo','sewas',
+                                                                    'samuhas','upasamuhas','tahas','shrenis','tahas','ministries','nirdeshanalayas'));
 
 
     }
@@ -450,7 +451,7 @@ class EmployeePersonalDetailController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($request);
+        // dd($id);
         $this->validate($request,[
             'employee_number'=>'required',
             'fname'=>'required',
@@ -464,6 +465,7 @@ class EmployeePersonalDetailController extends Controller
 
 
         ]);
+        DB::transaction(function () use ($request,$id) {
         $new_image = $request->old_image;
         // print_r($new_image);
 
@@ -498,9 +500,37 @@ class EmployeePersonalDetailController extends Controller
                     'dob' =>  $request->dob,
                     'image'=>$new_filename
                     ]);
+                    $karar_start_date= null;
+                    $karar_end_date= null;
+                    $naya_sifaris_date= null;
+                    if($request->edit_employee_type == "karar"){
+                        $karar_start_date= $request->edit_karar_start_date;
+                        $karar_end_date= $request->edit_karar_end_date;
+                    }elseif($request->edit_employee_type == "naya"){
+                        $naya_sifaris_date=$request->edit_naya_sifaris_date;
+                    }
 
-                    Session::flash('success','कर्मचारी बिबरण सम्पादन भयो ।');
-                    return redirect()->route('employeepersonaldetail.index');
+                    EmployeeCurrentRecord::where('employee_id', $id)
+                    ->update([
+                    'employee_type'=>$request->edit_employee_type,
+                    'appointed_date'=>$request->edit_appointed_date,
+                    'attendance_date'=>$request->edit_attendance_date,
+                    'karar_start_date'=>$karar_start_date,
+                    'karar_end_date'=>$karar_end_date,
+                    'naya_sifaris_date'=>$naya_sifaris_date,
+                    'sewa_id' =>  $request->edit_sewa,
+                    'samuha_id' =>  $request->edit_samuha,
+                    'upasamuha_id' =>  $request->edit_upasamuha,
+                    'shreni_id' =>  $request->edit_taha,
+                    'taha_id' =>  $request->edit_shreni,
+                    'ministry_id' =>  $request->edit_ministry,
+                    'nirdeshanalaya_id' =>  $request->edit_nirdeshanalaya,
+                    'karyalaya_id' =>  $request->edit_karyalaya,
+                    'pad_id'=>$request->edit_pad
+                    ]);
+                });
+                Session::flash('success','कर्मचारी बिबरण सम्पादन भयो ।');
+                return redirect()->route('employeepersonaldetail.index');
     }
 
     /**

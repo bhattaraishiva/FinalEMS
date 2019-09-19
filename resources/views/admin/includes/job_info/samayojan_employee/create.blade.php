@@ -77,7 +77,7 @@
 {{-- samayojan_before pradesh employee info --}}
 <hr>
 {{-- @include('admin.includes.employee_before_pradesh.create') --}}
-<h3 id="section_header3">प्रदेशमा काम काज गर्नु अघिको नोकरी विवरण </h3>
+<h3 id="section_header3">प्रदेशमा समायोजन हुनु अघिको नोकरी विवरण </h3>
 <div class="row">
     <div class="col-sm-3">
         <label for="pad">पद : <sup>*</sup></label>
@@ -236,9 +236,7 @@
         <div class="form-group">
             <label for="name">पद : <sup>*</sup></label>
             <select name="samayojan_pad" id="samayojan_pad_id" class="form-control">
-                @foreach ($pads as $pad)
-                <option value="{{$pad->id}}"> {{$pad->pad_name}}</option>
-                @endforeach
+                    <option value="">पहिले कार्यालय छान्नुहोस् </option>
             </select>
         </div>
     </div>
@@ -302,7 +300,6 @@
 </div>
 <hr>
 <div class="row">
-
     <div class="col-sm-2">
         <label for="name">तह : <sup>*</sup></label>
         <select name="oper_padasthapan_taha" id="kaamkaj_taha" class="form-control">
@@ -346,9 +343,7 @@
         <div class="form-group">
             <label for="name">पद : <sup>*</sup></label>
             <select name="oper_padasthapan_pad" id="oper_padasthapan_pad_id" class="form-control">
-                @foreach ($pads as $pad)
-                <option value="{{$pad->id}}"> {{$pad->pad_name}}</option>
-                @endforeach
+                    <option value="">पहिले कार्यालय छान्नुहोस् </option>
             </select>
         </div>
     </div>
@@ -358,3 +353,5 @@
             <input type="text" class="form-control" name="oper_padasthapan_attendance_date" nepali-calendar"
                 id="nepaliDate22" placeholder="YYYY-MM-DD">
         </div>
+</div>
+<hr>

@@ -83,7 +83,7 @@
                     <div class="form-group">
                         <label for="name">दरबन्दि संख्या:</label>
                         <input type="number" min="1" name="employee_number" class="form-control"
-                            placeholder="दरबन्दि संख्या" id= "employee_number"required>
+                            placeholder="दरबन्दि संख्या" id="employee_number" required>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -96,50 +96,43 @@
                     </div>
                 </div>
             </div>
-               <h2>कार्यालयको पद संख्या विवरण </h2>
-                <div class="row">
-                    <div class="form-group col-md-12">
-                        <table class="table table-borderd ">
-                            <thead>
-                                <tr>
-                                    <th>पद </th>
-                                    <th>संख्या</th>
-                                    <th><input type="button" value="+" class="btn btn-info addRowforpad"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><select class="form-control " name="pad[]">
-                                            <option>पद </option>
-                                            @foreach($pads as $pad)
-                                            <option value="{{ $pad->id }}">{{ $pad->pad_name }}</option>
-                                            @endforeach
-                                        </select>
-                                     </td>
-                                    <td><input type="number"  min="1" name="pad_qty[]" class="form-control pad_qty"></td>
-                                    <td><button type="button" class="btn btn-danger removepad">-</button></td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
+            <h2>कार्यालयको पद संख्या विवरण </h2>
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <table class="table table-borderd ">
+                        <thead>
+                            <tr>
+                                <th>पद </th>
+                                <th>संख्या</th>
+                                <th><input type="button" value="+" class="btn btn-info addRowforpad"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><select class="form-control " name="pad[]">
+                                        <option>पद </option>
+                                        @foreach($pads as $pad)
+                                        <option value="{{ $pad->id }}">{{ $pad->pad_name }}</option>
+                                        @endforeach
+                                    </select>
+                                </td>
+                                <td><input type="number" min="1" name="pad_qty[]" class="form-control pad_qty"></td>
+                                <td><button type="button" class="btn btn-danger remove">-</button></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
 
-                                    <td style="border:none"><b>जम्मा पद संख्या (दरबन्दी संख्या भन्दा बढी हुनु हुदैन )</b></td>
-                                    <td><input type="text" class="form-control total_pad" id="total_pad" readonly></td>
-                                    <td style="border:none"></td>
+                            <td style="border:none"><b>जम्मा पद संख्या (दरबन्दी संख्या भन्दा बढी हुनु हुदैन )</b></td>
+                            <td><input type="text" class="form-control total_pad" id="total_pad" readonly></td>
+                            <td style="border:none"></td>
 
-                            </tfoot>
+                        </tfoot>
 
-                        </table>
-                    </div>
+                    </table>
                 </div>
+            </div>
 
         </div>
-
-        {{-- <div class="form-group">
-                    <div class="text-center">
-                        <button class="btn btn-lg btn-success" type="submit" style="float:left">सुरक्षित
-                            गर्नुहोस</button>
-                    </div>
-                </div> --}}
 
         <!-- /.box-body -->
         <div class="box-footer form-group">

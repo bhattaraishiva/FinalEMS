@@ -88,9 +88,7 @@
         <div class="form-group">
             <label for="name">पद :<sup>*</sup></label>
             <select name="karar_pad" id="karar_pad_id" class="form-control">
-                    @foreach ($pads as $pad)
-                    <option value="{{$pad->id}}"> {{$pad->pad_name}}</option>
-                @endforeach
+                    <option value="">पहिले कार्यालय छान्नुहोस् </option>
             </select>
         </div>
     </div>

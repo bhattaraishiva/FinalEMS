@@ -25,19 +25,19 @@
                 <th>दरबन्दि संख्या</th>
                 <th>कार्यरत संख्या</th>
                 <th>रिक्त पद संख्या</th>
-                <th id="printPageButton">Report</th>
-                <th id="printPageButton">Detail Report</th>
+                <th id="hide_on_print">Report</th>
+                <th id="hide_on_print">Detail Report</th>
             </tr>
         </thead>
         <tbody>
             @foreach($karyalayas as $kar)
-            <tr>
+            <tr id="table_height"
                 <td>{{$loop->iteration}}</td>
                 <td>{{$kar->ministry->ministry_name}}</td>
                 <td>{{$kar->nirdeshanalaya->nir_name}}</td>
                 <td>{{$kar->kar_name}},{{$kar->karyalaya_address}} [{{$kar->karyalaya_code}}]</td>
                 <td>{{$kar->employee_number}}</td>
-                <td> 
+                <td>
                         @php
                             $a=0;
                         @endphp
@@ -52,8 +52,8 @@
                                 @endphp
                                 @php
                                     $a=$a+1;
-                                    break;    
-                                @endphp                                                                                           
+                                    break;
+                                @endphp
                             @endif
                         @endfor
                         @if ($a==1)
@@ -86,10 +86,10 @@
                         {{$kar->employee_number}}
                         @endif
                 </td>
-                <td id="printPageButton"><a href="{{route('karyalaya.view_karyalaya_report',['karyalaya'=>$kar->id ]) }}"
+                <td id="hide_on_print"><a href="{{route('karyalaya.view_karyalaya_report',['karyalaya'=>$kar->id ]) }}"
                     class="fa fa-eye">view</a>
                 </td>
-                <td id="printPageButton"><a href="{{route('karyalaya.view_detail_karyalaya_report',['karyalaya'=>$kar->id ]) }}" class="fa fa-eye">View detail</a></td>
+                <td id="hide_on_print"><a href="{{route('karyalaya.view_detail_karyalaya_report',['karyalaya'=>$kar->id ]) }}" class="fa fa-eye">View detail</a></td>
 
 
 

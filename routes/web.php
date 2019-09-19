@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Input;
 use App\Ministry;
 /*
@@ -35,7 +36,7 @@ Route::group(['prefix' => 'admin', 'middlware' => 'auth'], function () {
     Route::resource('upasamuha', 'UpasamuhaController');
     // routes fors employee personal records
     Route::resource('employeepersonaldetail', 'EmployeePersonalDetailController');
-    // routes for employeeallrecords 
+    // routes for employeeallrecords
     Route::resource('employeeallrecords', 'EmployeeAllRecordController');
     Route::get('/employee/operate/{id}', 'EmployeeAllRecordController@operate')->name('employeeallrecords.operate');
     Route::post('/operate/employee', [
@@ -78,27 +79,29 @@ Route::group(['prefix' => 'admin', 'middlware' => 'auth'], function () {
         'uses' => 'KaryalayaController@print_all_karyalayas',
         'as' => 'karyalaya.print'
     ]);
-    // this is to get the list of karyalayas of ministry 
-    Route::get('/ministry/report/{id}',[
-        'uses'=>'MinistryController@viewreport',
-        'as'=>'ministry.view_ministry_report'
-        ]);
+    // this is to get the list of karyalayas of ministry
+    Route::get('/ministry/report/{id}', [
+        'uses' => 'MinistryController@viewreport',
+        'as' => 'ministry.view_ministry_report'
+    ]);
 
-    // this is to get the karyalaya detail  of ministry 
-    Route::get('/ministry_karyalayas/report/{id}',[
-        'uses'=>'KaryalayaController@viewkaryalayareport',
-        'as'=>'ministry_karyalaya.view_karyalaya_report'
-        ]);
-    
-    
-    // report  pad wise 
-    Route::get('/pads/report',[
-        'uses'=>'PadController@viewpadreport',
-        'as'=>'pad.view_report'
-        ]);
-    
+    // this is to get the karyalaya detail  of ministry
+    Route::get('/ministry_karyalayas/report/{id}', [
+        'uses' => 'KaryalayaController@viewkaryalayareport',
+        'as' => 'ministry_karyalaya.view_karyalaya_report'
+    ]);
+
+
+    // report  pad wise
+    Route::get('/pads/report', [
+        'uses' => 'PadController@viewpadreport',
+        'as' => 'pad.view_report'
+    ]);
+    // ministry report
+    Route::get('/ministries/report', [
+        'uses' => 'MinistryController@viewMinistryReport',
+        'as' => 'ministry.view_report'
+    ]);
+
     Route::get('/employee/allreport/{id}', 'EmployeeAllRecordController@view_employee_report')->name('employeeallrecord.view_employee_report');
-
-
-
 });

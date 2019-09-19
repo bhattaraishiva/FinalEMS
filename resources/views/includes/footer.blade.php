@@ -1,4 +1,4 @@
-<footer class="main-footer">
+<footer class="main-footer" id="hide_on_print">
   <strong>Copyright &copy; 2019 <a href="https://nepathyacollege.com.np" target="new-tab">IT & RC</a>.</strong> All
   rights
   reserved.
@@ -87,10 +87,10 @@ $(function () {
                                   $('#'+dependent).html(result);
                                   // $('#message').html(result);
                               },
-                              error:function(){
+                              error:function(jqXHR, timeout, message){
                                 // console.log()
-                                console.log("error");
-                                alert("  उपलब्ध  हुन सकेन !! ");
+                                console.log( message);
+                                // alert("  उपलब्ध  हुन सकेन !! ");
                               }
                           })
                       }else
@@ -322,6 +322,9 @@ $(function () {
                                   $('#pad_quantity').val('');
                               }
 
+                          },
+                          error:function(){
+                            console.log('error');
                           }
                       })
                   }
@@ -810,3 +813,9 @@ $(".nexttab").click(function() {
     });
 });
 </script> --}}
+{{-- for printing --}}
+<script>
+  function printit(){
+     window.print();
+     }
+</script>

@@ -14,10 +14,12 @@
 @section('content')
 <!-- Main content -->
 <div class="box box-info">
-  <div class="box-header with-border">
+  <div class="box-header with-border" >
     <h3 class="box-title">कर्मचारी बिबरण।</h3>
-    <a href="{{route('employeepersonaldetail.create')}}" class="btn btn-md btn-primary"
+    <span id="hide_on_print"><a href="{{route('employeepersonaldetail.create')}}"  class="btn btn-md btn-primary"
       style="float:right;display:inline-table;"><span class="fa fa-plus"></span> नयाँ कर्मचारी थप्नुहोस</a>
+      <a href=""  onclick=printit(); target="_blank" class="fa fa-print" style="float:center;">print</a></span>
+
 
   </div>
   <section class="content">
@@ -42,7 +44,7 @@
                   <th>मन्त्रालय</th>
                   <th>निर्देशनालय</th>
                   <th>कार्यालय</th>
-                  <th>Action</th>
+                  <th  id="hide_on_print">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -82,9 +84,9 @@
                     </td>
                     <td>{{$employee->karyalaya['kar_name']}}</td>
 
-                  <td>
-                    {{-- <a href="{{route('employeepersonaldetail.edit',['employee'=>$employee->id ]) }}"
-                    class="fa fa-edit">Edit </a> --}}
+                  <td  id="hide_on_print">
+                    <a href="{{route('employeepersonaldetail.edit',['employee'=>$employee->employee_id ]) }}"
+                    class="fa fa-edit" >Edit </a>
                     <a href="{{route('employeeallrecords.operate',['employee'=>$employee->employee_id ]) }}"
                       class=" fa fa-user">
                       operate</a>

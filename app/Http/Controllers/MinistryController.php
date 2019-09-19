@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Ministry;
 use App\Karyalaya;
 use Session;
+use Illuminate\Support\Facades\DB;
 
 class MinistryController extends Controller
 {
@@ -79,11 +80,19 @@ class MinistryController extends Controller
 
     public function viewreport($id)
     {
-        //  dd($id);    
+        //  dd($id);
         $ministry_karyalayas = Karyalaya::where('ministry_id', $id)->get();
         // dd($ministry_karyalayas);
         return view('admin.report.view_ministry_report')->with(compact(
             'ministry_karyalayas'));
-        
+
+    }
+    public function viewMinistryReport(){
+        $ministries= Ministry::all();
+        // dd($ministries);
+        $ministry_karyalayas = Karyalaya::all();
+        // dd($ministry_karyalayas);
+
+        return view('admin.report.view_ministry_karyalaya_report')->with(compact('ministries','ministry_karyalayas'));
     }
 }

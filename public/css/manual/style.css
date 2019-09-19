@@ -24,7 +24,7 @@
 
 }
 @media print {
-    #printPageButton {
+    #hide_on_print {
       display: none;
     }
   }
@@ -89,4 +89,9 @@
 #table_head{
   /* color:#1D3D99; */
   background-color:azure;
+  line-height: 15px;
+}
+#table_height{
+  line-height: 10px;
+
 }

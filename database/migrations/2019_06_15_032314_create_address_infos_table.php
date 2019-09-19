@@ -20,13 +20,13 @@ class CreateAddressInfosTable extends Migration
             $table->integer('permanent_district');
             $table->integer('permanent_palika');
             $table->integer('permanent_wardno');
-            $table->string('permanent_tole');
+            $table->string('permanent_tole')->nullable();
            
             $table->integer('current_pradesh');
             $table->integer('current_district');
             $table->integer('current_palika');
             $table->integer('current_wardno');
-            $table->string('current_tole');
+            $table->string('current_tole')->nullable();
             $table->timestamps();
         });
     }

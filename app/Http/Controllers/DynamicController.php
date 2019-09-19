@@ -52,7 +52,7 @@ class DynamicController extends Controller
             $data = KaryalayaPad::where('karyalaya_id',$value)->get();
             $output .= '<option value = ""> पद छान्नुहोस् </option>';
             foreach($data as $row){
-                $output .= '<option value = "'.$row->id.'">'.$row->pads->first()->pad_name.'</option>';
+                $output .= '<option value = "'.$row->pad_id.'">'.$row->pads->first()->pad_name.'</option>';
             }
         }
 
@@ -74,7 +74,7 @@ class DynamicController extends Controller
             $data = KaryalayaPad::where('karyalaya_id',$value)->get();
             $output .= '<option value = ""> पद छान्नुहोस् </option>';
             foreach($data as $row){
-                $output .= '<option value = "'.$row->id.'">'.$row->pads->first()->pad_name.'</option>';
+                $output .= '<option value = "'.$row->pad_id.'">'.$row->pads->first()->pad_name.'</option>';
             }
         }
 
@@ -93,7 +93,7 @@ class DynamicController extends Controller
                 $data = KaryalayaPad::where('karyalaya_id',$value)->get();
                 $output .= '<option value = ""> पद छान्नुहोस् </option>';
                 foreach($data as $row){
-                    $output .= '<option value = "'.$row->id.'">'.$row->pads->first()->pad_name.'</option>';
+                    $output .= '<option value = "'.$row->pad_id.'">'.$row->pads->first()->pad_name.'</option>';
                 }
             }
  // this section isfor naya section
@@ -110,7 +110,7 @@ class DynamicController extends Controller
                 $data = KaryalayaPad::where('karyalaya_id',$value)->get();
                 $output .= '<option value = ""> पद छान्नुहोस् </option>';
                 foreach($data as $row){
-                    $output .= '<option value = "'.$row->id.'">'.$row->pads->first()->pad_name.'</option>';
+                    $output .= '<option value = "'.$row->pad_id.'">'.$row->pads->first()->pad_name.'</option>';
                 }
             }
 // this section isfor opration samayojan section
@@ -128,7 +128,7 @@ else if($dependent == 'oper_samayojan_pad_id'){
     $data = KaryalayaPad::where('karyalaya_id',$value)->get();
     $output .= '<option value = ""> पद छान्नुहोस् </option>';
     foreach($data as $row){
-        $output .= '<option value = "'.$row->id.'">'.$row->pads->first()->pad_name.'</option>';
+        $output .= '<option value = "'.$row->pad_id.'">'.$row->pads->first()->pad_name.'</option>';
     }
 }
 // this section isfor operation padasthapan section
@@ -147,7 +147,7 @@ else if($dependent == 'oper_padasthapan_pad_id'){
     $data = KaryalayaPad::where('karyalaya_id',$value)->get();
     $output .= '<option value = ""> पद छान्नुहोस् </option>';
     foreach($data as $row){
-        $output .= '<option value = "'.$row->id.'">'.$row->pads->first()->pad_name.'</option>';
+        $output .= '<option value = "'.$row->pad_id.'">'.$row->pads->first()->pad_name.'</option>';
     }
 }
 // this section isfor operation saruwa section
@@ -163,9 +163,8 @@ if($dependent == 'oper_saruwa_karyalaya_id'){
     }
 }
 else if($dependent == 'oper_saruwa_pad_id'){
-    $data = Pad::where('status',0)
-        ->where('kar_id',$value)
-        ->get();
+    $data = KaryalayaPad::where('karyalaya_id',$value)->get();
+
 
     $output .= '<option value = ""> पद छान्नुहोस् </option>';
     foreach($data as $row){
@@ -188,7 +187,7 @@ else if($dependent == 'oper_baduwa_pad_id'){
     $data = KaryalayaPad::where('karyalaya_id',$value)->get();
     $output .= '<option value = ""> पद छान्नुहोस् </option>';
     foreach($data as $row){
-        $output .= '<option value = "'.$row->id.'">'.$row->pads->first()->pad_name.'</option>';
+        $output .= '<option value = "'.$row->pad_id.'">'.$row->pads->first()->pad_name.'</option>';
     }
 }
 // this section isfor operation nilamban section
@@ -204,13 +203,10 @@ if($dependent == 'oper_nilamban_karyalaya_id'){
     }
 }
 else if($dependent == 'oper_nilamban_pad_id'){
-    $data = Pad::where('status',0)
-        ->where('kar_id',$value)
-        ->get();
-
+    $data = KaryalayaPad::where('karyalaya_id',$value)->get();
     $output .= '<option value = ""> पद छान्नुहोस् </option>';
     foreach($data as $row){
-        $output .= '<option value = "'.$row->id.'">'.$row->pad_name.'</option>';
+        $output .= '<option value = "'.$row->pad_id.'">'.$row->pads->first()->pad_name.'</option>';
     }
 }
 
@@ -219,21 +215,16 @@ if($dependent == 'oper_awakash_karyalaya_id'){
     $data = Karyalaya::where('status',1)
         ->where('ministry_id',$value)
         ->get();
-
     $output = '<option value = ""> कार्यालय छान्नुहोस् </option>';
-
     foreach($data as $row){
         $output .= '<option value = "'.$row->id.'">'.$row->kar_name.'</option>';
     }
     }
     else if($dependent == 'oper_awakash_pad_id'){
-        $data = Pad::where('status',0)
-            ->where('kar_id',$value)
-            ->get();
-
+        $data = KaryalayaPad::where('karyalaya_id',$value)->get();
         $output .= '<option value = ""> पद छान्नुहोस् </option>';
         foreach($data as $row){
-            $output .= '<option value = "'.$row->id.'">'.$row->pad_name.'</option>';
+            $output .= '<option value = "'.$row->pad_id.'">'.$row->pads->first()->pad_name.'</option>';
         }
     }
 
@@ -250,13 +241,10 @@ if($dependent == 'oper_rajinama_karyalaya_id'){
     }
     }
     else if($dependent == 'oper_rajinama_pad_id'){
-        $data = Pad::where('status',0)
-            ->where('kar_id',$value)
-            ->get();
-
+        $data = KaryalayaPad::where('karyalaya_id',$value)->get();
         $output .= '<option value = ""> पद छान्नुहोस् </option>';
         foreach($data as $row){
-            $output .= '<option value = "'.$row->id.'">'.$row->pad_name.'</option>';
+            $output .= '<option value = "'.$row->pad_id.'">'.$row->pads->first()->pad_name.'</option>';
         }
     }
 
@@ -273,16 +261,31 @@ if($dependent == 'oper_sangh_firta_karyalaya_id'){
     }
     }
     else if($dependent == 'oper_sangh_firta_pad_id'){
-        $data = Pad::where('status',0)
-            ->where('kar_id',$value)
-            ->get();
-
+        $data = KaryalayaPad::where('karyalaya_id',$value)->get();
         $output .= '<option value = ""> पद छान्नुहोस् </option>';
         foreach($data as $row){
-            $output .= '<option value = "'.$row->id.'">'.$row->pad_name.'</option>';
+            $output .= '<option value = "'.$row->pad_id.'">'.$row->pads->first()->pad_name.'</option>';
         }
     }
+       // this section isfor edit personaldata section
+       if($dependent == 'edit_karyalaya_id'){
+        $data = Karyalaya::where('status',1)
+            ->where('ministry_id',$value)
+            ->get();
 
+        $output = '<option value = ""> कार्यालय छान्नुहोस् </option>';
+
+        foreach($data as $row){
+            $output .= '<option value = "'.$row->id.'">'.$row->kar_name.'</option>';
+        }
+        }
+        else if($dependent == 'edit_pad_id'){
+            $data = KaryalayaPad::where('karyalaya_id',$value)->get();
+            $output .= '<option value = ""> पद छान्नुहोस् </option>';
+            foreach($data as $row){
+                $output .= '<option value = "'.$row->pad_id.'">'.$row->pads->first()->pad_name.'</option>';
+            }
+        }
 
 //for  permanent address of dynamic palika
         else if($dependent == 'district_id'){
@@ -558,6 +561,22 @@ if($dependent == 'oper_sangh_firta_karyalaya_id'){
         }
 
         else if($dependent == 'oper_sangh_firta_upasamuha_id'){
+            $data = Upasamuha::where('samuha_id',$value)->get();
+            $output = '<option value = "">  उप-समुह छान्नुहोस् </option>';
+            foreach($data as $row){
+                $output .= '<option value = "'.$row->id.'">'.$row->upasamuha_name.'</option>';
+            }
+        }
+        // this section is for editing the employee job
+        else if($dependent == 'edit_samuha_id'){
+            $data = Samuha::where('sewa_id',$value)->get();
+            $output = '<option value = "">  समूह छान्नुहोस् </option>';
+            foreach($data as $row){
+                $output .= '<option value = "'.$row->id.'">'.$row->samuha_name.'</option>';
+            }
+        }
+
+        else if($dependent == 'edit_upasamuha_id'){
             $data = Upasamuha::where('samuha_id',$value)->get();
             $output = '<option value = "">  उप-समुह छान्नुहोस् </option>';
             foreach($data as $row){

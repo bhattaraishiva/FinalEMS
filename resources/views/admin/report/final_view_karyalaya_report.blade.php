@@ -69,7 +69,7 @@
 </div>
 <hr>
 <table class="table table-hover table-bordered">
-    <thead align="left">
+    <thead align="left" id="table_head">
         <tr>
             <th>क्रम सं</th>
             <th>पद</th>
@@ -80,7 +80,7 @@
     </thead>
     <tbody>
         @foreach($kar_allpads as $pad)
-        <tr align="left">
+        <tr align="left" id="table_height">
             <td>{{$loop->iteration}}</td>
             {{-- pads return multiple records as it is hasmany relation ship so use first() or get(0)to get the value --}}
             <td >
@@ -98,7 +98,6 @@
                         @php
                             $emptypad=0;
                             if ($karyalaya_allworking_pads[$i]->pad_id == $pad->pad_id){
-
                                 $working_pad = $karyalaya_allworking_pads[$i]->total;
                                 // $emptypad = $working_pad - $pad->pad_qty ;
                                 // echo($working_pad);
@@ -127,7 +126,7 @@
                         if ($karyalaya_allworking_pads[$i]->pad_id == $pad->pad_id){
 
                         $working_pad = $karyalaya_allworking_pads[$i]->total;
-                        $emptypad = $working_pad - $pad->pad_qty ;
+                        $emptypad = $pad->pad_qty-$working_pad ;
                         // echo($emptypad);
                         break;
                         }

@@ -19,6 +19,8 @@
     <h3 class="box-title" id="uniform-style">मन्त्रालय बिबरण।</h3>
     <a href="{{route('ministry.create')}}" class=" btn btn-md btn-info"
       style="float:right;display:inline-table;"><span class="fa fa-plus"></span> नयाँ मन्त्रालय</a>
+      <a href="{{route('ministry.view_report')}}" class="fa fa-eye btn btn-success" style="float:right;"> मन्त्रालय रिपोर्ट  </a>
+
   </div>
   <section class="content">
     <div class="row">

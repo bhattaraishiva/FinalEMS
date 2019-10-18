@@ -61,7 +61,7 @@
                   <td>
                     @if($employee->employee_type == "samayojan")
                     समायोजन
-                    @elseif($employee->employee_type == "kaam_kaaj")
+                    @elseif($employee->employee_type == "kaam_kaj")
                     कामकाज
                     @elseif($employee->employee_type == "naya")
                     नयाँ

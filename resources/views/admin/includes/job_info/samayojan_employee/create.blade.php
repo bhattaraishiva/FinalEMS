@@ -115,7 +115,7 @@
 </div>
 <hr>
 <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-2">
         <label for="shreni">श्रेणी : <sup>*</sup></label>
         <select name="samayojan_before_pradesh_shreni" id="shreni" class="form-control">
             <option value="">छैन </option>
@@ -124,7 +124,7 @@
             @endforeach
         </select>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2">
         <label for="name">तह : <sup>*</sup></label>
         <select name="samayojan_before_pradesh_taha" id="taha" class="form-control">
             <option value="">छैन </option>
@@ -133,10 +133,15 @@
             @endforeach
         </select>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2">
         <label for="name">कार्यालय : <sup>*</sup></label>
         <input type="text" name="samayojan_before_pradesh_karyalaya" class=" form-control "
             id="before_pradesh_karyalaya" placeholder="कार्यालय">
+    </div>
+    <div class="col-sm-3">
+        <label for="name">(यस पदमा) नियुक्ति मिति  : <sup>*</sup></label>
+        <input type="text" class=" form-control nepali-calendar" id="nepaliDate23" placeholder="YYYY-MM-DD"
+            name="samayojan_before_pradesh_pad_appointed_date" >
     </div>
     <div class="col-sm-3">
         <label for="name">कार्यालयमा हाजिर मिति : <sup>*</sup></label>

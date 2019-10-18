@@ -18,17 +18,17 @@
 
 <div class="form-group" id="uniform-style">
     <div id="form-info">कर्मचारीको व्यक्तिगत बिबरण</div>
-    <div class="row form-group">
+    <div class="row form-group" id="align-text">
         <div class="col-md-3 ">
-            <label for="name">नाम:</label><span> {{$employee->personal_detail->first_name}}
+            <label for="name" id="">नाम:</label><span  id="style_span"> {{$employee->personal_detail->first_name}}
                 {{$employee->personal_detail->middle_name}}
                 {{ $employee->personal_detail->last_name}}</span>
         </div>
         <div class="col-md-3">
-            <label for="name"> संकेत् न:</label><span> {{$employee->employee_number}}</span>
+            <label for="name"> संकेत् न:</label><span  id="style_span"> {{$employee->employee_number}}</span>
         </div>
         <div class="col-md-3">
-            <label for="name"> प्रदेश संकेत् न:</label><span> {{$employee->id}}</span>
+            <label for="name"> प्रदेश संकेत् न:</label><span  id="style_span"> {{$employee->id}}</span>
         </div>
         <div class="col-md-3">
             <img src="/{{$employee->personal_detail->image}}" alt="Image"
@@ -36,21 +36,21 @@
         </div>
     </div>
     <hr>
-    <div class="row">
+    <div class="row" id="align-text">
         <div class="col-md-3">
-            <label for="name">नागरिकता नं:</label><span>{{$employee->personal_detail->national_id}}</span>
+            <label for="name">नागरिकता नं:</label><span  id="style_span">{{$employee->personal_detail->national_id}}</span>
         </div>
         <div class="col-md-3">
-            <label for="name">मोबाइल नं:</label><span>{{$employee->personal_detail->mobile_no}}</span>
+            <label for="name">मोबाइल नं:</label><span  id="style_span">{{$employee->personal_detail->mobile_no}}</span>
         </div>
         <div class="col-md-3">
-            <label for="name">इ-मेल ठेगाना</label><span>{{$employee->personal_detail->email}}</span>
+            <label for="name">इ-मेल ठेगाना</label><span  id="style_span">{{$employee->personal_detail->email}}</span>
         </div>
         {{-- <div class="col-md-3">
-            <label for="name">ठेगाना:</label><span>{{$employee->address_info->current_pradesh}}</span>
+            <label for="name">ठेगाना:</label><span  id="style_span">{{$employee->address_info->current_pradesh}}</span>
     </div> --}}
     <div class="col-md-3">
-        <label for="name">लिङ्ग:</label><span>@if ($employee->personal_detail->gender=='m')
+        <label for="name">लिङ्ग:</label><span  id="style_span">@if ($employee->personal_detail->gender=='m')
             पुरुष
             @elseif($employee->personal_detail->gender=='f')
             महिला
@@ -60,34 +60,34 @@
         </span>
     </div>
     <div class="col-md-3">
-        <label for="name">जन्म मिति :</label><span>{{$employee->personal_detail->dob}}</span>
+        <label for="name">जन्म मिति :</label><span  id="style_span">{{$employee->personal_detail->dob}}</span>
     </div>
     <div class="col-md-3">
-        <label for="name">बुबाको नाम :</label><span>{{$employee->family_info->father_name}}</span>
+        <label for="name">बुबाको नाम :</label><span  id="style_span">{{$employee->family_info->father_name}}</span>
     </div>
     <div class="col-md-3">
-        <label for="name">आमाको नाम:</label><span>{{$employee->family_info->mother_name}}</span>
+        <label for="name">आमाको नाम:</label><span  id="style_span">{{$employee->family_info->mother_name}}</span>
     </div>
     <div class="col-md-3">
-        <label for="name">हजुरबुबाको नाम :</label><span>{{$employee->family_info->grandfather_name}}</span>
-    </div>
-
-    <div class="col-md-3">
-        <label for="name">हजुरआमाको नाम:</label><span>{{$employee->family_info->grandmother_name}}</span>
+        <label for="name">हजुरबुबाको नाम :</label><span  id="style_span">{{$employee->family_info->grandfather_name}}</span>
     </div>
 
     <div class="col-md-3">
-        <label for="name">पति/पत्नी नाम:</label><span>{{$employee->family_info->spouse_name}}</span>
+        <label for="name">हजुरआमाको नाम:</label><span  id="style_span">{{$employee->family_info->grandmother_name}}</span>
+    </div>
+
+    <div class="col-md-3">
+        <label for="name">पति/पत्नी नाम:</label><span  id="style_span">{{$employee->family_info->spouse_name}}</span>
     </div>
 </div>
 <div id="form-info">हालको कार्यालय तथा पद बिबरण</div>
-<div class="row">
+<div class="row" id="align-text">
     <div class="form-group col-md-3">
-        <label for="name">मन्त्रालय :</label><span>{{$employee->ministry['ministry_name']}}</span>
+        <label for="name">मन्त्रालय :</label><span  id="style_span">{{$employee->ministry['ministry_name']}}</span>
     </div>
     <div class="col-md-3">
         <div class="form-group">
-            <label for="name">निर्देशनालय :</label><span>
+            <label for="name">निर्देशनालय :</label><span  id="style_span">
                 @if ($employee->nirdeshanalaya['nir_name']== null)
                 --
                 @else
@@ -98,20 +98,20 @@
     </div>
     <div class="col-md-3">
         <div class="form-group">
-            <label for="name">कार्यालय :</label><span>
+            <label for="name">कार्यालय :</label><span  id="style_span">
                 {{$employee->karyalaya['kar_name']}}[ {{$employee->karyalaya['karyalaya_address']}}]
             </span>
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-group">
-            <label for="name">तह / श्रेणी :</label><span>{{$employee->taha['taha_name']}} /
+            <label for="name">तह / श्रेणी :</label><span  id="style_span">{{$employee->taha['taha_name']}} /
                 {{$employee->shreni['shreni_name']}}</span>
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-group">
-            <label for="name">सेवा /समुह/उप-समुह :</label><span>
+            <label for="name">सेवा /समुह/उप-समुह :</label><span  id="style_span">
                 @if ($sewas->count()>0)
                 @foreach ($sewas as $sewa)
                 @if ($sewa->id == $employee->sewa_id)
@@ -138,7 +138,7 @@
     </div>
     <div class="col-md-3">
         <div class="form-group">
-            <label for="name">पद :</label><span>
+            <label for="name">पद :</label><span  id="style_span">
                 {{-- {{$employee->pad->pad_name}} --}}
                 @foreach ($allpads as $pad)
                 @if($pad->id == $employee->pad_id)
@@ -150,25 +150,32 @@
         </div>
     </div>
     <div class="col-md-3">
-        <label for="name">नियुक्ति मिति :</label><span>{{$employee->appointed_date}}</span>
+        <label for="name">नियुक्ति मिति :</label><span  id="style_span">{{$employee->appointed_date}}</span>
     </div>
     <div class="col-md-3">
         <div class="form-group">
-            <label for="name">प्रकार :</label><span>
+    <label for="name">प्रकार :</label><span  id="style_span">
                 @if($employee->employee_type =='naya')
                 नयाँ
+                               
                 @elseif($employee->employee_type =='samayojan')
                 समायोजन
+                               
                 @elseif($employee->employee_type =='karar')
                 करार
-                @elseif($employee->employee_type =='kaam_kaaj')
+                               
+                @elseif($employee->employee_type =='kaam_kaj')
                 काम काज
+                
+                
                 @endif
             </span>
         </div>
     </div>
 </div>
-<caption>हालको कार्यालय तथा पद बिबरण</caption>
+<div id="form-info">हालको कार्यालय तथा पद बिबरण</div>
+
+<!-- <caption id="form-info">हालको कार्यालय तथा पद बिबरण</caption> -->
 <table class="table table-hover table-bordered">
     <thead id="table_head">
         <tr>
@@ -231,7 +238,9 @@
     </tbody>
 </table>
 <br>
-<caption>कर्मचारीको शैक्षिक योग्यता विवरण </caption>
+<div id="form-info">कर्मचारीको शैक्षिक योग्यता विवरण</div>
+
+<!-- <caption>कर्मचारीको शैक्षिक योग्यता विवरण </caption> -->
 <table class="table table-hover table-bordered">
     <thead id="table_head">
         <tr>
@@ -267,7 +276,9 @@
     </tbody>
 </table>
 <br>
-<caption>बैदेशिक भ्रमण विवरण </caption>
+<!-- <caption>बैदेशिक भ्रमण विवरण </caption> -->
+<div id="form-info">बैदेशिक भ्रमण विवरण</div>
+
 <table class="table table-hover table-bordered">
     <thead id="table_head">
         <tr>
@@ -292,7 +303,9 @@
     </tbody>
 </table>
 <br>
-<caption>तालिम (३० कार्य दिन भन्दा बढी ) विवरण </caption>
+<!-- <caption>तालिम (३० कार्य दिन भन्दा बढी ) विवरण </caption> -->
+<div id="form-info">तालिम (३० कार्य दिन भन्दा बढी ) विवरण </div>
+
 <table class="table table-hover table-bordered">
     <thead id="table_head">
         <tr>
@@ -315,7 +328,9 @@
         @endforeach
     </tbody>
 </table>
-<caption>अध्ययन  बिदा / असाधारण बिदा विवरण </caption>
+<!-- <caption>अध्ययन  बिदा / असाधारण बिदा विवरण </caption> -->
+<div id="form-info">अध्ययन  बिदा / असाधारण बिदा विवरण</div>
+
 <table class="table table-hover table-bordered">
     <thead id="table_head">
         <tr>
@@ -334,7 +349,9 @@
         @endforeach
     </tbody>
 </table>
-<caption >पुरस्कार  /विभूषण /पदक /अन्यको विवरण </caption>
+<!-- <caption >पुरस्कार  /विभूषण /पदक /अन्यको विवरण </caption> -->
+<div id="form-info">पुरस्कार  /विभूषण /पदक /अन्यको विवरण</div>
+
 <table class="table table-hover table-bordered">
     <thead id="table_head">
         <tr>
@@ -355,7 +372,9 @@
         @endforeach
     </tbody>
 </table>
-<caption >निलम्बन/विभागीय /अन्य कारवाही सम्बन्धि विवरण </caption>
+<!-- <caption >निलम्बन/विभागीय /अन्य कारवाही सम्बन्धि विवरण </caption> -->
+<div id="form-info">निलम्बन/विभागीय /अन्य कारवाही सम्बन्धि विवरण </div>
+
 <table class="table table-hover table-bordered">
     <thead id="table_head">
         <tr>

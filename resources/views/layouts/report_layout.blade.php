@@ -49,11 +49,15 @@
             </script>
 
             <div class="card-body" id="report_layout">
-
               {{-- {{ csrf_field() }} --}}
                 @csrf
                 @yield('report_body')
-
+            </div>
+            <div>
+                <strong>
+                    <label>प्रिन्ट गर्ने: {{Auth::user()->name}}</label>
+                    <p>मिति: {{ date("Y-m-d , H:i:s")}} </p>
+                </strong>
             </div>
     </div>
 </body>

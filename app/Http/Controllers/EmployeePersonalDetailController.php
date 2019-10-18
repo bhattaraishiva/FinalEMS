@@ -79,7 +79,7 @@ class EmployeePersonalDetailController extends Controller
      */
     public function store(Request $request)
     {
-    //   dd($request->all());
+      // dd($request->all());
         $this->validate($request,[
             // these arefor personal detail
             'employee_number'=>'required',
@@ -187,6 +187,7 @@ class EmployeePersonalDetailController extends Controller
             $appointed_date=null;
             $ministry_attendance_date= null;
             $padasthapan_appointed_date_from_ministry= null;
+            $before_pradesh_pad_appointed_date=null;
             // $karyalaya_attendance_date= null;
 
             if($employee_type == "kaam_kaaj"){
@@ -208,6 +209,7 @@ class EmployeePersonalDetailController extends Controller
                 $before_pradesh_shreni_id = $request['kaamkaj_before_pradesh_shreni'];
                 $before_pradesh_taha_id = $request['kaamkaj_before_pradesh_taha'];
                 $before_pradesh_karyalaya_name = $request['kaamkaj_before_pradesh_karyalaya'];
+                $before_pradesh_pad_appointed_date = $request['kaamkaj_before_pradesh_pad_appointed_date'];
                 $before_pradesh_attendance_date = $request['kaamkaj_before_pradesh_attendance_date'] ;
                 // this isfor current status
                 $appointed_date = $request['kaamkaj_appointed_date'];
@@ -243,6 +245,7 @@ class EmployeePersonalDetailController extends Controller
                 $before_pradesh_shreni_id = $request['samayojan_before_pradesh_shreni'];
                 $before_pradesh_taha_id = $request['samayojan_before_pradesh_taha'];
                 $before_pradesh_karyalaya_name = $request['samayojan_before_pradesh_karyalaya'];
+                $before_pradesh_pad_appointed_date = $request['samayojan_before_pradesh_pad_appointed_date'];
                 $before_pradesh_attendance_date = $request['samayojan_before_pradesh_attendance_date'];
 
                 // this is for current status
@@ -329,6 +332,7 @@ class EmployeePersonalDetailController extends Controller
                     'before_pradesh_shreni_id'=>$before_pradesh_shreni_id,
                     'before_pradesh_taha_id'=>$before_pradesh_taha_id,
                     'before_pradesh_karyalaya_name'=>$before_pradesh_karyalaya_name,
+                    'before_pradesh_pad_appointed_date'=>$before_pradesh_pad_appointed_date,
                     'before_pradesh_attendance_date'=>$before_pradesh_attendance_date,
 
                 ]);
@@ -528,6 +532,10 @@ class EmployeePersonalDetailController extends Controller
                     'karyalaya_id' =>  $request->edit_karyalaya,
                     'pad_id'=>$request->edit_pad
                     ]);
+
+                    // EmployeeAllRecord::where('employee_id',$id){
+                    //     ->update()
+                    // }
                 });
                 Session::flash('success','कर्मचारी बिबरण सम्पादन भयो ।');
                 return redirect()->route('employeepersonaldetail.index');

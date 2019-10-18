@@ -9,9 +9,12 @@
     height: 24px;
     background: azure;
     margin-top: -11px;
-    color: darkblue;
+    color: black;
     margin-bottom: 10px;
     margin-top: 10px;
+    /*font-size: 20px;*/
+    font-weight: bold;
+    text-decoration: underline;
 }
 /* span{
     color:firebrick;
@@ -90,8 +93,16 @@
   /* color:#1D3D99; */
   background-color:azure;
   line-height: 15px;
+  /*align-items: left;*/
 }
 #table_height{
-  line-height: 10px;
+  line-height: 15px;
 
+}
+#align-text{
+  text-align: left;
+}
+#style_span{
+  font-weight: initial;
+  /*font-size: 10px;*/
 }

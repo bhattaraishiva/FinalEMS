@@ -231,6 +231,7 @@ class KaryalayaController extends Controller
     public function viewkaryalayareport($id)
     {
         $karyalaya = Karyalaya::where('id', $id)->first();
+        // dd($karyalaya);
         $kar_allpads = KaryalayaPad::where('karyalaya_id',$id)->get();
         // dd($kar_allpads);
         $nirdeshanalayas = Nirdeshanalaya::all();
@@ -263,4 +264,42 @@ class KaryalayaController extends Controller
             'kar_allpads'
         ));
     }
+    // for viewing ekaryalaya working employees
+    public function view_karyalaya_working_employees($id)
+    {
+        $karyalaya = Karyalaya::where('id', $id)->first();
+        // dd($karyalaya);
+        $kar_allpads = KaryalayaPad::where('karyalaya_id',$id)->get();
+        // dd($kar_allpads);
+        $nirdeshanalayas = Nirdeshanalaya::all();
+
+        $karyalaya_employees = EmployeeCurrentRecord::where('karyalaya_id', $id)
+            ->where('employee_status', 1)
+            ->get();
+        // dd($karyalaya_employees);
+
+        $count_all_employees = $karyalaya_employees->count();
+        // dd($count_all_employees);
+
+        $emptypad = $karyalaya->employee_number - $count_all_employees;
+        // dd($emptypad);
+
+        $karyalaya_allworking_pads = DB::table('employee_current_records')->where('karyalaya_id', $id)
+            ->where('employee_status', 1)
+            ->select('pad_id', DB::raw('count(*) as total'))
+            ->groupBy('pad_id')
+            ->get();
+        // dd($karyalaya_allworking_pads);
+
+        return view('admin.report.final_view_karyalaya_working_emp_report')->with(compact(
+            'karyalaya',
+            'count_all_employees',
+            'emptypad',
+            'karyalaya_employees',
+            'karyalaya_allworking_pads',
+            'nirdeshanalayas',
+            'kar_allpads'
+        ));
+    }
+
 }

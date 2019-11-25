@@ -90,6 +90,13 @@ Route::group(['prefix' => 'admin', 'middlware' => 'auth'], function () {
         'uses' => 'KaryalayaController@viewkaryalayareport',
         'as' => 'ministry_karyalaya.view_karyalaya_report'
     ]);
+    //get the detail of the karyalaya woking employee
+    Route::get('/karyalaya_working_employee/report/{id}',[
+        'uses'=>'KaryalayaController@view_karyalaya_working_employees',
+        'as'=>'karyalaya.working_employee'
+    ]);
+
+
 
 
     // report  pad wise

@@ -93,10 +93,12 @@
   /* color:#1D3D99; */
   background-color:azure;
   line-height: 15px;
+  font-weight: bold;
+  font-size: 20px;
   /*align-items: left;*/
 }
 #table_height{
-  line-height: 15px;
+  line-height: 20px;
 
 }
 #align-text{
@@ -105,4 +107,7 @@
 #style_span{
   font-weight: initial;
   /*font-size: 10px;*/
+}
+#style_table{
+  border: 1px solid #ddd !important;
 }

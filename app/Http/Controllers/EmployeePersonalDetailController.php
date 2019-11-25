@@ -23,7 +23,7 @@ use App\FirstJobInfo;
 use App\EmployeeCurrentRecord;
 use App\EmployeeAllRecord;
 use App\EducationInfo;
-
+use Auth;
 
 use Session;
 use DB;
@@ -105,15 +105,17 @@ class EmployeePersonalDetailController extends Controller
             'pdistrict_id'=>'required',
             'ppalika_id'=>'required',
             'permanent_wardno'=>'required',
-            
+
 
             'cpradesh_id'=>'required',
             'cdistrict_id'=>'required',
             'cpalika_id'=>'required',
             'current_wardno'=>'required',
-           
+
         ]);
         DB::transaction(function() use ($request){
+
+            $system_user_id = Auth::user()->id;
              // checkif the form has file as image
              $filename='';
             if($request->hasfile('image'))
@@ -125,6 +127,7 @@ class EmployeePersonalDetailController extends Controller
             }
             // store employee personal detail
             $emp = EmployeePersonalDetail::create([
+                'system_user_id'=>$system_user_id,
                 'employee_number'=>$request['employee_number'],
                 'national_id'=>$request['national_id'],
                 'mobile_no'=>$request['mobile_no'],
@@ -148,6 +151,7 @@ class EmployeePersonalDetailController extends Controller
                 $inserted_emp_id = $emp['id'];
                 // store family info
             EmployeeFamilyInfo::create([
+                'system_user_id'=>$system_user_id,
                 'employee_id'=> $inserted_emp_id,
                 'father_name'=>$request['father_name'],
                 'mother_name'=>$request['mother_name'],
@@ -162,6 +166,7 @@ class EmployeePersonalDetailController extends Controller
             ]);
             // store address
             AddressInfo::create([
+                'system_user_id'=>$system_user_id,
                 'employee_id'=> $inserted_emp_id,
                 'permanent_pradesh'=>$request['ppradesh_id'],
                 'permanent_district'=>$request['pdistrict_id'],
@@ -188,6 +193,7 @@ class EmployeePersonalDetailController extends Controller
             $ministry_attendance_date= null;
             $padasthapan_appointed_date_from_ministry= null;
             $before_pradesh_pad_appointed_date=null;
+            $samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date=null;
             // $karyalaya_attendance_date= null;
 
             if($employee_type == "kaam_kaaj"){
@@ -252,23 +258,24 @@ class EmployeePersonalDetailController extends Controller
                 $appointed_date = $request['samayojan_appointed_date'];
                 $chief_ministry_attendance_date = $request['samayojan_chief_ministry_attendance_date'];
                 $samayojan_worked_at_pradesh = $request['samayojan_worked_at_pradesh'];
+                $samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date=$request['samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date'];
                 $sewa = $request['samayojan_sewa'];
                 $samuha = $request['samayojan_samuha'];
                 $upasamuha = $request['samayojan_upasamuha'];
                 $shreni = $request['samayojan_shreni'];
                 $taha = $request['samayojan_taha'];
-                $ministry = $request['samayojan_ministry_id'] ;
-                $nirdeshanalaya = $request['samayojan_nirdeshanalaya'];
-                $karyalaya = $request['samayojan_karyalaya'];
+                // $ministry = $request['samayojan_ministry_id'] ;
+                // $nirdeshanalaya = $request['samayojan_nirdeshanalaya'];
+                // $karyalaya = $request['samayojan_karyalaya'];
                 $pad = $request['samayojan_pad'];
                 //for padasthapan in samayojan form
                 $ministry_attendance_date = $request['oper_padasthapan_attendance_date_to_ministry'];
                 $padasthapan_appointed_date_from_ministry = $request['oper_padasthapan_appointed_date_from_ministry'];
-                $sewa = $request['oper_padasthapan_sewa'];
-                $samuha = $request['oper_padasthapan_sewa'];
-                $upasamuha = $request['oper_padasthapan_upasamuha'];
-                $taha = $request['oper_padasthapan_taha'];
-                $shreni = $request['oper_padasthapan_shreni'];
+                // $sewa = $request['oper_padasthapan_sewa'];
+                // $samuha = $request['oper_padasthapan_sewa'];
+                // $upasamuha = $request['oper_padasthapan_upasamuha'];
+                // $taha = $request['oper_padasthapan_taha'];
+                // $shreni = $request['oper_padasthapan_shreni'];
                 $ministry = $request['oper_padasthapan_ministry'];
                 $nirdeshanalaya = $request['oper_padasthapan_nirdeshanalaya'];
                 $karyalaya = $request['oper_padasthapan_karyalaya'];
@@ -313,6 +320,7 @@ class EmployeePersonalDetailController extends Controller
             if($employee_type == "kaam_kaaj" || $employee_type == "samayojan"){
 
                 FirstJobInfo::create([
+                    'system_user_id'=>$system_user_id,
                     'employee_id'=> $inserted_emp_id,
                     'employee_type'=>$employee_type,
                     'first_pad'=>$first_pad,
@@ -340,6 +348,7 @@ class EmployeePersonalDetailController extends Controller
 
         //    store employee current record
             EmployeeCurrentRecord::create([
+                'system_user_id'=>$system_user_id,
                 'employee_id'=> $inserted_emp_id,
                 'employee_number'=> $request['employee_number'],
                 'employee_type'=>$employee_type,
@@ -349,6 +358,7 @@ class EmployeePersonalDetailController extends Controller
                 'kaamkaj_chief_ministry_implement_date'=>$kaamkaj_chief_ministry_implement_date,
                 'attendance_date'=>$attendance_date,
                 'samayojan_worked_at_pradesh'=>$samayojan_worked_at_pradesh,
+                'samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date'=>$samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date,
                 'karar_start_date'=>$karar_start_date,
                 'karar_end_date'=>$karar_end_date,
                 'naya_sifaris_date'=>$naya_sifaris_date,
@@ -366,6 +376,7 @@ class EmployeePersonalDetailController extends Controller
 
           //    store employee all current record
           EmployeeAllRecord::create([
+            'system_user_id'=>$system_user_id,
             'employee_id'=> $inserted_emp_id,
             'employee_number'=> $request['employee_number'],
             'employee_type'=>$employee_type,
@@ -389,7 +400,9 @@ class EmployeePersonalDetailController extends Controller
         //store employee educational info
 
                 foreach ($request->serial_no as $key => $value) {
-                $data =array(   'employee_id'=>$inserted_emp_id,
+                $data =array(   
+                                'system_user_id'=>$system_user_id,
+                                'employee_id'=>$inserted_emp_id,
                                 'employee_number'=>$request['employee_number'],
                                 'serial_no'=>$value,
                                 'edu_level'=>$request->edu_level[$key],
@@ -485,9 +498,10 @@ class EmployeePersonalDetailController extends Controller
         }
         // print_r($filename);
         // dd($new_filename);
-
+        $system_user_id=Auth::user()->id;
         EmployeePersonalDetail::where('id', $id)
                     ->update([
+                    'system_user_id'=>$system_user_id,
                     'employee_number'=>$request->employee_number,
                     'national_id'=>$request->national_id,
                     'national_id_issue_date'=>$request->national_id_issue_date,
@@ -516,6 +530,7 @@ class EmployeePersonalDetailController extends Controller
 
                     EmployeeCurrentRecord::where('employee_id', $id)
                     ->update([
+                    'system_user_id'=>$system_user_id,
                     'employee_type'=>$request->edit_employee_type,
                     'appointed_date'=>$request->edit_appointed_date,
                     'attendance_date'=>$request->edit_attendance_date,

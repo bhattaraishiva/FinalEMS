@@ -101,12 +101,35 @@ $(function () {
 
 <script>
   function FillAddress(f) {
+    // console.log(f);
   if(f.addresstoo.checked == true) {
-    f.ppradesh_id.value = f.cpradesh_id.value;
-    f.pdistrict_id.value = f.cdistrict_id.value;
-    f.ppalika_id.value = f.cpalika_id.value;
-    f.permanent_wardno.value = f.current_wardno.value;
-    f.permanent_tole.value = f.current_tole.value;
+    var ppradesh = f.ppradesh_id.value;
+    var pdistrict = f.pdistrict_id.value;
+    var ppalika = f.ppalika_id.value;
+    var pward = f.permanent_wardno.value;
+    var ptole = f.permanent_tole.value;
+
+    // console.log(ppradesh,pdistrict,ppalika,pward,ptole);
+    document.getElementById("cdistrict_id").innerHTML = document.getElementById("district_id").innerHTML;
+    document.getElementById("cpalika_id").innerHTML = document.getElementById("palika_id").innerHTML;
+
+    f.cpradesh_id.value= ppradesh;
+    f.cdistrict_id.value = pdistrict;
+    f.cpalika_id.value = ppalika;
+    f.current_wardno.value = pward;
+    f.current_tole.value = ptole;
+    // console.log(f.cpalika_id.value);
+    console.log( f.cpradesh_id.value,f.cdistrict_id.value,f.cpalika_id.value,f.current_wardno.value,f.current_tole.value);
+  }
+  else{
+    console.log("not checked");
+    f.cpradesh_id.value= '';
+    f.cdistrict_id.value = '';
+    f.cpalika_id.value = '';
+    f.current_wardno.value = '';
+    f.current_tole.value = '';
+    console.log( f.cpradesh_id.value,f.cdistrict_id.value,f.cpalika_id.value,f.current_wardno.value,f.current_tole.value);
+
   }
 }
 </script>
@@ -785,37 +808,38 @@ $(".nexttab").click(function() {
         $('#awakash_form').hide();
         $('#rajinama_form').hide();
         $('#sangh_firta_form').hide();
-
       }
-
   });
 });
 </script>
-{{-- this section is for autofill of current adddress --}}
-{{-- <script>
- $(document).ready(function(){
-    $("#filladdress").on("click", function(){
-         if (this.checked) {
-                $("#cpradesh_id").val($("#cpradesh_id").val());
-                $("#cdistrict_id").val($("#district_id").val());
-                $("#cpalika_id").val($("#palika_id").val());
-                $("#current_wardno").val($("#permanent_wardno").val());
-                $("#current_tole").val($("#permanent_tole").val());
 
-    }
-    else {
-        $("#cpradesh_id").val('');
-        $("#cdistrict_id").val('');
-        $("#cpalika_id").val('');
-        $("#current_wardno").val('');
-        $("#current_tole").val('');
-    }
-    });
-});
-</script> --}}
 {{-- for printing --}}
 <script>
   function printit(){
      window.print();
      }
+</script>
+
+{{-- disable date field in samayojan case if ticked in kamkaj  --}}
+<script>
+  $(document).ready(function(){
+   $('#worked_at_pradesh').click(function () {
+    //check if checkbox is checked
+    if ($(this).is(':checked')) {
+      console.log('checked');
+      $('#nepaliDate18').prop('disabled',true);
+      $('#nepaliDate20').prop('disabled',true);
+      $('#nepaliDate24').prop('disabled',false);
+      //enable input
+    } else {
+      console.log('not checked');
+      $('#nepaliDate18').prop('disabled', false);
+      $('#nepaliDate20').prop('disabled',false);
+      $('#nepaliDate24').prop('disabled',true);
+
+       //enable input
+
+    }
+  });
+  });
 </script>

@@ -177,7 +177,7 @@
 
 <!-- <caption id="form-info">हालको कार्यालय तथा पद बिबरण</caption> -->
 <table class="table table-hover table-bordered">
-    <thead id="table_head">
+    <thead >
         <tr>
             <th>सिन</th>
             <th>क्रियाकलाप</th>

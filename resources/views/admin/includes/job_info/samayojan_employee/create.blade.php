@@ -139,9 +139,9 @@
             id="before_pradesh_karyalaya" placeholder="कार्यालय">
     </div>
     <div class="col-sm-3">
-        <label for="name">(यस पदमा) नियुक्ति मिति  : <sup>*</sup></label>
+        <label for="name">(यस पदमा) नियुक्ति मिति : <sup>*</sup></label>
         <input type="text" class=" form-control nepali-calendar" id="nepaliDate23" placeholder="YYYY-MM-DD"
-            name="samayojan_before_pradesh_pad_appointed_date" >
+            name="samayojan_before_pradesh_pad_appointed_date">
     </div>
     <div class="col-sm-3">
         <label for="name">कार्यालयमा हाजिर मिति : <sup>*</sup></label>
@@ -206,53 +206,60 @@
             @endforeach
         </select>
     </div>
-    <div class="form-group col-md-2 ">
+    {{-- <div class="form-group col-md-2 ">
         <label for="name">मन्त्रालय : <sup>*</sup></label>
         <select name="samayojan_ministry_id" id="ministry_id" class="form-control  dynamic"
             data-dependent='samayojan_kar_id'>
             <option value="">मन्त्रालय:</option>
             @foreach ($ministries as $ministry)
             <option value="{{$ministry->id}}">{{$ministry->ministry_name}}</option>
+    @endforeach
+    </select>
+</div>
+<div class="col-md-2 ">
+    <div class="form-group">
+        <label for="name">निर्देशनालय: <sup>*</sup></label>
+        <select name="samayojan_nirdeshanalaya" id="samayojan_nirdeshanalaya_id" class="form-control  dynamic">
+            <option value="">छैन</option>
+            @foreach ($nirdeshanalayas as $nirdeshanalaya)
+            <option value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nir_name}}</option>
             @endforeach
         </select>
     </div>
-    <div class="col-md-2 ">
-        <div class="form-group">
-            <label for="name">निर्देशनालय: <sup>*</sup></label>
-            <select name="samayojan_nirdeshanalaya" id="samayojan_nirdeshanalaya_id" class="form-control  dynamic">
-                <option value="">छैन</option>
-                @foreach ($nirdeshanalayas as $nirdeshanalaya)
-                <option value="{{$nirdeshanalaya->id}}">{{$nirdeshanalaya->nir_name}}</option>
-                @endforeach
-            </select>
-        </div>
-    </div>
-    <div class="col-md-2 ">
-        <div class="form-group">
-            <label for="name">कार्यालय : <sup>*</sup></label>
+</div>
+<div class="col-md-2 ">
+    <div class="form-group">
+        <label for="name">कार्यालय : <sup>*</sup></label>
 
-            <select name="samayojan_karyalaya" id="samayojan_kar_id" class="form-control  dynamic"
-                data-dependent="samayojan_pad_id">
-                <option>पहिले मन्त्रालय छान्नुहोस् </option>
-            </select>
-        </div>
+        <select name="samayojan_karyalaya" id="samayojan_kar_id" class="form-control  dynamic"
+            data-dependent="samayojan_pad_id">
+            <option>पहिले मन्त्रालय छान्नुहोस् </option>
+        </select>
     </div>
-    <div class="col-md-2 ">
-        <div class="form-group">
-            <label for="name">पद : <sup>*</sup></label>
-            <select name="samayojan_pad" id="samayojan_pad_id" class="form-control">
-                    <option value="">पहिले कार्यालय छान्नुहोस् </option>
-            </select>
-        </div>
+</div>
+<div class="col-md-2 ">
+    <div class="form-group">
+        <label for="name">पद : <sup>*</sup></label>
+        <select name="samayojan_pad" id="samayojan_pad_id" class="form-control">
+            <option value="">पहिले कार्यालय छान्नुहोस् </option>
+        </select>
     </div>
+</div>--}}
+<div class="col-sm-3">
+    <label for="name">मु.म.म.प.का.मा हाजिर भएको मिति : <sup>*</sup></label>
+    <input type="text" class=" form-control nepali-calendar" id="nepaliDate18" placeholder="YYYY-MM-DD"
+        name="samayojan_chief_ministry_attendance_date">
+</div>
+
+<div class="col-sm-3">
+    <label for="name">प्रदेशमा काम काज गर्न खटाइएको मिति : <sup>*</sup></label>
+    <input type="text" class=" form-control nepali-calendar" id="nepaliDate24" placeholder="YYYY-MM-DD"
+        name="samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date" disabled>
+</div>
 </div>
 <hr>
 <div class="row">
-    <div class="col-sm-3">
-        <label for="name">मु.म.म.प.का.मा हाजिर भएको मिति : <sup>*</sup></label>
-        <input type="text" class=" form-control nepali-calendar" id="nepaliDate18" placeholder="YYYY-MM-DD"
-            name="samayojan_chief_ministry_attendance_date">
-    </div>
+
 </div>
 {{-- <hr> --}}
 {{-- @include('admin.includes.major_operation.padasthapan') --}}
@@ -271,14 +278,15 @@
         <input type="text" class="form-control" name="oper_padasthapan_appointed_date_from_ministry" nepali-calendar"
             id="nepaliDate21" placeholder="YYYY-MM-DD">
     </div>
-    <div class="col-sm-2">
+    {{-- <div class="col-sm-2">
         <label for="name">सेवा : <sup>*</sup></label>
-        <select name="oper_padasthapan_sewa" id="sewa_id" class="form-control  dynamic" data-dependent='padasthapan_samuha_id'>
+        <select name="oper_padasthapan_sewa" id="sewa_id" class="form-control  dynamic"
+            data-dependent='padasthapan_samuha_id'>
             <option value="">सेवा छान्नुहोस् :</option>
             @foreach ($sewas as $sewa)
             <option value="{{$sewa->id}}">{{$sewa->sewa_name}}</option>
-            @endforeach
-        </select>
+    @endforeach
+    </select>
     </div>
     <div class="col-sm-2">
         <label for="name">समुह : <sup>*</sup></label>
@@ -301,20 +309,20 @@
             <option value="{{$shreni->id}}">{{$shreni->shreni_name}}</option>
             @endforeach
         </select>
-    </div>
-</div>
-<hr>
-<div class="row">
-    <div class="col-sm-2">
-        <label for="name">तह : <sup>*</sup></label>
-        <select name="oper_padasthapan_taha" id="kaamkaj_taha" class="form-control">
-            <option value="">छैन </option>
-            @foreach ($tahas as $taha)
-            <option value="{{$taha->id}}">{{$taha->taha_name}}</option>
-            @endforeach
-        </select>
-    </div>
-    <div class="form-group col-md-2 ">
+    </div> --}}
+    {{-- </div> --}}
+    {{-- <hr> --}}
+    {{-- <div class="row"> --}}
+    {{-- <div class="col-sm-2">
+                <label for="name">तह : <sup>*</sup></label>
+                <select name="oper_padasthapan_taha" id="kaamkaj_taha" class="form-control">
+                    <option value="">छैन </option>
+                    @foreach ($tahas as $taha)
+                    <option value="{{$taha->id}}">{{$taha->taha_name}}</option>
+    @endforeach
+    </select>
+    </div> --}}
+    <div class=" col-md-2 ">
         <label for="name">मन्त्रालय : <sup>*</sup></label>
         <select name="oper_padasthapan_ministry" id="ministry_id" class="form-control  dynamic"
             data-dependent='oper_padasthapan_kar_id'>
@@ -325,7 +333,7 @@
         </select>
     </div>
     <div class="col-md-2 ">
-        <div class="form-group">
+        <div class="">
             <label for="name">निर्देशनालय: <sup>*</sup></label>
             <select name="samayojan_nirdeshanalaya" id="samayojan_nirdeshanalaya_id" class="form-control  dynamic">
                 <option value="">छैन</option>
@@ -336,7 +344,7 @@
         </div>
     </div>
     <div class="col-md-2 ">
-        <div class="form-group">
+        <div class="">
             <label for="name">कार्यालय : <sup>*</sup></label>
             <select name="oper_padasthapan_karyalaya" id="oper_padasthapan_kar_id" class="form-control  dynamic"
                 data-dependent="oper_padasthapan_pad_id">
@@ -345,18 +353,19 @@
         </div>
     </div>
     <div class="col-md-2 ">
-        <div class="form-group">
-            <label for="name">पद : <sup>*</sup></label>
-            <select name="oper_padasthapan_pad" id="oper_padasthapan_pad_id" class="form-control">
-                    <option value="">पहिले कार्यालय छान्नुहोस् </option>
-            </select>
-        </div>
+        <label for="name">पद : <sup>*</sup></label>
+        <select name="oper_padasthapan_pad" id="oper_padasthapan_pad_id" class="form-control">
+            <option value="">पहिले कार्यालय छान्नुहोस् </option>
+        </select>
     </div>
-        <div class="col-sm-2">
-            <label for="name">
-                कार्यालयमा हाजिर मिति : <sup>*</sup></label>
-            <input type="text" class="form-control" name="oper_padasthapan_attendance_date" nepali-calendar"
-                id="nepaliDate22" placeholder="YYYY-MM-DD">
-        </div>
+</div>
+<div class="row">
+    <hr>
+    <div class="col-sm-2">
+        <label for="name">
+            कार्यालयमा हाजिर मिति : <sup>*</sup></label>
+        <input type="text" class="form-control" name="oper_padasthapan_attendance_date" nepali-calendar"
+            id="nepaliDate25" placeholder="YYYY-MM-DD">
+    </div>
 </div>
 <hr>

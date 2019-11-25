@@ -68,6 +68,10 @@
                 <option value="c">क्षेत्री</option>
                 <option value="j">जनजाती</option>
                 <option value="d">दलित </option>
+                <option value="ma">मधेसि</option>
+                <option value="mu">मुस्लिम</option>
+                <option value="o">अन्य</option>
+
             </select>
         </div>
         <div class="col-sm-3">

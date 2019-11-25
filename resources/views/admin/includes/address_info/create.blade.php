@@ -3,11 +3,14 @@
 </div>
 <br>
 <div class="form-group">
-        <center><h4 style="font-weight:bold;">स्थाई ठेगाना </h4><hr></center>
+        <center>
+                <h4 style="font-weight:bold;">स्थाई ठेगाना </h4>
+                <hr>
+        </center>
         <div class="row">
                 <div class="col-sm-2">
                         <label for="name">प्रदेश : <sup>*</sup></label>
-                        <select name="ppradesh_id" id="pradesh_id" class="form-control chosen dynamic"
+                        <select name="ppradesh_id" id="pradesh_id" class="form-control  dynamic"
                                 data-dependent='district_id'>
                                 <option>प्रदेश:</option>
                                 @foreach ($pradeshes as $pradesh)
@@ -19,19 +22,19 @@
                         <label for="name">जिल्ला : <sup>*</sup></label>
                         <select name="pdistrict_id" id="district_id" class="form-control  dynamic"
                                 data-dependent="palika_id">
-                                 <option>पहिले प्रदेश छान्नुहोस् </option>
+                                <option>पहिले प्रदेश छान्नुहोस् </option>
                         </select>
                 </div>
                 <div class="col-sm-2">
                         <label for="name">पालिका : <sup>*</sup></label>
                         <select name="ppalika_id" id="palika_id" class="form-control   dynamic">
-                             <option>पहिले जिल्ला छान्नुहोस् </option>
+                                <option>पहिले जिल्ला छान्नुहोस् </option>
                         </select>
                 </div>
 
                 <div class="col-sm-2">
                         <label for="name">वडा नं : <sup>*</sup></label>
-                        <select name="permanent_wardno" id="permanent_wardno" class="form-control chosen">
+                        <select name="permanent_wardno" id="permanent_wardno" class="form-control ">
                                 <option value="1">१</option>
                                 <option value="2">२</option>
                                 <option value="3">३</option>
@@ -69,18 +72,22 @@
                 <div class="col-sm-4">
                         <label for="name"> गाँउ / टोल :</label>
                         <input class="form-control" type="text" name="permanent_tole" id="permanent_tole"
-                                placeholder="गाँउ / टोल " >
+                                placeholder="गाँउ / टोल ">
                 </div>
         </div>
         <hr>
-        <center><h4 style="font-weight:bold;">हालको ठेगाना </h4><hr></center>
-         <!-- <h4> <input type="checkbox" name="addresstoo" onclick="FillAddress(this.form)">
-                <em>Check this box if Permanent Address and Temporary Address are the same.</em><br />
-        </h4> -->
+        <center>
+                <h4 style="font-weight:bold;">हालको ठेगाना </h4>
+                <hr>
+        </center>
+        <h4> <input type="checkbox" name="addresstoo" onclick="FillAddress(this.form)">
+                <em>Copy Address</em><br />
+        </h4>
         <div class="row">
                 <div class="col-sm-2">
                         <label for="name">प्रदेश : <sup>*</sup></label>
-                        <select name="cpradesh_id" id="pradesh_id" class="form-control chosen dynamic" data-dependent='cdistrict_id'>
+                        <select name="cpradesh_id" id="pradesh_id" class="form-control  dynamic"
+                                data-dependent='cdistrict_id'>
                                 <option>प्रदेश:</option>
                                 @foreach ($pradeshes as $pradesh)
                                 <option value="{{$pradesh->pradesh_id}}">{{$pradesh->pradesh_name}} </option>
@@ -92,7 +99,7 @@
                         <label for="name">जिल्ला : <sup>*</sup></label>
                         <select name="cdistrict_id" id="cdistrict_id" class="form-control  dynamic"
                                 data-dependent="cpalika_id">
-                             <option>पहिले प्रदेश छान्नुहोस् </option>
+                                <option>पहिले प्रदेश छान्नुहोस् </option>
 
                         </select>
                 </div>
@@ -100,14 +107,14 @@
                 <div class="col-sm-2">
                         <label for="name">पालिका : <sup>*</sup></label>
                         <select name="cpalika_id" id="cpalika_id" class="form-control   dynamic">
-                           <option>पहिले जिल्ला छान्नुहोस् </option>
-                       </select>
+                                <option>पहिले जिल्ला छान्नुहोस् </option>
+                        </select>
 
                 </div>
 
                 <div class="col-sm-2">
                         <label for="name">वडा नं : <sup>*</sup></label>
-                        <select name="current_wardno" id="current_wardno" class="form-control chosen">
+                        <select name="current_wardno" id="current_wardno" class="form-control">
                                 <option value="1">१</option>
                                 <option value="2">२</option>
                                 <option value="3">३</option>
@@ -145,7 +152,7 @@
                 <div class="col-sm-4">
                         <label for="name"> गाँउ / टोल : </label>
                         <input class="form-control" type="text" name="current_tole" id="current_tole"
-                                placeholder="गाँउ / टोल " >
+                                placeholder="गाँउ / टोल ">
                 </div>
         </div>
 </div>

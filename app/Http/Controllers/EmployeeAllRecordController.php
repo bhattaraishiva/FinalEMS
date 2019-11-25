@@ -137,7 +137,7 @@ class EmployeeAllRecordController extends Controller
     public function storeActivity(Request $request)
     {
         //   dd($request->all());
-
+        $system_user_id = Auth::user()->id;
         DB::transaction(function () use ($request) {
             $emp_id = $request->employee_id;
             $emp_number = $request->employee_number;
@@ -153,11 +153,12 @@ class EmployeeAllRecordController extends Controller
             $padasthapan_appointed_date_from_ministry = null;
             $karyalaya_attendance_date = null;
             $operation_date = null;
+            $samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date=null;
 
             if ($employee_activity == 'samayojan') {
                 $operation_date = $request['oper_samayojan_appointed_date'];
                 $sewa = $request['oper_samayojan_sewa'];
-                $samuha = $request['oper_samayojan_sewa'];
+                $samuha = $request['oper_samayojan_samuha'];
                 $upasamuha = $request['oper_samayojan_upasamuha'];
                 $taha = $request['oper_samayojan_taha'];
                 $shreni = $request['oper_samayojan_shreni'];
@@ -270,6 +271,7 @@ class EmployeeAllRecordController extends Controller
                 // this section isfor secondary activity
             } else if ($sec_employee_activity == 'training') {
                 EmployeeTraining::create([
+                    'system_user_id'=>$system_user_id,
                     'employee_id' => $emp_id,
                     'employee_number' => $emp_number,
                     'training_type' => $request['training_type'],
@@ -280,6 +282,7 @@ class EmployeeAllRecordController extends Controller
                 ]);
             } else if ($sec_employee_activity == 'foreign_tour') {
                 EmployeeForeignTour::create([
+                    'system_user_id'=>$system_user_id,
                     'employee_id' => $emp_id,
                     'employee_number' => $emp_number,
                     'ftour_info' => $request['ftour_info'],
@@ -290,6 +293,7 @@ class EmployeeAllRecordController extends Controller
                 ]);
             } else if ($sec_employee_activity == 'leave') {
                 EmployeeLeaveInfo::create([
+                    'system_user_id'=>$system_user_id,
                     'employee_id' => $emp_id,
                     'employee_number' => $emp_number,
                     'ftour_info' => $request['ftour_info'],
@@ -299,6 +303,8 @@ class EmployeeAllRecordController extends Controller
                 ]);
             } else if ($sec_employee_activity == 'motivation') {
                 EmployeeMotivationInfo::create([
+                    'system_user_id'=>$system_user_id,
+
                     'employee_id' => $emp_id,
                     'employee_number' => $emp_number,
                     'motivation_name' => $request['motivation_name'],
@@ -307,6 +313,8 @@ class EmployeeAllRecordController extends Controller
                 ]);
             } else if ($sec_employee_activity == 'penalty') {
                 EmployeePenaltyInfo::create([
+                    'system_user_id'=>$system_user_id,
+
                     'employee_id' => $emp_id,
                     'employee_number' => $emp_number,
                     'penalty_desc'=>$request['penalty_name'],
@@ -322,6 +330,8 @@ class EmployeeAllRecordController extends Controller
                 $employee_activity == 'rajinama' || $employee_activity == 'sangh_firta'
             ) {
                 EmployeeAllRecord::create([
+                    'system_user_id'=>$system_user_id,
+
                     'employee_id' => $emp_id,
                     'employee_number' => $emp_number,
                     'employee_type' => $emp_type,
@@ -343,6 +353,8 @@ class EmployeeAllRecordController extends Controller
                 ]);
                 EmployeeCurrentRecord::where('employee_id', $emp_id)
                     ->update([
+                        'system_user_id'=>$system_user_id,
+
                         'sewa_id' => $sewa,
                         'samuha_id' => $samuha,
                         'upasamuha_id' => $upasamuha,

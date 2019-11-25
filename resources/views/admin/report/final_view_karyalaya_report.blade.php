@@ -17,18 +17,21 @@
 @endsection
 
 <div class="form-group">
-    <div id="form-info">कार्यालयको बिबरण</div>
+    <div id="form-info">कार्यालयको बिबरण
+        <span id="hide_on_print" style="float:right;"><a href="{{route('karyalaya.working_employee',['karyalaya'=>$karyalaya->id ]) }}">कार्यरत कर्मचारी </a></span>
+
+    </div>
     <div class="row">
         <div class="col-md-4">
-            <label for="name">कार्यालय : </label><span> {{  $karyalaya->kar_name}},{{$karyalaya->karyalaya_address}}
+            <label for="name">कार्यालय : </label><span id="style_span"> {{  $karyalaya->kar_name}},{{$karyalaya->karyalaya_address}}
                 [{{ $karyalaya->karyalaya_code}}]</span>
         </div>
         <div class="col-md-4">
-            <label for="name">मन्त्रालय :</label><span> {{$karyalaya->ministry->ministry_name}}</span>
+            <label for="name">मन्त्रालय :</label><span id="style_span"> {{$karyalaya->ministry->ministry_name}}</span>
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <label for="name">निर्देशनालय :</label><span>
+                <label for="name">निर्देशनालय :</label><span id="style_span">
                     @foreach ($nirdeshanalayas as $nir)
                     @if ($nir->id == $karyalaya->nirdeshanalaya_id)
                     {{$nir->nir_name}}
@@ -41,7 +44,8 @@
     <div class="row">
         <div class="col-md-3">
             <div class="form-group">
-                <label for="name">दरबन्दि संख्या :</label><span>
+                <label for="name">दरबन्दि संख्या :</label>
+                <span id="style_span">
                     {{$karyalaya->employee_number}}
                 </span>
             </div>
@@ -49,7 +53,8 @@
 
         <div class="col-md-3">
             <div class="form-group">
-                <label for="name">रिक्त पद संख्या :</label><span>
+                <label for="name">रिक्त पद संख्या :</label>
+                <span id="style_span">
                     {{$emptypad}}
                 </span>
             </div>

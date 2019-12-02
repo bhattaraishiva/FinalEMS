@@ -60,15 +60,6 @@
             </div>
         </div>
 
-        {{-- <div class="col-md-3">
-                <div class="form-group">
-                    <label for="name">पद :</label><span>
-                        @foreach ($karyalaya_employees as $karyalaya_employee)
-                        <li>{{$karyalaya_employee->pad->pad_name}}</li>
-        @endforeach
-        </span>
-    </div>
-</div> --}}
 
 </div>
 </div>

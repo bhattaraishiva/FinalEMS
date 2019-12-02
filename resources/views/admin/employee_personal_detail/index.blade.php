@@ -16,6 +16,7 @@
 <div class="box box-info">
   <div class="box-header with-border" >
     <h3 class="box-title">कर्मचारी बिबरण।</h3>
+    <span id="hide_on_print" style="float: right;">Entry By {{$system_user_name}} ={{$employees_registerd_by_user_count}} </span>
     <span id="hide_on_print"><a href="{{route('employeepersonaldetail.create')}}"  class="btn btn-md btn-primary"
       style="float:right;display:inline-table;"><span class="fa fa-plus"></span> नयाँ कर्मचारी थप्नुहोस</a>
       <a href=""  onclick=printit(); target="_blank" class="fa fa-print" style="float:center;">print</a></span>
@@ -48,7 +49,7 @@
                 </tr>
               </thead>
               <tbody>
-                @foreach($emp_personal_records as $employee)
+                @foreach($emp_personal_rec as $employee)
                 @if($employee->employee_status == '1')
                   <tr>
                 @else

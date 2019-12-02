@@ -53,4 +53,8 @@ class EmployeeCurrentRecord extends Model
     public function upasamuha(){
         return $this->belongsTo('App\Upasamuha','upasamuha_id');
     }
+
+     public function before_samayojan_or_kamkaj_appointed_date(){
+        return $this->belongsTo('App\FirstJobInfo','employee_id','employee_id');
+    }
 }

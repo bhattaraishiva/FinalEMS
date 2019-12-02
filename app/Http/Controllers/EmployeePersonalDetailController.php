@@ -41,9 +41,15 @@ class EmployeePersonalDetailController extends Controller
      */
     public function index()
     {
+        $system_user_id = Auth::user()->id;
+        $employees_registerd_by_user = EmployeeCurrentRecord::where('system_user_id',$system_user_id)->get();
+        $employees_registerd_by_user_count = $employees_registerd_by_user->count();
+
         $emp_personal_rec = EmployeeCurrentRecord::all();
+        $system_user_name = Auth::user()->name;
+
         // dd($emp_personal_rec);
-        return view('admin.employee_personal_detail.index')->with('emp_personal_records',$emp_personal_rec);
+        return view('admin.employee_personal_detail.index')->with(compact('emp_personal_rec','employees_registerd_by_user_count','system_user_name'));
     }
 
     /**
@@ -468,7 +474,7 @@ class EmployeePersonalDetailController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // dd($id);
+        // dd($request->all());
         $this->validate($request,[
             'employee_number'=>'required',
             'fname'=>'required',
@@ -540,8 +546,8 @@ class EmployeePersonalDetailController extends Controller
                     'sewa_id' =>  $request->edit_sewa,
                     'samuha_id' =>  $request->edit_samuha,
                     'upasamuha_id' =>  $request->edit_upasamuha,
-                    'shreni_id' =>  $request->edit_taha,
-                    'taha_id' =>  $request->edit_shreni,
+                    'shreni_id' =>  $request->edit_shreni,
+                    'taha_id' =>  $request->edit_taha,
                     'ministry_id' =>  $request->edit_ministry,
                     'nirdeshanalaya_id' =>  $request->edit_nirdeshanalaya,
                     'karyalaya_id' =>  $request->edit_karyalaya,

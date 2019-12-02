@@ -20,6 +20,7 @@ use App\EmployeeForeignTour;
 use App\EmployeeLeaveInfo;
 use App\EmployeeMotivationInfo;
 use App\EmployeePenaltyInfo;
+use Auth;
 
 use Session;
 
@@ -137,8 +138,8 @@ class EmployeeAllRecordController extends Controller
     public function storeActivity(Request $request)
     {
         //   dd($request->all());
-        $system_user_id = Auth::user()->id;
         DB::transaction(function () use ($request) {
+            $system_user_id = Auth::user()->id;
             $emp_id = $request->employee_id;
             $emp_number = $request->employee_number;
             $emp_type = $request->employee_type;

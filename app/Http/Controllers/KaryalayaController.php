@@ -151,36 +151,36 @@ class KaryalayaController extends Controller
         // Session::flash('success','Karyalaya Deleted Successfully');
         // return redirect()->route('karyalaya.index');
     }
-    public function viewreport($id)
-    {
-        //  dd($id);
-        $karyalaya = Karyalaya::where('id', $id)->first();
-        // $allpads = Pad::where('kar_id',$id)
-        //                 ->where('status',1)
-        //                 ->get();
-        // dd($allpads);
-        $karyalaya_employees = Employee::where('kar_id', $id)
-            ->where('emp_status', 1)
-            ->get();
-        $countallpads = $karyalaya_employees->count();
-        $emptypad = $karyalaya->employee_number - $countallpads;
-        $karyalaya_all_pads = DB::table('employees')->where('kar_id', $id)
-            ->where('emp_status', 1)
-            ->select('pad_id', DB::raw('count(*) as total'))
-            ->groupBy('pad_id')
-            ->get();
-        // dd($karyalaya_all_pads);
+    // public function viewreport($id)
+    // {
+    //     //  dd($id);
+    //     $karyalaya = Karyalaya::where('id', $id)->first();
+    //     // $allpads = Pad::where('kar_id',$id)
+    //     //                 ->where('status',1)
+    //     //                 ->get();
+    //     // dd($allpads);
+    //     $karyalaya_employees = Employee::where('kar_id', $id)
+    //         ->where('emp_status', 1)
+    //         ->get();
+    //     $countallpads = $karyalaya_employees->count();
+    //     $emptypad = $karyalaya->employee_number - $countallpads;
+    //     $karyalaya_all_pads = DB::table('employees')->where('kar_id', $id)
+    //         ->where('emp_status', 1)
+    //         ->select('pad_id', DB::raw('count(*) as total'))
+    //         ->groupBy('pad_id')
+    //         ->get();
+    //     // dd($karyalaya_all_pads);
 
-        // dd($karyalaya_employees);
+    //     // dd($karyalaya_employees);
 
-        return view('admin.report.view_karyalaya_report')->with(compact(
-            'karyalaya',
-            'countallpads',
-            'emptypad',
-            'karyalaya_employees',
-            'karyalaya_all_pads'
-        ));
-    }
+    //     return view('admin.report.view_karyalaya_report')->with(compact(
+    //         'karyalaya',
+    //         'countallpads',
+    //         'emptypad',
+    //         'karyalaya_employees',
+    //         'karyalaya_all_pads'
+    //     ));
+    // }
 
     public function print_all_karyalayas()
     {
@@ -275,6 +275,8 @@ class KaryalayaController extends Controller
 
         $karyalaya_employees = EmployeeCurrentRecord::where('karyalaya_id', $id)
             ->where('employee_status', 1)
+            ->orderBy('taha_id','ASC')
+            ->orderBy('attendance_date','DESC') 
             ->get();
         // dd($karyalaya_employees);
 

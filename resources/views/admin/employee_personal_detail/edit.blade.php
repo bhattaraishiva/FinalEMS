@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('page_title')
@@ -93,7 +94,6 @@
                         }
                         @elseif($employee->gender == 'f'){
                         <option selected value="f">महिला</option>
-
                         }
 
                         @endif
@@ -106,48 +106,52 @@
                 <div class="col-sm-3">
                     <label for="name">जाति </label>
                     <select class="form-control chosen" name="caste">
-                        @if ($employee->gender == 'ब्राह्मण'){
-                        <option selected value="ब्राह्मण">ब्राह्मण </option>
-
+                        @if ($employee->caste == 'b'){
+                        <option selected value="b">ब्राह्मण </option>
                         }
-                        @elseif($employee->gender == 'दलित'){
-                        <option selected value="दलित">दलित</option>
-
+                        @elseif($employee->caste == 'd'){
+                        <option selected value="d">दलित</option>
                         }
-                        @elseif($employee->gender == 'जनजाती'){
-                        <option selected value="जनजाती">जनजाती</option>
-
+                        @elseif($employee->caste == 'j'){
+                        <option selected value="j">जनजाती</option>
                         }
-
-                        @elseif($employee->gender == 'छेत्री'){
-                        <option selected value="छेत्री">छेत्री</option>
-
+                        @elseif($employee->caste == 'c'){
+                        <option selected value="c">छेत्री</option>
                         }
-
+                        @elseif($employee->caste == 'ma'){
+                        <option selected value="ma">मधेसि</option>
+                        }
+                        @elseif($employee->caste == 'mu'){
+                        <option selected value="mu">मुस्लिम</option>
+                        }
                         @endif
                         <option value="ब्राह्मण">ब्राह्मण </option>
                         <option value="छेत्री">छेत्री</option>
                         <option value="जनजाती">जनजाती</option>
                         <option value="दलित">दलित </option>
+                        <option value="ma">मधेसि</option>
+                        <option value="mu">मुस्लिम</option>
+                        <option value="o">अन्य</option>
+
                     </select>
                 </div>
 
                 <div class="col-sm-3">
                     <label for="name">समुदाय </label>
                     <select class="form-control chosen" name="community">
-                        @if ($employee->community == 'तराई'){
-                        <option selected value="तराई">तराई </option>
+                        @if ($employee->community == 't'){
+                        <option selected value="t">तराई </option>
                         }
-                        @elseif($employee->community == 'पहाड'){
-                        <option selected value="पहाड">पहाड</option>
+                        @elseif($employee->community == 'p'){
+                        <option selected value="p">पहाड</option>
                         }
-                        @elseif($employee->community == 'हिमाल'){
-                        <option selected value="हिमाल">हिमाल</option>
+                        @elseif($employee->community == 'h'){
+                        <option selected value="h">हिमाल</option>
                         }
                         @endif
-                        <option value="तराई">तराई </option>
-                        <option value="पहाड">पहाड</option>
-                        <option value="हिमाल">हिमाल</option>
+                        <option value="t">तराई </option>
+                        <option value="p">पहाड</option>
+                        <option value="h">हिमाल</option>
                     </select>
                 </div>
 
@@ -171,7 +175,7 @@
                     <label for="name">नागरिकता जारी जिल्ला </label>
                     <select name="national_id_issue_district" id="national_id_issue_district"
                         class="form-control chosen">
-
+                        <option value="{{$employee->national_id_issue_district_id}}" selected>{{$employee->address_info['district_name']}}</option>
                         @foreach ($districts as $district)
                         <option value="{{$district->district_id}}">{{$district->district_name}}</option>
 

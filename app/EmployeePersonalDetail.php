@@ -17,5 +17,7 @@ class EmployeePersonalDetail extends Model
         return $this->hasOne('App\EmployeeFamilyInfo','employee_id');        
     }
    
-   
+   public function address_info(){
+        return $this->belongsTo('App\District','national_id_issue_district_id','district_id');
+    }   
 }

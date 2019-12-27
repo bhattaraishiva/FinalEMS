@@ -146,6 +146,8 @@ class EmployeePersonalDetailController extends Controller
                 'eng_last_name'=>$request['elname'],
                 'gender'=>$request['gender'],
                 'dob'=>$request['dob'],
+                'dob_ad'=>$request['dob_ad'],
+
                 'image'=>'uploads/employee_photo/'. $filename,
                 'caste'=>$request['caste'],
                 'community'=>$request['community'],
@@ -189,17 +191,41 @@ class EmployeePersonalDetailController extends Controller
 
             $employee_type=$request['employee_type'];
             $chief_ministry_attendance_date= null;
+            $chief_ministry_attendance_date_ad= null;
+
             $kaamkaj_chief_ministry_implement_date= null;
+            $kaamkaj_chief_ministry_implement_date_ad= null;
+
             $attendance_date = null;
+            $attendance_date_ad = null;
+
             $samayojan_worked_at_pradesh = null;
+            $samayojan_worked_at_pradesh_ad = null;
+
             $karar_start_date = null;
+            $karar_start_date_ad = null;
+
             $karar_end_date = null;
+            $karar_end_date_ad = null;
+
             $naya_sifaris_date = null;
+            $naya_sifaris_date_ad = null;
+
             $appointed_date=null;
+            $appointed_date_ad=null;
+
             $ministry_attendance_date= null;
+            $ministry_attendance_date_ad= null;
+            
             $padasthapan_appointed_date_from_ministry= null;
+            $padasthapan_appointed_date_from_ministry_ad= null;
+
             $before_pradesh_pad_appointed_date=null;
+            $before_pradesh_pad_appointed_date_ad=null;
+
             $samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date=null;
+            $samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date_ad=null;
+
             // $karyalaya_attendance_date= null;
 
             if($employee_type == "kaam_kaaj"){
@@ -212,7 +238,10 @@ class EmployeePersonalDetailController extends Controller
                 $first_taha_id = $request['kaamkaj_first_taha'];
                 $first_karyalaya_name = $request['kaamkaj_first_karyalaya_name'];
                 $first_appointed_date = $request['kaamkaj_first_appointed_date'];
+                $first_appointed_date_ad = $request['kaamkaj_first_appointed_date_ad'];
                 $first_attendance_date = $request['kaamkaj_first_attendance_date'];
+                $first_attendance_date_ad = $request['kaamkaj_first_attendance_date_ad'];
+
 
                 $before_pradesh_pad = $request['kaamkaj_before_pradesh_pad'];
                 $before_pradesh_sewa_id = $request['kaamkaj_before_pradesh_sewa'];
@@ -222,10 +251,15 @@ class EmployeePersonalDetailController extends Controller
                 $before_pradesh_taha_id = $request['kaamkaj_before_pradesh_taha'];
                 $before_pradesh_karyalaya_name = $request['kaamkaj_before_pradesh_karyalaya'];
                 $before_pradesh_pad_appointed_date = $request['kaamkaj_before_pradesh_pad_appointed_date'];
+                $before_pradesh_pad_appointed_date_ad = $request['kaamkaj_before_pradesh_pad_appointed_date_ad'];
                 $before_pradesh_attendance_date = $request['kaamkaj_before_pradesh_attendance_date'] ;
+                $before_pradesh_attendance_date_ad = $request['kaamkaj_before_pradesh_attendance_date_ad'] ;
+
                 // this isfor current status
                 $appointed_date = $request['kaamkaj_appointed_date'];
+                $appointed_date_ad = $request['kaamkaj_appointed_date_ad'];
                 $chief_ministry_attendance_date = $request['kaamkaj_chief_ministry_attendance_date'];
+                $chief_ministry_attendance_date_ad = $request['kaamkaj_chief_ministry_attendance_date_ad'];
                 $sewa = $request['kaamkaj_sewa'];
                 $samuha = $request['kaamkaj_samuha'];
                 $upasamuha = $request['kaamkaj_upasamuha'];
@@ -236,7 +270,10 @@ class EmployeePersonalDetailController extends Controller
                 $karyalaya = $request['kaamkaj_karyalaya'];
                 $pad = $request['kaamkaj_pad'];
                 $kaamkaj_chief_ministry_implement_date = $request['kaamkaj_chief_ministry_implement_date'];
+                $kaamkaj_chief_ministry_implement_date_ad = $request['kaamkaj_chief_ministry_implement_date_ad'];
                 $attendance_date = $request['kaamkaj_attendance_date'] ;
+                $attendance_date_ad = $request['kaamkaj_attendance_date_ad'] ;
+
 
             }
             else if($employee_type == "samayojan"){
@@ -248,7 +285,9 @@ class EmployeePersonalDetailController extends Controller
                 $first_taha_id = $request['samayojan_first_taha'];
                 $first_karyalaya_name = $request['samayojan_first_karyalaya_name'];
                 $first_appointed_date = $request['samayojan_first_appointed_date'];
+                $first_appointed_date_ad = $request['samayojan_first_appointed_date_ad'];
                 $first_attendance_date = $request['samayojan_first_attendance_date'];
+                $first_attendance_date_ad = $request['samayojan_first_attendance_date_ad'];
 
                 $before_pradesh_pad = $request['samayojan_before_pradesh_pad'];
                 $before_pradesh_sewa_id = $request['samayojan_before_pradesh_sewa'];
@@ -258,13 +297,18 @@ class EmployeePersonalDetailController extends Controller
                 $before_pradesh_taha_id = $request['samayojan_before_pradesh_taha'];
                 $before_pradesh_karyalaya_name = $request['samayojan_before_pradesh_karyalaya'];
                 $before_pradesh_pad_appointed_date = $request['samayojan_before_pradesh_pad_appointed_date'];
+                $before_pradesh_pad_appointed_date_ad = $request['samayojan_before_pradesh_pad_appointed_date_ad'];
                 $before_pradesh_attendance_date = $request['samayojan_before_pradesh_attendance_date'];
+                $before_pradesh_attendance_date_ad = $request['samayojan_before_pradesh_attendance_date_ad'];
 
                 // this is for current status
                 $appointed_date = $request['samayojan_appointed_date'];
+                $appointed_date_ad = $request['samayojan_appointed_date_ad'];
                 $chief_ministry_attendance_date = $request['samayojan_chief_ministry_attendance_date'];
+                $chief_ministry_attendance_date_ad = $request['samayojan_chief_ministry_attendance_date_ad'];
                 $samayojan_worked_at_pradesh = $request['samayojan_worked_at_pradesh'];
                 $samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date=$request['samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date'];
+                $samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date_ad=$request['samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date_ad'];
                 $sewa = $request['samayojan_sewa'];
                 $samuha = $request['samayojan_samuha'];
                 $upasamuha = $request['samayojan_upasamuha'];
@@ -276,7 +320,10 @@ class EmployeePersonalDetailController extends Controller
                 $pad = $request['samayojan_pad'];
                 //for padasthapan in samayojan form
                 $ministry_attendance_date = $request['oper_padasthapan_attendance_date_to_ministry'];
+                $ministry_attendance_date_ad = $request['oper_padasthapan_attendance_date_to_ministry_ad'];
                 $padasthapan_appointed_date_from_ministry = $request['oper_padasthapan_appointed_date_from_ministry'];
+                $padasthapan_appointed_date_from_ministry_ad = $request['oper_padasthapan_appointed_date_from_ministry_ad'];
+
                 // $sewa = $request['oper_padasthapan_sewa'];
                 // $samuha = $request['oper_padasthapan_sewa'];
                 // $upasamuha = $request['oper_padasthapan_upasamuha'];
@@ -287,12 +334,17 @@ class EmployeePersonalDetailController extends Controller
                 $karyalaya = $request['oper_padasthapan_karyalaya'];
                 $pad = $request['oper_padasthapan_pad'];
                 $attendance_date = $request['oper_padasthapan_attendance_date'];
+                $attendance_date_ad = $request['oper_padasthapan_attendance_date_ad'];
+
           }
           else if($employee_type == "karar"){
              // this isfor current status
              $appointed_date = $request['karar_appointed_date'];
+             $appointed_date_ad = $request['karar_appointed_date_ad'];
              $karar_start_date = $request['karar_start_date'];
+             $karar_start_date_ad = $request['karar_start_date_ad'];
              $karar_end_date = $request['karar_end_date'];
+             $karar_end_date_ad = $request['karar_end_date_ad'];
              $sewa = $request['karar_sewa'];
              $samuha = $request['karar_samuha'];
              $upasamuha = $request['karar_upasamuha'];
@@ -303,12 +355,16 @@ class EmployeePersonalDetailController extends Controller
              $karyalaya = $request['karar_karyalaya'];
              $pad = $request['karar_pad'];
              $attendance_date = $request['karar_attendance_date'] ;
+             $attendance_date_ad = $request['karar_attendance_date_ad'] ;
+
 
           }
           else if($employee_type == "naya"){
             // this isfor current status
             $appointed_date = $request['naya_appointed_date'];
+            $appointed_date_ad = $request['naya_appointed_date_ad'];
             $naya_sifaris_date = $request['naya_sifaris_date'];
+            $naya_sifaris_date_ad = $request['naya_sifaris_date_ad'];
             $sewa = $request['naya_sewa'];
             $samuha = $request['naya_samuha'];
             $upasamuha = $request['naya_upasamuha'];
@@ -318,7 +374,9 @@ class EmployeePersonalDetailController extends Controller
             $nirdeshanalaya = $request['naya_nirdeshanalaya'];
             $karyalaya = $request['naya_karyalaya'];
             $pad = $request['naya_pad'];
-            $attendance_date = $request['naya_attendance_date'] ;
+            $attendance_date = $request['naya_attendance_date'];
+            $attendance_date_ad = $request['naya_attendance_date_ad'];
+
 
          }
 
@@ -337,7 +395,9 @@ class EmployeePersonalDetailController extends Controller
                     'first_taha_id'=>$first_taha_id,
                     'first_karyalaya_name'=>$first_karyalaya_name,
                     'first_appointed_date'=>$first_appointed_date,
+                    'first_appointed_date_ad'=>$first_appointed_date_ad,
                     'first_attendance_date'=>$first_attendance_date,
+                    'first_attendance_date_ad'=>$first_attendance_date_ad,
 
                     'before_pradesh_pad'=>$before_pradesh_pad,
                     'before_pradesh_sewa_id'=>$before_pradesh_sewa_id,
@@ -347,7 +407,9 @@ class EmployeePersonalDetailController extends Controller
                     'before_pradesh_taha_id'=>$before_pradesh_taha_id,
                     'before_pradesh_karyalaya_name'=>$before_pradesh_karyalaya_name,
                     'before_pradesh_pad_appointed_date'=>$before_pradesh_pad_appointed_date,
+                    'before_pradesh_pad_appointed_date_ad'=>$before_pradesh_pad_appointed_date_ad,
                     'before_pradesh_attendance_date'=>$before_pradesh_attendance_date,
+                    'before_pradesh_attendance_date_ad'=>$before_pradesh_attendance_date_ad,
 
                 ]);
             }
@@ -360,14 +422,29 @@ class EmployeePersonalDetailController extends Controller
                 'employee_type'=>$employee_type,
 
                 'appointed_date'=>$appointed_date,
+                'appointed_date_ad'=>$appointed_date_ad,
+
                 'chief_ministry_attendance_date'=>$chief_ministry_attendance_date,
+                'chief_ministry_attendance_date_ad'=>$chief_ministry_attendance_date_ad,
+
                 'kaamkaj_chief_ministry_implement_date'=>$kaamkaj_chief_ministry_implement_date,
+                'kaamkaj_chief_ministry_implement_date_ad'=>$kaamkaj_chief_ministry_implement_date_ad,
+
                 'attendance_date'=>$attendance_date,
+                'attendance_date_ad'=>$attendance_date_ad,
+
                 'samayojan_worked_at_pradesh'=>$samayojan_worked_at_pradesh,
                 'samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date'=>$samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date,
+                'samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date_ad'=>$samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date_ad,
+
                 'karar_start_date'=>$karar_start_date,
+                'karar_start_date_ad'=>$karar_start_date_ad,
+
                 'karar_end_date'=>$karar_end_date,
+                'karar_end_date_ad'=>$karar_end_date_ad,
+
                 'naya_sifaris_date'=>$naya_sifaris_date,
+                'naya_sifaris_date_ad'=>$naya_sifaris_date_ad,
 
                 'sewa_id'=>$sewa,
                 'samuha_id'=>$samuha,
@@ -388,6 +465,7 @@ class EmployeePersonalDetailController extends Controller
             'employee_type'=>$employee_type,
             'employee_activity'=>$employee_type,
             'operation_date'=>$appointed_date,
+            'operation_date_ad'=>$appointed_date_ad,
 
             'sewa_id'=>$sewa,
             'samuha_id'=>$samuha,
@@ -399,9 +477,15 @@ class EmployeePersonalDetailController extends Controller
             'karyalaya_id'=>$karyalaya,
             'pad_id'=>$pad,
 
-            'ministry_attendance_date'=>null,
-            'padasthapan_appointed_date_from_ministry'=>null,
-            'karyalaya_attendance_date'=>$attendance_date
+            'ministry_attendance_date'=>$ministry_attendance_date,
+            'ministry_attendance_date_ad'=>$ministry_attendance_date_ad,
+
+            'padasthapan_appointed_date_from_ministry'=>$padasthapan_appointed_date_from_ministry,
+            'padasthapan_appointed_date_from_ministry_ad'=>$padasthapan_appointed_date_from_ministry_ad,
+
+            'karyalaya_attendance_date'=>$attendance_date,
+            'karyalaya_attendance_date_ad'=>$attendance_date_ad,
+
         ]);
         //store employee educational info
 
@@ -480,7 +564,7 @@ class EmployeePersonalDetailController extends Controller
             'fname'=>'required',
             'lname'=>'required',
             'gender'=>'required',
-            'dob'=>'required',
+            'dob'=>'required|date|date-format:Y-m-d',
             'elname'=>'required',
             'national_id'=>'required',
             'national_id_issue_date'=>'required',
@@ -522,16 +606,29 @@ class EmployeePersonalDetailController extends Controller
                     'eng_last_name' =>  $request->elname,
                     'gender' =>  $request->gender,
                     'dob' =>  $request->dob,
+                    'dob_ad' =>  $request->dob_ad,
+
                     'image'=>$new_filename
                     ]);
                     $karar_start_date= null;
+                    $karar_start_date_ad= null;
+
                     $karar_end_date= null;
                     $naya_sifaris_date= null;
+                    $karar_end_date_ad= null;
+                    $naya_sifaris_date_ad= null;
+                    
                     if($request->edit_employee_type == "karar"){
                         $karar_start_date= $request->edit_karar_start_date;
+                        $karar_start_date_ad= $request->edit_karar_start_date_ad;
+
                         $karar_end_date= $request->edit_karar_end_date;
+                        $karar_end_date_ad= $request->edit_karar_end_date_ad;
+
                     }elseif($request->edit_employee_type == "naya"){
                         $naya_sifaris_date=$request->edit_naya_sifaris_date;
+                        $naya_sifaris_date_ad=$request->edit_naya_sifaris_date_ad;
+
                     }
 
                     EmployeeCurrentRecord::where('employee_id', $id)
@@ -539,10 +636,20 @@ class EmployeePersonalDetailController extends Controller
                     'system_user_id'=>$system_user_id,
                     'employee_type'=>$request->edit_employee_type,
                     'appointed_date'=>$request->edit_appointed_date,
+                    'appointed_date_ad'=>$request->edit_appointed_date_ad,
+
                     'attendance_date'=>$request->edit_attendance_date,
+                    'attendance_date_ad'=>$request->edit_attendance_date_ad,
+
                     'karar_start_date'=>$karar_start_date,
+                    'karar_start_date_ad'=>$karar_start_date_ad,
+
                     'karar_end_date'=>$karar_end_date,
+                    'karar_end_date_ad'=>$karar_end_date_ad,
+
                     'naya_sifaris_date'=>$naya_sifaris_date,
+                    'naya_sifaris_date_ad'=>$naya_sifaris_date_ad,
+
                     'sewa_id' =>  $request->edit_sewa,
                     'samuha_id' =>  $request->edit_samuha,
                     'upasamuha_id' =>  $request->edit_upasamuha,

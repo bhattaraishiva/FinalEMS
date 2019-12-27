@@ -60,8 +60,12 @@
     </div>
     <div class="col-sm-2">
         <label for="name">नियुक्ती मिति : <sup>*</sup></label>
-        <input class="form-control nepali-calendar" name="samayojan_first_appointed_date" type="text" id="nepaliDate15"
-            placeholder="YYYY-MM-DD">
+        <div id="datepicker">
+            <input class="form-control" type="text" name="samayojan_first_appointed_date" id="np-datepicker_samayojan_first_job1" placeholder="YYYY-MM-DD" />
+            <input id="dateAD_samayojan1" type="text" name="samayojan_first_appointed_date_ad" hidden/>
+        </div>
+        {{-- <input class="form-control nepali-calendar" name="samayojan_first_appointed_date" type="text" id="nepaliDate15"
+            placeholder="YYYY-MM-DD"> --}}
     </div>
     <div class="col-sm-3">
         <label for="name">कार्यालय : <sup>*</sup></label>
@@ -70,8 +74,12 @@
     </div>
     <div class="col-sm-3">
         <label for="name">कार्यालयमा हाजिर मिति : <sup>*</sup></label>
-        <input type="text" class=" form-control nepali-calendar" id="nepaliDate16" placeholder="YYYY-MM-DD"
-            name="samayojan_first_attendance_date">
+        <div id="datepicker">
+            <input class="form-control" type="text" name="samayojan_first_attendance_date" id="np-datepicker_samayojan_first_job2" placeholder="YYYY-MM-DD" />
+            <input id="dateAD_samayojan2" type="text" name="samayojan_first_attendance_date_ad" hidden/>
+        </div>
+        {{-- <input type="text" class=" form-control nepali-calendar" id="nepaliDate16" placeholder="YYYY-MM-DD"
+            name="samayojan_first_attendance_date"> --}}
     </div>
 </div>
 {{-- samayojan_before pradesh employee info --}}
@@ -140,13 +148,21 @@
     </div>
     <div class="col-sm-3">
         <label for="name">(यस पदमा) नियुक्ति मिति : <sup>*</sup></label>
-        <input type="text" class=" form-control nepali-calendar" id="nepaliDate23" placeholder="YYYY-MM-DD"
-            name="samayojan_before_pradesh_pad_appointed_date">
+        <div id="datepicker">
+            <input class="form-control" type="text" name="samayojan_before_pradesh_pad_appointed_date" id="np-datepicker_samayojan_before_pradesh1" placeholder="YYYY-MM-DD" />
+            <input id="dateAD_samayojan3" type="text" name="samayojan_before_pradesh_pad_appointed_date_ad"hidden/>
+        </div>
+        {{-- <input type="text" class=" form-control nepali-calendar" id="nepaliDate23" placeholder="YYYY-MM-DD"
+            name="samayojan_before_pradesh_pad_appointed_date"> --}}
     </div>
     <div class="col-sm-3">
         <label for="name">कार्यालयमा हाजिर मिति : <sup>*</sup></label>
-        <input type="text" class=" form-control nepali-calendar" id="nepaliDate17" placeholder="YYYY-MM-DD"
-            name="samayojan_before_pradesh_attendance_date">
+        <div id="datepicker">
+            <input class="form-control" type="text" name="samayojan_before_pradesh_attendance_date" id="np-datepicker_samayojan_before_pradesh2" placeholder="YYYY-MM-DD" />
+            <input id="dateAD_samayojan4" type="text" name="samayojan_before_pradesh_attendance_date_ad"hidden/>
+        </div>
+        {{-- <input type="text" class=" form-control nepali-calendar" id="nepaliDate17" placeholder="YYYY-MM-DD"
+            name="samayojan_before_pradesh_attendance_date"> --}}
     </div>
 </div>
 
@@ -156,8 +172,12 @@
 <div class="row">
     <div class="col-sm-3">
         <label for="name">समायोजन निर्णय मिति : <sup>*</sup></label>
-        <input type="text" class="form-control" name="samayojan_appointed_date" nepali-calendar" id="nepaliDate14"
-            placeholder="YYYY-MM-DD">
+        <div id="datepicker">
+            <input class="form-control" type="text" name="samayojan_appointed_date" id="np-datepicker_samayojan_current_job1" placeholder="YYYY-MM-DD" />
+            <input id="dateAD_samayojan5" type="text" name="samayojan_appointed_date_ad" hidden/>
+        </div>
+        {{-- <input type="text" class="form-control" name="samayojan_appointed_date" nepali-calendar" id="nepaliDate14"
+            placeholder="YYYY-MM-DD"> --}}
     </div>
     <div class="col-sm-3">
         <label for="name">प्रदेशमा कामकाज गरिरहेको ? :</label><br>
@@ -247,14 +267,22 @@
 </div>--}}
 <div class="col-sm-3">
     <label for="name">मु.म.म.प.का.मा हाजिर भएको मिति : <sup>*</sup></label>
-    <input type="text" class=" form-control nepali-calendar" id="nepaliDate18" placeholder="YYYY-MM-DD"
-        name="samayojan_chief_ministry_attendance_date">
+    <div id="datepicker">
+        <input class="form-control" type="text" name="samayojan_chief_ministry_attendance_date" id="np-datepicker_samayojan_current_job2" placeholder="YYYY-MM-DD" />
+        <input id="dateAD_samayojan6" type="text" name="samayojan_chief_ministry_attendance_date_ad" hidden/>
+    </div>
+    {{-- <input type="text" class=" form-control nepali-calendar" id="nepaliDate18" placeholder="YYYY-MM-DD"
+        name="samayojan_chief_ministry_attendance_date"> --}}
 </div>
 
 <div class="col-sm-3">
     <label for="name">प्रदेशमा काम काज गर्न खटाइएको मिति : <sup>*</sup></label>
-    <input type="text" class=" form-control nepali-calendar" id="nepaliDate24" placeholder="YYYY-MM-DD"
-        name="samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date" disabled>
+    <div id="datepicker">
+        <input class="form-control" type="text" name="samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date" id="np-datepicker_samayojan_current_job3" placeholder="YYYY-MM-DD" disabled/>
+        <input id="dateAD_samayojan7" type="text" name="samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date_ad" hidden/>
+    </div>
+    {{-- <input type="text" class=" form-control nepali-calendar" id="nepaliDate24" placeholder="YYYY-MM-DD"
+        name="samayojan_if_working_in_same_pradesh_kaamkaj_appointed_date" disabled> --}}
 </div>
 </div>
 <hr>
@@ -268,15 +296,23 @@
     <div class="col-sm-2">
         <label for="name">पदस्थापन गर्ने मन्त्रालयमा हाजिर मिति
             <sup>*</sup></label>
-        <input type="text" class="form-control" name="oper_padasthapan_attendance_date_to_ministry" nepali-calendar"
-            id="nepaliDate20" placeholder="YYYY-MM-DD">
+            <div id="datepicker">
+                <input class="form-control" type="text" name="oper_padasthapan_attendance_date_to_ministry" id="np-datepicker_samayojan_current_job4" placeholder="YYYY-MM-DD" />
+                <input id="dateAD_samayojan8" type="text" name="oper_padasthapan_attendance_date_to_ministry_ad" hidden/>
+            </div>
+        {{-- <input type="text" class="form-control" name="oper_padasthapan_attendance_date_to_ministry" nepali-calendar"
+            id="nepaliDate20" placeholder="YYYY-MM-DD"> --}}
     </div>
     <div class="col-sm-2">
         <label for="name">
             मन्त्रालय बाट पदस्थापन निर्णय मिति
             <sup>*</sup></label>
-        <input type="text" class="form-control" name="oper_padasthapan_appointed_date_from_ministry" nepali-calendar"
-            id="nepaliDate21" placeholder="YYYY-MM-DD">
+            <div id="datepicker">
+                <input class="form-control" type="text" name="oper_padasthapan_appointed_date_from_ministry" id="np-datepicker_samayojan_current_job5" placeholder="YYYY-MM-DD" />
+                <input id="dateAD_samayojan9" type="text" name="oper_padasthapan_appointed_date_from_ministry_ad" hidden/>
+            </div>
+        {{-- <input type="text" class="form-control" name="oper_padasthapan_appointed_date_from_ministry" nepali-calendar"
+            id="nepaliDate21" placeholder="YYYY-MM-DD"> --}}
     </div>
     {{-- <div class="col-sm-2">
         <label for="name">सेवा : <sup>*</sup></label>
@@ -364,8 +400,12 @@
     <div class="col-sm-2">
         <label for="name">
             कार्यालयमा हाजिर मिति : <sup>*</sup></label>
-        <input type="text" class="form-control" name="oper_padasthapan_attendance_date" nepali-calendar"
-            id="nepaliDate25" placeholder="YYYY-MM-DD">
+            <div id="datepicker">
+                <input class="form-control" type="text" name="oper_padasthapan_attendance_date" id="np-datepicker_samayojan_current_job6" placeholder="YYYY-MM-DD" />
+                <input id="dateAD_samayojan10" type="text" name="oper_padasthapan_attendance_date_ad" hidden/>
+            </div>
+        {{-- <input type="text" class="form-control" name="oper_padasthapan_attendance_date" nepali-calendar"
+            id="nepaliDate25" placeholder="YYYY-MM-DD"> --}}
     </div>
 </div>
 <hr>

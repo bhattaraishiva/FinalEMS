@@ -32,7 +32,7 @@
     </div>
     <div class="col-sm-2">
         <label for="shreni">श्रेणी : <sup>*</sup></label>
-        <select name="oper_samayojan_shreni" id="kaamkaj_shreni" class="form-control">
+        <select name="oper_samayojan_shreni" id="samayojan_shreni" class="form-control">
             <option selected value="{{$employee[0]->shreni['id']}}">{{$employee[0]->shreni['shreni_name']}}</option>
             @foreach ($shrenis as $shreni)
             <option value="{{$shreni->id}}">{{$shreni->shreni_name}}</option>
@@ -41,7 +41,7 @@
     </div>
     <div class="col-sm-2">
         <label for="name">तह : <sup>*</sup></label>
-        <select name="oper_samayojan_taha" id="kaamkaj_taha" class="form-control">
+        <select name="oper_samayojan_taha" id="samayojan_taha" class="form-control">
             <option selected value="{{$employee[0]->taha['id']}}">{{$employee[0]->taha['taha_name']}}</option>
             @foreach ($tahas as $taha)
             <option value="{{$taha->id}}">{{$taha->taha_name}}</option>

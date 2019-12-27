@@ -117,6 +117,7 @@
           <li><a href="{{route('karyalaya.index')}}"><i class="fa fa-circle-o"></i>कार्यालय</a></li>
           <li><a href="{{route('pad.index')}}"><i class="fa fa-circle-o"></i>पद</a></li>
           <li><a href="{{route('employeepersonaldetail.index')}}"><i class="fa fa-circle-o"></i>कर्मचारी</a></li>
+          <li><a href="{{route('masterreport.index')}}"><i class="fa fa-circle-o"></i>मास्टर रिपोर्ट </a></li>
 
 
         </ul>

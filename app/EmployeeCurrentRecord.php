@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
+use DateTime;
 
 class EmployeeCurrentRecord extends Model
 {
@@ -30,7 +32,7 @@ class EmployeeCurrentRecord extends Model
     }
 
     public function karyalaya(){
-        return $this->belongsTo('App\Karyalaya','karyalaya_id');
+        return $this->belongsTo('App\Karyalaya','karyalaya_id','id');
     }
 
     public function pad(){
@@ -54,7 +56,16 @@ class EmployeeCurrentRecord extends Model
         return $this->belongsTo('App\Upasamuha','upasamuha_id');
     }
 
-     public function before_samayojan_or_kamkaj_appointed_date(){
+    public function before_samayojan_or_kamkaj_appointed_date(){
         return $this->belongsTo('App\FirstJobInfo','employee_id','employee_id');
+    }
+
+        public function calculateWorkingDays(){
+        $current_date = Carbon::parse(Carbon::now()->format('Y-m-d'));
+        // $current_date = gettype($current_date);
+        // dd(($current_date));
+        $appointed_date = Carbon::parse($this->attendance_date_ad);
+        return $appointed_date->diff($current_date)
+        ->format('%y वर्ष, %m महिना, %d दिन');
     }
 }

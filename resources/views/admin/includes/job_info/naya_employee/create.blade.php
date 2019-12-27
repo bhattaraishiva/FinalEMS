@@ -1,14 +1,22 @@
 <h3 id="section_header2">नयाँ</h3>
 <div class="row">
         <div class="col-sm-3">
-                <label for="name">सिफारिस मिति : <sup>*</sup></label>
-                <input type="text" class="form-control" name="naya_sifaris_date" nepali-calendar" id="nepaliDate23"
-                    placeholder="YYYY-MM-DD">
+            <label for="name">सिफारिस मिति : <sup>*</sup></label>
+            <div id="datepicker">
+                <input class="form-control" type="text" name="naya_sifaris_date" id="np-datepicker_naya_job1" placeholder="YYYY-MM-DD" />
+                <input id="dateAD_naya1" type="text" name="naya_sifaris_date_ad" hidden/>
             </div>
+            {{-- <input type="text" class="form-control" name="naya_sifaris_date" nepali-calendar" id="nepaliDate23"
+                placeholder="YYYY-MM-DD"> --}}
+        </div>
         <div class="col-sm-3">
-                <label for="name">नियुक्ति मिति : <sup>*</sup></label>
-                <input type="text" class="form-control" name="naya_appointed_date" nepali-calendar" id="nepaliDate24"
-                    placeholder="YYYY-MM-DD">
+            <label for="name">नियुक्ति मिति : <sup>*</sup></label>
+            <div id="datepicker">
+                <input class="form-control" type="text" name="naya_appointed_date" id="np-datepicker_naya_job2" placeholder="YYYY-MM-DD" />
+                <input id="dateAD_naya2" type="text" name="naya_appointed_date_ad" hidden/>
+            </div>
+                {{-- <input type="text" class="form-control" name="naya_appointed_date" nepali-calendar" id="nepaliDate24"
+                    placeholder="YYYY-MM-DD"> --}}
         </div>
 
     <div class="col-sm-2">
@@ -96,8 +104,12 @@
 <div class="row">
     <div class="col-sm-3">
         <label for="name"> हाजिर भएको मिति : <sup>*</sup></label>
-        <input type="text" class=" form-control nepali-calendar" id="nepaliDate25" placeholder="YYYY-MM-DD"
-            name="naya_attendance_date" >
+        <div id="datepicker">
+            <input class="form-control" type="text" name="naya_attendance_date" id="np-datepicker_naya_job3" placeholder="YYYY-MM-DD" />
+            <input id="dateAD_naya3" type="text" name="naya_attendance_date_ad" hidden/>
+        </div>
+        {{-- <input type="text" class=" form-control nepali-calendar" id="nepaliDate25" placeholder="YYYY-MM-DD"
+            name="naya_attendance_date" > --}}
     </div>
 
 </div>

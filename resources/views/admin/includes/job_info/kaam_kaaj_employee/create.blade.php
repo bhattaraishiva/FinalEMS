@@ -9,14 +9,22 @@
     <div class="col-sm-3">
 
         <label for="name">कामकाज गर्न खटाइएको निर्णय मिति  : <sup>*</sup></label>
-        <input  type="text" class="form-control" name="kaamkaj_appointed_date" nepali-calendar" id="nepaliDate10"
-            placeholder="YYYY-MM-DD">
+        <div id="datepicker">
+            <input class="form-control" type="text" name="kaamkaj_appointed_date" id="np-datepicker_kaamkaj_current_job1" placeholder="YYYY-MM-DD"/>
+            <input id="dateAD5" type="text" name="kaamkaj_appointed_date_ad"hidden/>
+        </div>
+        {{-- <input  type="text" class="form-control" name="kaamkaj_appointed_date" nepali-calendar" id="nepaliDate10"
+            placeholder="YYYY-MM-DD"> --}}
 
     </div>
     <div class="col-sm-3">
         <label for="name">मु.म.म.प.का.मा हाजिर भएको मिति : <sup>*</sup></label>
-        <input type="text" class=" form-control nepali-calendar" id="nepaliDate11" placeholder="YYYY-MM-DD"
-            name="kaamkaj_chief_ministry_attendance_date" >
+        <div id="datepicker">
+            <input class="form-control" type="text" name="kaamkaj_chief_ministry_attendance_date" id="np-datepicker_kaamkaj_current_job2" placeholder="YYYY-MM-DD"/>
+            <input id="dateAD6" type="text" name="kaamkaj_chief_ministry_attendance_date_ad"hidden/>
+        </div>
+        {{-- <input type="text" class=" form-control nepali-calendar" id="nepaliDate11" placeholder="YYYY-MM-DD"
+            name="kaamkaj_chief_ministry_attendance_date" > --}}
     </div>
     <div class="col-sm-2">
         <label for="name">सेवा  : <sup>*</sup></label>
@@ -109,13 +117,21 @@
 <div class="row">
     <div class="col-sm-4">
         <label for="name">कामकाज गर्न खटाएको मिति(मु.म.म.प.का.बाट)  : <sup>*</sup></label>
-        <input class="form-control nepali-calendar" name="kaamkaj_chief_ministry_implement_date" type="text" id="nepaliDate12"
-            placeholder="YYYY-MM-DD">
+        <div id="datepicker">
+            <input class="form-control" type="text" name="kaamkaj_chief_ministry_implement_date" id="np-datepicker_kaamkaj_current_job3" placeholder="YYYY-MM-DD"/>
+            <input id="dateAD7" type="text" name="kaamkaj_chief_ministry_implement_date_ad"hidden/>
+        </div>
+        {{-- <input class="form-control nepali-calendar" name="kaamkaj_chief_ministry_implement_date" type="text" id="nepaliDate12"
+            placeholder="YYYY-MM-DD"> --}}
     </div>
     <div class="col-sm-4">
         <label for="name">कार्यालयमा हाजिर मिति : <sup>*</sup></label>
-        <input type="text" class=" form-control nepali-calendar" id="nepaliDate13" placeholder="YYYY-MM-DD"
-            name=" kaamkaj_attendance_date" >
+        <div id="datepicker">
+            <input class="form-control" type="text" name="kaamkaj_attendance_date" id="np-datepicker_kaamkaj_current_job4" placeholder="YYYY-MM-DD"/>
+            <input id="dateAD8" type="text" name="kaamkaj_attendance_date_ad"hidden/>
+        </div>
+        {{-- <input type="text" class=" form-control nepali-calendar" id="nepaliDate13" placeholder="YYYY-MM-DD"
+            name=" kaamkaj_attendance_date" > --}}
     </div>
 
 </div>

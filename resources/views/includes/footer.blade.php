@@ -29,9 +29,125 @@
 <script src="{{asset('js/toastr.min.js')}}"></script>
 {{-- jquery for chosen  --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+{{-- this is for nepali_english date picker --}}
+<script src="{{asset('js/nep_eng_date_picker/jDatepicker.js')}}" type="text/javascript"></script>
 
 
 <script>
+  // this is for ad_bs date_picker calendar in mastersearch
+  $(function(){
+    $('#np-datepicker').jDatepicker({separator: '-', ADelm: 'dateAD'});
+  });
+  // for kaamkaj calendar
+  $(function(){
+    $('#np-datepicker_kaamkaj_first_job1').jDatepicker({separator: '-', ADelm: 'dateAD1'});
+  });
+  $(function(){
+    $('#np-datepicker_kaamkaj_first_job2').jDatepicker({separator: '-', ADelm: 'dateAD2'});
+  });
+  $(function(){
+    $('#np-datepicker_kaamkaj_before_pradesh1').jDatepicker({separator: '-', ADelm: 'dateAD3'});
+  });
+  $(function(){
+    $('#np-datepicker_kaamkaj_before_pradesh2').jDatepicker({separator: '-', ADelm: 'dateAD4'});
+  });
+  $(function(){
+    $('#np-datepicker_kaamkaj_current_job1').jDatepicker({separator: '-', ADelm: 'dateAD5'});
+  });
+  $(function(){
+    $('#np-datepicker_kaamkaj_current_job2').jDatepicker({separator: '-', ADelm: 'dateAD6'});
+  });
+  $(function(){
+    $('#np-datepicker_kaamkaj_current_job3').jDatepicker({separator: '-', ADelm: 'dateAD7'});
+  });
+  $(function(){
+    $('#np-datepicker_kaamkaj_current_job4').jDatepicker({separator: '-', ADelm: 'dateAD8'});
+  });
+
+  // for calendar in  samayojan 
+  $(function(){
+    $('#np-datepicker_samayojan_first_job1').jDatepicker({separator: '-', ADelm: 'dateAD_samayojan1'});
+  });
+  $(function(){
+    $('#np-datepicker_samayojan_first_job2').jDatepicker({separator: '-', ADelm: 'dateAD_samayojan2'});
+  });
+  $(function(){
+    $('#np-datepicker_samayojan_before_pradesh1').jDatepicker({separator: '-', ADelm: 'dateAD_samayojan3'});
+  });
+  $(function(){
+    $('#np-datepicker_samayojan_before_pradesh2').jDatepicker({separator: '-', ADelm: 'dateAD_samayojan4'});
+  });
+  $(function(){
+    $('#np-datepicker_samayojan_current_job1').jDatepicker({separator: '-', ADelm: 'dateAD_samayojan5'});
+  });
+  $(function(){
+    $('#np-datepicker_samayojan_current_job2').jDatepicker({separator: '-', ADelm: 'dateAD_samayojan6'});
+  });
+  $(function(){
+    $('#np-datepicker_samayojan_current_job3').jDatepicker({separator: '-', ADelm: 'dateAD_samayojan7'});
+  });
+  $(function(){
+    $('#np-datepicker_samayojan_current_job4').jDatepicker({separator: '-', ADelm: 'dateAD_samayojan8'});
+  });
+  $(function(){
+    $('#np-datepicker_samayojan_current_job5').jDatepicker({separator: '-', ADelm: 'dateAD_samayojan9'});
+  });
+  $(function(){
+    $('#np-datepicker_samayojan_current_job6').jDatepicker({separator: '-', ADelm: 'dateAD_samayojan10'});
+  });
+
+  //for calendar in karar
+  $(function(){
+    $('#np-datepicker_karar_current_job0').jDatepicker({separator: '-', ADelm: 'dateAD_karar0'});
+  });
+  $(function(){
+    $('#np-datepicker_karar_current_job1').jDatepicker({separator: '-', ADelm: 'dateAD_karar1'});
+  });
+  $(function(){
+    $('#np-datepicker_karar_current_job2').jDatepicker({separator: '-', ADelm: 'dateAD_karar2'});
+  });
+  $(function(){
+    $('#np-datepicker_karar_current_job3').jDatepicker({separator: '-', ADelm: 'dateAD_karar3'});
+  });
+
+  //for calendar in naya
+  $(function(){
+    $('#np-datepicker_naya_job1').jDatepicker({separator: '-', ADelm: 'dateAD_naya1'});
+  });
+  $(function(){
+    $('#np-datepicker_naya_job2').jDatepicker({separator: '-', ADelm: 'dateAD_naya2'});
+  });
+  $(function(){
+    $('#np-datepicker_naya_job3').jDatepicker({separator: '-', ADelm: 'dateAD_naya3'});
+  });
+
+  //for calendar in edit employee
+  $(function(){
+    $('#np-datepicker_edit_employee0').jDatepicker({separator: '-', ADelm: 'dateAD_edit_employee0'});
+  });
+  $(function(){
+    $('#np-datepicker_edit_employee1').jDatepicker({separator: '-', ADelm: 'dateAD_edit_employee1'});
+  });
+  $(function(){
+    $('#np-datepicker_edit_employee2').jDatepicker({separator: '-', ADelm: 'dateAD_edit_employee2'});
+  });
+  $(function(){
+    $('#np-datepicker_edit_employee3').jDatepicker({separator: '-', ADelm: 'dateAD_edit_employee3'});
+  });
+  $(function(){
+    $('#np-datepicker_edit_employee4').jDatepicker({separator: '-', ADelm: 'dateAD_edit_employee4'});
+  });
+  $(function(){
+    $('#np-datepicker_edit_employee5').jDatepicker({separator: '-', ADelm: 'dateAD_edit_employee5'});
+  });
+
+  //calender in emp create
+  $(function(){
+    $('#np-datepicker_create_emp_detail1').jDatepicker({separator: '-', ADelm: 'dateAD_create_emp1'});
+  });
+
+
+
   $(function () {
             $('#example1').DataTable()
             $('#example2').DataTable({
@@ -42,7 +158,7 @@
               'info'        : true,
               'autoWidth'   : false
             })
-          })
+          });
 </script>
 
 
@@ -827,15 +943,15 @@ $(".nexttab").click(function() {
     //check if checkbox is checked
     if ($(this).is(':checked')) {
       console.log('checked');
-      $('#nepaliDate18').prop('disabled',true);
-      $('#nepaliDate20').prop('disabled',true);
-      $('#nepaliDate24').prop('disabled',false);
+      $('#np-datepicker_samayojan_current_job2').prop('disabled',true);
+      $('#np-datepicker_samayojan_current_job4').prop('disabled',true);
+      $('#np-datepicker_samayojan_current_job3').prop('disabled',false);
       //enable input
     } else {
       console.log('not checked');
-      $('#nepaliDate18').prop('disabled', false);
-      $('#nepaliDate20').prop('disabled',false);
-      $('#nepaliDate24').prop('disabled',true);
+      $('#np-datepicker_samayojan_current_job2').prop('disabled',false);
+      $('#np-datepicker_samayojan_current_job4').prop('disabled',false);
+      $('#np-datepicker_samayojan_current_job3').prop('disabled',true);
 
        //enable input
 

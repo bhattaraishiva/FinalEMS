@@ -2,15 +2,28 @@
 <div class="row">
     <div class="col-sm-3">
         <label for="name">करार निर्णय मिति : <sup>*</sup></label>
-        <input type="text" class="form-control" name="karar_appointed_date" nepali-calendar" id="nepaliDate19"
-            placeholder="YYYY-MM-DD">
+        <div id="datepicker">
+                <input class="form-control" type="text" name="karar_appointed_date" id="np-datepicker_karar_current_job0" placeholder="YYYY-MM-DD" />
+                <input id="dateAD_karar0" type="text" name="karar_appointed_date_ad" hidden/>
+            </div>
+        {{-- <input type="text" class="form-control" name="karar_appointed_date" nepali-calendar" id="nepaliDate19"
+            placeholder="YYYY-MM-DD"> --}}
     </div>
     <div class="col-sm-3">
         <label for="name">करार लागु हुने अवधिः मिति: <sup>*</sup></label>
-        <input type="text" class="form-control" name="karar_start_date" nepali-calendar" id="nepaliDate20"
-            placeholder="YYYY-MM-DD">
-        देखि<input type="text" class="form-control" name="karar_end_date" nepali-calendar" id="nepaliDate21"
-            placeholder="YYYY-MM-DD">सम्म
+        <div id="datepicker">
+            <input class="form-control" type="text" name="karar_start_date" id="np-datepicker_karar_current_job1" placeholder="YYYY-MM-DD" />
+            <input id="dateAD_karar1" type="text" name="karar_start_date_ad" hidden/>
+        </div>
+        {{-- <input type="text" class="form-control" name="karar_start_date" nepali-calendar" id="nepaliDate20"
+            placeholder="YYYY-MM-DD"> --}}
+        देखि  <div id="datepicker">
+                <input class="form-control" type="text" name="karar_end_date" id="np-datepicker_karar_current_job2" placeholder="YYYY-MM-DD" />
+                <input id="dateAD_karar2" type="text" name="karar_end_date_ad" hidden/>
+            </div>
+        {{-- <input type="text" class="form-control" name="karar_end_date" nepali-calendar" id="nepaliDate21"
+            placeholder="YYYY-MM-DD"> --}}
+            सम्म
     </div>
 
     <div class="col-sm-2">
@@ -97,8 +110,12 @@
 <div class="row">
     <div class="col-sm-3">
         <label for="name"> हाजिर भएको मिति : <sup>*</sup></label>
-        <input type="text" class=" form-control nepali-calendar" id="nepaliDate22" placeholder="YYYY-MM-DD"
-            name="karar_attendance_date" >
+        <div id="datepicker">
+            <input class="form-control" type="text" name="karar_attendance_date" id="np-datepicker_karar_current_job3" placeholder="YYYY-MM-DD" />
+            <input id="dateAD_karar3" type="text" name="karar_attendance_date_ad" hidden/>
+        </div>
+        {{-- <input type="text" class=" form-control nepali-calendar" id="nepaliDate22" placeholder="YYYY-MM-DD"
+            name="karar_attendance_date" > --}}
     </div>
 
 </div>

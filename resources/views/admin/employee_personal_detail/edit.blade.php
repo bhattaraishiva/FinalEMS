@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('page_title')
@@ -79,8 +78,12 @@
 
                 <div class="col-sm-3">
                     <label for="name">जन्म मिति </label>
-                    <input class=" form-control nepali-calendar" id="nepaliDate5" required value="{{$employee->dob}}"
-                        name="dob">
+                    <div id="datepicker">
+                        <input class="form-control" type="text" value="{{$employee->dob}}" name="dob" id="np-datepicker_edit_employee0" placeholder="YYYY-MM-DD" />
+                        <input id="dateAD_edit_employee0" type="text" name="dob_ad" hidden/>
+                    </div>
+                    {{-- <input class=" form-control nepali-calendar" id="nepaliDate5" required value="{{$employee->dob}}"
+                        name="dob"> --}}
                 </div>
 
             </div>
@@ -224,10 +227,10 @@
                         <option value="samayojan" selected>समायोजन</option>
                         @elseif($employee_current_jobinfo[0]['employee_type'] == 'karar')
                         <option value="karar" selected>करार</option>
-                        @elseif($employee_current_jobinfo[0]['employee_type'] == 'kaamkaj')
-                        <option value="kaamkaj" selected>कामकाज</option>
+                        @elseif($employee_current_jobinfo[0]['employee_type'] == 'kaam_kaj')
+                        <option value="kaam_kaj" selected>कामकाज</option>
                         @endif
-                        <option value="kaamkaj">कामकाज</option>
+                        <option value="kaam_kaj">कामकाज</option>
                         <option value="karar">करार</option>
                         <option value="samayojan">समायोजन</option>
                         <option value="naya">नयाँ</option>
@@ -235,30 +238,50 @@
                 </div>
                 <div class="col-sm-3">
                     <label for="name">नियुक्ति मिति </label>
-                    <input class="form-control" type="text" name="edit_appointed_date" id="nepaliDate9"
-                        value="{{$employee_current_jobinfo[0]['appointed_date']}}" required>
+                    <div id="datepicker">
+                        <input class="form-control" type="text" name="edit_appointed_date" value="{{$employee_current_jobinfo[0]['appointed_date']}}" id="np-datepicker_edit_employee1" placeholder="YYYY-MM-DD" />
+                        <input id="dateAD_edit_employee1" type="text" name="edit_appointed_date_ad" value="{{$employee_current_jobinfo[0]['appointed_date_ad']}}" hidden/>
+                    </div>
+                    {{-- <input class="form-control" type="text" name="edit_appointed_date" id="nepaliDate9"
+                        value="{{$employee_current_jobinfo[0]['appointed_date']}}" required> --}}
                 </div>
                 <div class="col-sm-3">
                     <label for="name">कार्यालयमा हाजिर मिति </label>
-                    <input class="form-control" type="text" name="edit_attendance_date" id="nepaliDate10"
-                        value="{{$employee_current_jobinfo[0]['attendance_date']}}" >
+                    <div id="datepicker">
+                        <input class="form-control" type="text" name="edit_attendance_date" value="{{$employee_current_jobinfo[0]['attendance_date']}}" id="np-datepicker_edit_employee2" placeholder="YYYY-MM-DD" />
+                        <input id="dateAD_edit_employee2" type="text" name="edit_attendance_date_ad" value="{{$employee_current_jobinfo[0]['attendance_date_ad']}}" hidden/>
+                    </div>
+                    {{-- <input class="form-control" type="text" name="edit_attendance_date" id="nepaliDate10"
+                        value="{{$employee_current_jobinfo[0]['attendance_date']}}" > --}}
                 </div>
                 @if ($employee_current_jobinfo[0]['employee_type'] == 'karar')
                 <div class="col-sm-2">
                     <label for="name">करार सुरु मिती </label>
-                    <input class="form-control" type="text" name="edit_karar_start_date" id="nepaliDate11"
-                        value="{{$employee_current_jobinfo[0]['karar_start_date']}}" required>
+                    <div id="datepicker">
+                        <input class="form-control" type="text" name="edit_karar_start_date" value="{{$karar_start_date[0]['attendance_date']}}" id="np-datepicker_edit_employee3" placeholder="YYYY-MM-DD" />
+                        <input id="dateAD_edit_employee3" type="text" name="edit_karar_start_date_ad" value="{{$karar_start_date_ad[0]['attendance_date_ad']}}" hidden/>
+                    </div>
+                    {{-- <input class="form-control" type="text" name="edit_karar_start_date" id="nepaliDate11"
+                        value="{{$employee_current_jobinfo[0]['karar_start_date']}}" required> --}}
                 </div>
                 <div class="col-sm-2">
                     <label for="name">करार अन्त्य मिती </label>
-                    <input class="form-control" type="text" name="edit_karar_end_date" id="nepaliDate12"
-                        value="{{$employee_current_jobinfo[0]['karar_end_date']}}" required>
+                    <div id="datepicker">
+                        <input class="form-control" type="text" name="edit_karar_end_date" value="{{$karar_end_date[0]['attendance_date']}}" id="np-datepicker_edit_employee4" placeholder="YYYY-MM-DD" />
+                        <input id="dateAD_edit_employee4" type="text" name="edit_karar_end_date_ad" value="{{$karar_end_date_ad[0]['attendance_date_ad']}}" hidden/>
+                    </div>
+                    {{-- <input class="form-control" type="text" name="edit_karar_end_date" id="nepaliDate12"
+                        value="{{$employee_current_jobinfo[0]['karar_end_date']}}" required> --}}
                 </div>
                 @elseif($employee_current_jobinfo[0]['employee_type'] == 'naya')
                 <div class="col-sm-2">
                     <label for="name">नया सिफारिस मिती </label>
-                    <input class="form-control" type="text" name="edit_naya_sifaris_date" id="nepaliDate13"
-                        value="{{$employee_current_jobinfo[0]['naya_sifaris_date']}}" required>
+                    <div id="datepicker">
+                        <input class="form-control" type="text" name="edit_naya_sifaris_date" value="{{$karar_start_date[0]['naya_sifaris_date']}}" id="np-datepicker_edit_employee5" placeholder="YYYY-MM-DD" />
+                        <input id="dateAD_edit_employee5" type="text" name="edit_naya_sifaris_date_ad" value="{{$karar_start_date_ad[0]['naya_sifaris_date_ad']}}" hidden/>
+                    </div>
+                    {{-- <input class="form-control" type="text" name="edit_naya_sifaris_date" id="nepaliDate13"
+                        value="{{$employee_current_jobinfo[0]['naya_sifaris_date']}}" required> --}}
                 </div>
                 @endif
             </div>

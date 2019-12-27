@@ -47,8 +47,12 @@
 
         <div class="col-sm-3">
             <label for="name">जन्म मिति : <sup>*</sup></label>
-            <input type="text" class=" form-control nepali-calendar" id="nepaliDate5" required placeholder="YYYY-MM-DD"
-                name="dob" value="{{old('dob')}}">
+            <div id="datepicker">
+                <input class="form-control" type="text" name="dob" id="np-datepicker_create_emp_detail1" placeholder="YYYY-MM-DD"value="{{old('dob')}}" />
+                <input id="dateAD_create_emp1" type="text" name="dob_ad" hidden/>
+            </div>
+            {{-- <input type="text" class=" form-control nepali-calendar" id="nepaliDate5" required placeholder="YYYY-MM-DD"
+                name="dob" value="{{old('dob')}}"> --}}
         </div>
     </div>
     <hr>

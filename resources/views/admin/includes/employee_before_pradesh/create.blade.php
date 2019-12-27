@@ -59,12 +59,20 @@
     </div>
     <div class="col-sm-3">
         <label for="name">(यस पदमा) नियुक्ति मिति  : <sup>*</sup></label>
-        <input type="text" class=" form-control nepali-calendar" id="nepaliDate22" placeholder="YYYY-MM-DD"
-            name="kaamkaj_before_pradesh_pad_appointed_date" >
+        <div id="datepicker">
+            <input class="form-control" type="text" name="kaamkaj_before_pradesh_pad_appointed_date" id="np-datepicker_kaamkaj_before_pradesh1" placeholder="YYYY-MM-DD"/>
+            <input id="dateAD3" type="text" name="kaamkaj_before_pradesh_pad_appointed_date_ad"hidden/>
+        </div>
+        {{-- <input type="text" class=" form-control nepali-calendar" id="nepaliDate22" placeholder="YYYY-MM-DD"
+            name="kaamkaj_before_pradesh_pad_appointed_date" > --}}
     </div>
     <div class="col-sm-3">
         <label for="name">कार्यालयमा हाजिर मिति  : <sup>*</sup></label>
-        <input type="text" class=" form-control nepali-calendar" id="nepaliDate9" placeholder="YYYY-MM-DD"
-            name="kaamkaj_before_pradesh_attendance_date" >
+        <div id="datepicker">
+            <input class="form-control" type="text" name="kaamkaj_before_pradesh_attendance_date" id="np-datepicker_kaamkaj_before_pradesh2" placeholder="YYYY-MM-DD"/>
+            <input id="dateAD4" type="text" name="kaamkaj_before_pradesh_attendance_date_ad"hidden/>
+        </div>
+        {{-- <input type="text" class=" form-control nepali-calendar" id="nepaliDate9" placeholder="YYYY-MM-DD"
+            name="kaamkaj_before_pradesh_attendance_date" > --}}
     </div>
 </div>

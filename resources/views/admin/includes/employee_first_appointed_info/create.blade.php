@@ -53,8 +53,12 @@
     </div>
     <div class="col-sm-2">
         <label for="name">नियुक्ती मिति : <sup>*</sup></label>
-        <input class="form-control nepali-calendar" name="kaamkaj_first_appointed_date" type="text" id="nepaliDate7"
-            placeholder="YYYY-MM-DD">
+        <div id="datepicker">
+            <input class="form-control" type="text" name="kaamkaj_first_appointed_date" id="np-datepicker_kaamkaj_first_job1" placeholder="YYYY-MM-DD"/>
+            <input id="dateAD1" type="text" name="kaamkaj_first_appointed_date_ad" hidden/>
+        </div>
+        {{-- <input class="form-control nepali-calendar" name="kaamkaj_first_appointed_date" type="text" id="nepaliDate7"
+            placeholder="YYYY-MM-DD"> --}}
     </div>
     <div class="col-sm-3">
         <label for="name">कार्यालय : <sup>*</sup></label>
@@ -63,7 +67,11 @@
     </div>
     <div class="col-sm-3">
         <label for="name">कार्यालयमा हाजिर मिति  : <sup>*</sup></label>
-        <input type="text" class=" form-control nepali-calendar" id="nepaliDate8" placeholder="YYYY-MM-DD"
-            name="kaamkaj_first_attendance_date" >
+        <div id="datepicker">
+            <input class="form-control" type="text" name="kaamkaj_first_attendance_date" id="np-datepicker_kaamkaj_first_job2" placeholder="YYYY-MM-DD"/>
+            <input id="dateAD2" type="text" name="kaamkaj_first_attendance_date_ad" hidden/>
+        </div>
+        {{-- <input type="text" class=" form-control nepali-calendar" id="nepaliDate8" placeholder="YYYY-MM-DD"
+            name="kaamkaj_first_attendance_date" > --}}
     </div>
 </div>

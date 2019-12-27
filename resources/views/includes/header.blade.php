@@ -62,7 +62,9 @@
   <!-- Google Font -->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
- 
+    {{-- this is for nepali english date picker --}}
+  <link rel="stylesheet" href="{{asset('css/nep_eng_date_picker/style.css')}}" media="all" />
+  <link rel="stylesheet" href="{{asset('css/nep_eng_date_picker/jDatepicker.css')}}" media="all" />
   </head>
 
 <body class="hold-transition skin-blue sidebar-mini">

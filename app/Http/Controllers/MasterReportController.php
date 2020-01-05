@@ -16,7 +16,7 @@ use App\Upasamuha;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
 use DateTime;
-
+// use Illuminate\Support\Facades\DB;
 
 
 class MasterReportController extends Controller
@@ -40,6 +40,7 @@ class MasterReportController extends Controller
         $upasamuhas =Upasamuha::where('status','1')->get();
         $tahas = Taha::where('status','1')->get();
         $shrenis= Shreni::where('status','1')->get();
+        // dd($shrenis);
 
         return view('admin.master_report.index')->with(compact(
             'ministries','nirdeshanalayas','karyalayas','pads','sewas','samuhas','upasamuhas','shrenis','tahas'
@@ -126,6 +127,18 @@ class MasterReportController extends Controller
         $searched_samuha = Samuha::where('id',$request->mastersearch_samuha)->get();
         $searched_upasamuha = Upasamuha::where('id',$request->mastersearch_upasamuha)->get();
 
+        if( $request->master_search_employee_type=="samayojan"){
+            $searched_employee_type = 'समायोजन';
+        }else if( $request->master_search_employee_type=="kaam_kaj"){
+            $searched_employee_type = "काम काज";
+        }else if( $request->master_search_employee_type=="karar"){
+            $searched_employee_type = "करार";
+        }else if( $request->master_search_employee_type=="naya"){
+            $searched_employee_type = "नयाँ";
+        }else{
+            $searched_employee_type = "-";
+
+        }
 
         $q = EmployeeCurrentRecord::query();
         $search_option_count = 0;
@@ -195,48 +208,33 @@ class MasterReportController extends Controller
             // $q->where('attendance_date',$request->mastersearch_attendance_date_nep);
             $sdate = Carbon::parse($request->mastersearch_attendance_date_eng)->format('Y-m-d');
             // dd($sdate);
-            // $q->where('attendance_date','>=',$sdate);
-            // $q->where('attendance_date', '>=', DB::raw($sdate));
+
             $today = Carbon::now();
             $q->whereBetween('attendance_date_ad',[$sdate,$today]);
             $search_option_count=+5;
 
         }
 
-        // $search_query = $q->orderBy('id')->toSql();
-        // dd($search_query);
-        $search_results = $q->orderBy('attendance_date','asc')->get();
+        $search_results = $q
+                            ->orderBy('taha_id','asc')
+                            ->orderBy('shreni_id','asc')
+                            ->orderBy('appointed_date','asc')->get();
         // dd($search_results);
 
-        // echo "number of search option".$search_option_count."<br>";
-        // echo "ministry".$request->mastersearch_ministry."kar".$request->mastersearch_karyalaya."pad".$request->mastersearch_pad."the number of employees ".(count($search_results));
-
+     
         if($search_option_count < 5){
             return view('admin.master_report.office_report')->with(compact('search_results'
             ,'searched_ministry','searched_nirdeshanalaya','searched_karyalaya','searched_pad',
-            'searched_taha','searched_shreni','searched_samuha','searched_upasamuha','searched_sewa'
+            'searched_taha','searched_shreni','searched_samuha','searched_upasamuha','searched_sewa','searched_employee_type'
         ));
         }
         else{
             return view('admin.master_report.office_employee_report')->with(compact('search_results'
             ,'searched_ministry','searched_nirdeshanalaya','searched_karyalaya','searched_pad',
-            'searched_taha','searched_shreni','searched_samuha','searched_upasamuha','searched_sewa'
+            'searched_taha','searched_shreni','searched_samuha','searched_upasamuha','searched_sewa','searched_employee_type'
         ));
         }
 
     }
 
-    // public function calculateDateDiff(){
-    //     $datetime1 = new DateTime("2010-06-20");
-
-    //     $datetime2 = new DateTime("2011-06-22");
-
-    //     $difference = $datetime1->diff($datetime2);
-
-    //     echo 'Difference: '.$difference->y.' years, ' 
-    //                     .$difference->m.' months, ' 
-    //                     .$difference->d.' days';
-
-    //     print_r($difference);
-    // }
 }

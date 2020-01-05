@@ -141,7 +141,7 @@
                 {{$karyalaya_employee->samuha['samuha_name']}}
                 @endif
             </td>
-            <td>{{$karyalaya_employee->before_samayojan_or_kamkaj_appointed_date->before_pradesh_attendance_date    }}</td>
+            <td>{{$karyalaya_employee->before_samayojan_or_kamkaj_appointed_date['before_pradesh_attendance_date']}}</td>
             <td>{{$karyalaya_employee->attendance_date}}</td>
             <td>
                 @if ($karyalaya_employee->employee_type == 'naya')

@@ -202,7 +202,7 @@ class EmployeePersonalDetailController extends Controller
             $samayojan_worked_at_pradesh = null;
             $samayojan_worked_at_pradesh_ad = null;
 
-            $karar_start_date = null;
+            $   = null;
             $karar_start_date_ad = null;
 
             $karar_end_date = null;

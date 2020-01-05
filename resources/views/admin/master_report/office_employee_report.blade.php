@@ -117,6 +117,13 @@
             </div>
         </div> 
 
+        <div class="form-group col-md-3">
+            <label for="name">प्रकार :</label><span id="style_span">
+                {{$searched_employee_type}}
+            </span>
+
+        </div>
+
         <div class="col-md-3">
             <div class="form-group">
                 <label for="name">जम्मा  कर्मचारी संख्या : </label>
@@ -135,16 +142,17 @@
 <hr>
 <p style="text-decoration:underline;font-size:large">कार्यरत कर्मचारीको विवरण </p>
 <table class="table table-hover table-bordered">
-    <thead >
+    <thead style="border: 3px solid black;">
         <tr>
             <td>क्रम सं</td>
             <td>नाम थर </td>
             <td>संकेत न </td>
             <td>पद</td>
             <td>तह/श्रेणी </td>
-            <td>सेवा</td>
-            <td>समूह</td>
-            <td>नियुक्ति मिति </td>
+            <td>सेवा/समूह</td>
+            <!-- <td>समूह</td> -->
+            <td>हाल कार्यरत कार्यालय </td>
+            <td> हालको पदमा नियुक्ति मिति </td>
             <td>हाजिर मिति </td>
             <td>प्रकार </td>
             <td>कार्यरत अवधि</td>
@@ -171,6 +179,7 @@
                 {{$karyalaya_employee->pad['pad_name']}}
                 @endif
             </td>
+
             <td>
                 @if ($karyalaya_employee->taha_id == null)
                 -
@@ -185,20 +194,30 @@
 
                 @endif
             </td>
+
             <td>
                 @if ($karyalaya_employee->sewa_id == null)
                 -
                 @else
                 {{$karyalaya_employee->sewa['sewa_name']}}
                 @endif
-            </td>
-            <td>
+                /
                 @if ($karyalaya_employee->samuha_id == null)
                 -
                 @else
                 {{$karyalaya_employee->samuha['samuha_name']}}
                 @endif
             </td>
+
+            <!-- <td>
+                @if ($karyalaya_employee->samuha_id == null)
+                -
+                @else
+                {{$karyalaya_employee->samuha['samuha_name']}}
+                @endif
+            </td> -->
+
+            <td>{{$karyalaya_employee->karyalaya['kar_name']}}</td>
             <td>{{$karyalaya_employee->appointed_date}}</td>
             <td>{{$karyalaya_employee->attendance_date}}</td>
             <td>

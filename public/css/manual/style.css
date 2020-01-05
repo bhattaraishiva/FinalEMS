@@ -31,6 +31,7 @@
       display: none;
     }
   }
+/* @page { size: auto;  margin: 2mm; } */
 
   #report-table-head{
       padding-top: 45px;
@@ -99,6 +100,7 @@
 }
 #table_height{
   line-height: 20px;
+  text-align: start;
 
 }
 #align-text{
@@ -110,4 +112,15 @@
 }
 #style_table{
   border: 1px solid #ddd !important;
+}
+
+table.table-bordered{
+  border:1px solid black !important;
+  margin-top:20px !important;
+}
+table.table-bordered > thead > tr > th{
+  border:1px solid black !important;
+}
+table.table-bordered > tbody > tr > td{
+  border:1px solid black !important;
 }

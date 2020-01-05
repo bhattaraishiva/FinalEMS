@@ -122,7 +122,7 @@
                             <label for="name">कर्मचारी प्रकार:</label>
                             <select name="master_search_employee_type" id="master_search_employee_type" class="form-control">
                                 <option value="">कर्मचारीको प्रकार</option>
-                                <option value="kaam_kaaj">काम काज</option>
+                                <option value="kaam_kaj">काम काज</option>
                                 <option value="samayojan">समायोजन</option>
                                 <option value="karar">करार</option>
                                 <option value="naya">नयाँ</option>

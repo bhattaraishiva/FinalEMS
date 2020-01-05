@@ -141,11 +141,12 @@
 <hr>
 <p style="text-decoration:underline;font-size:large">कार्यरत कर्मचारी विवरण </p>
 <table class="table table-hover table-bordered">
-    <thead >
+    <thead style="border: 3px solid black;">
         <tr>
             <td>क्रम सं</td>
             <td>नाम थर </td>
             <td>संकेत न </td>
+            <td>हाल कार्यरत कार्यालय</td>
             <td>पद</td>
             <td>तह/श्रेणी </td>
             <td>प्रकार </td>
@@ -166,6 +167,7 @@
                 {{$karyalaya_employee->personal_detail['last_name']}}
             </td>
             <td>{{$karyalaya_employee->personal_detail['employee_number']}}</td>
+            <td>{{$karyalaya_employee->karyalaya['kar_name']}}</td>
             <td>
                 @if ($karyalaya_employee->pad_id == null)
                 -

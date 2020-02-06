@@ -141,7 +141,7 @@
 <hr>
 <p style="text-decoration:underline;font-size:large">कार्यरत कर्मचारी विवरण </p>
 <table class="table table-hover table-bordered">
-    <thead style="border: 3px solid black;">
+    <thead>
         <tr>
             <td>क्रम सं</td>
             <td>नाम थर </td>

@@ -16,7 +16,6 @@ use App\Upasamuha;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
 use DateTime;
-// use Illuminate\Support\Facades\DB;
 
 
 class MasterReportController extends Controller
@@ -216,9 +215,12 @@ class MasterReportController extends Controller
         }
 
         $search_results = $q
+                            ->select(['*', DB::raw('IF(`taha_id` IS NOT NULL, `taha_id`, 1000000) `taha_id`')])
                             ->orderBy('taha_id','asc')
                             ->orderBy('shreni_id','asc')
-                            ->orderBy('appointed_date','asc')->get();
+                            ->orderBy('appointed_date','asc')
+                            ->orderBy('attendance_date','asc')
+                            ->get();
         // dd($search_results);
 
      

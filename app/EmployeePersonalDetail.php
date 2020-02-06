@@ -19,5 +19,7 @@ class EmployeePersonalDetail extends Model
    
    public function address_info(){
         return $this->belongsTo('App\District','national_id_issue_district_id','district_id');
-    }   
+    }
+    
+   
 }

@@ -79,6 +79,15 @@
     <div class="col-md-3">
         <label for="name">पति/पत्नी नाम:</label><span  id="style_span">{{$employee->family_info->spouse_name}}</span>
     </div>
+
+    <div class="col-md-3">
+        <label for="name"> हालको ठेगाना :</label><span  id="style_span"> {{$employee->palika($employee->employee_id)[0]->palika_name}} - {{$employee->ward->current_wardno    }}, {{$employee->district($employee->employee_id)[0]->district_name}}</span>
+    </div>
+
+    <div class="col-md-3">
+        <label for="name"> स्थायी  ठेगाना :</label><span  id="style_span"> {{$employee->permanent_palika($employee->employee_id)[0]->palika_name}} - {{$employee->ward->permanent_wardno}}, {{$employee->permanent_district($employee->employee_id)[0]->district_name}}</span>
+    </div>
+
 </div>
 <div id="form-info">हालको कार्यालय तथा पद बिबरण</div>
 <div class="row" id="align-text">
@@ -242,7 +251,7 @@
 
 <!-- <caption>कर्मचारीको शैक्षिक योग्यता विवरण </caption> -->
 <table class="table table-hover table-bordered">
-    <thead id="table_head">
+    <thead >
         <tr>
             <th>सि नं </th>
             <th>शैक्षिक योग्यताको तह</th>
@@ -280,7 +289,7 @@
 <div id="form-info">बैदेशिक भ्रमण विवरण</div>
 
 <table class="table table-hover table-bordered">
-    <thead id="table_head">
+    <thead >
         <tr>
             <th>सि नं </th>
             <th>भ्रमणको विवरण</th>
@@ -307,7 +316,7 @@
 <div id="form-info">तालिम (३० कार्य दिन भन्दा बढी ) विवरण </div>
 
 <table class="table table-hover table-bordered">
-    <thead id="table_head">
+    <thead >
         <tr>
             <th>सि नं </th>
             <th>तालिमको प्रकार</th>
@@ -332,7 +341,7 @@
 <div id="form-info">अध्ययन  बिदा / असाधारण बिदा विवरण</div>
 
 <table class="table table-hover table-bordered">
-    <thead id="table_head">
+    <thead> 
         <tr>
             <th>सि नं </th>
             <th>बिदाको विवरण</th>
@@ -353,7 +362,7 @@
 <div id="form-info">पुरस्कार  /विभूषण /पदक /अन्यको विवरण</div>
 
 <table class="table table-hover table-bordered">
-    <thead id="table_head">
+    <thead >
         <tr>
             <th>सि नं </th>
             <th>पुरस्कार  /विभूषण /पदक </th>
@@ -376,7 +385,7 @@
 <div id="form-info">निलम्बन/विभागीय /अन्य कारवाही सम्बन्धि विवरण </div>
 
 <table class="table table-hover table-bordered">
-    <thead id="table_head">
+    <thead  >
         <tr>
             <th>सि नं </th>
             <th>कारबाही सम्बन्धि विवरण  </th>

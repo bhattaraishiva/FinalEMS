@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use DateTime;
+use DB;
 
 class EmployeeCurrentRecord extends Model
 {
@@ -19,10 +20,67 @@ class EmployeeCurrentRecord extends Model
         return $this->belongsTo('App\EmployeeFamilyInfo','employee_id','employee_id');//the first employee_id is the foreign key and the next is the value to look at the table for matching
     }
     // public function address_info(){
-    //     return $this->hasOneThrough('App\Pardesh','App\AddressInfo','current_pradesh','pradeshes_id','id');
-    //     // return $this->belongsTo('App\AddressInfo','employee_id','employee_id');
+    //     $address = DB::table('employee_current_records')
+    //     ->select('pardeshes.pradesh_name')
+    //     ->join('address_infos', 'employee_current_records.employee_id', '=', 'address_infos.employee_id')
+    //     ->join('pardeshes','pardeshes.pradesh_id', '=', 'address_infos.current_pradesh')
+    //     // ->where('follows.follower_id', '=', 3)
+    //     ->get();
+
+    //     // $address =  $this->hasOneThrough('App\Pardesh','App\AddressInfo','current_pradesh','pradeshes_id','id');
+    //     // // dd($address);
+    //     // // return $this->belongsTo('App\AddressInfo','employee_id','employee_id');
+    //     return $address;
     // }
 
+    public function palika($employee_id){
+        $palika = DB::table('palikas')
+        ->join('address_infos', 'address_infos.current_palika', '=', 'palikas.palika_id')
+        ->join('employee_current_records', 'employee_current_records.employee_id', '=', 'address_infos.employee_id')
+        ->where('employee_current_records.employee_id', '=', $employee_id)
+        ->get();
+        // dd($palika);    
+
+        return $palika;
+    }
+
+    public function permanent_palika($employee_id){
+        $ppalika = DB::table('palikas')
+        ->join('address_infos', 'address_infos.permanent_palika', '=', 'palikas.palika_id')
+        ->join('employee_current_records', 'employee_current_records.employee_id', '=', 'address_infos.employee_id')
+        ->where('employee_current_records.employee_id', '=', $employee_id)
+        ->get();
+        // dd($palika);    
+
+        return $ppalika;
+    }
+
+    public function district($employee_id){
+        $district = DB::table('districts')
+        ->join('address_infos', 'address_infos.current_district', '=', 'districts.district_id')
+        ->join('employee_current_records', 'employee_current_records.employee_id', '=', 'address_infos.employee_id')
+        ->where('employee_current_records.employee_id', '=', $employee_id)
+        ->get();
+        // dd($district);    
+
+        return $district;
+    }
+
+    
+    public function permanent_district($employee_id){
+        $pdistrict = DB::table('districts')
+        ->join('address_infos', 'address_infos.permanent_district', '=', 'districts.district_id')
+        ->join('employee_current_records', 'employee_current_records.employee_id', '=', 'address_infos.employee_id')
+        ->where('employee_current_records.employee_id', '=', $employee_id)
+        ->get();
+        return $pdistrict;
+    }
+
+    public function ward(){
+        return $this->belongsTo('App\AddressInfo','employee_id','employee_id');
+    }
+
+       
     public function ministry(){
         return $this->belongsTo('App\Ministry','ministry_id');
     }

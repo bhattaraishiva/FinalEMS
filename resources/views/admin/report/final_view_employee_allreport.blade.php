@@ -182,7 +182,7 @@
         </div>
     </div>
 </div>
-<div id="form-info">हालको कार्यालय तथा पद बिबरण</div>
+<div id="form-info">कार्यालयगत नोकरी विवरण </div>
 
 <!-- <caption id="form-info">हालको कार्यालय तथा पद बिबरण</caption> -->
 <table class="table table-hover table-bordered">

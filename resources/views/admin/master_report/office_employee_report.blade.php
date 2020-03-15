@@ -218,7 +218,7 @@
             </td> -->
 
             <td>{{$karyalaya_employee->karyalaya['kar_name']}}</td>
-            <td>{{$karyalaya_employee->appointed_date}}</td>
+            <td>{{$karyalaya_employee->before_pradesh_pad_appointed_date_bs->before_pradesh_pad_appointed_date}}</td>
             <td>{{$karyalaya_employee->attendance_date}}</td>
             <td>
                 @if ($karyalaya_employee->employee_type == 'naya')

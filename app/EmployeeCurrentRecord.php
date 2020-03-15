@@ -118,12 +118,16 @@ class EmployeeCurrentRecord extends Model
         return $this->belongsTo('App\FirstJobInfo','employee_id','employee_id');
     }
 
-        public function calculateWorkingDays(){
-        $current_date = Carbon::parse(Carbon::now()->format('Y-m-d'));
-        // $current_date = gettype($current_date);
-        // dd(($current_date));
-        $appointed_date = Carbon::parse($this->attendance_date_ad);
-        return $appointed_date->diff($current_date)
-        ->format('%y वर्ष, %m महिना, %d दिन');
+    public function calculateWorkingDays(){
+    $current_date = Carbon::parse(Carbon::now()->format('Y-m-d'));
+    // $current_date = gettype($current_date);
+    // dd(($current_date));
+    $appointed_date = Carbon::parse($this->attendance_date_ad);
+    return $appointed_date->diff($current_date)
+    ->format('%y वर्ष, %m महिना, %d दिन');
     }
+    public function before_pradesh_pad_appointed_date_bs(){
+        return $this->belongsTo('App\FirstJobInfo','employee_id','employee_id');
+    }
+
 }
